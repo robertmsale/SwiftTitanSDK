@@ -25,3 +25,7 @@ The SDK automatically handles authentication with respect to rate limits.
 - Include better code documentation 
 
 This library is currently in alpha and subject to changes in the future. The data structures are all fairly concrete, but once handling binary payloads is completed it may involve changes to how requests are made. This library has only a single dependency, Apple's Foundation framework.
+
+## Disclaimer
+
+SwiftTitanSDK is an independent project and is not affiliated with, endorsed by, or associated with ServiceTitan, Inc. in any way. **ServiceTitan** is a registered trademark of ServiceTitan, Inc. The use of the name is solely for descriptive purposes, and no rights to the trademark are claimed.
