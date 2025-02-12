@@ -9,14 +9,14 @@ import Foundation
 
 public extension APIs {
     protocol APIType {
-        var tenant: String { get }
+        var tenant: Int64 { get }
         var appKey: String { get }
         var apiName: String { get }
     }
     
     
     class APIBase: APIType {
-        public var tenant: String { sdk.tenant }
+        public var tenant: Int64 { sdk.tenant }
         public var appKey: String { sdk.appKey }
         let _apiName: String
         public var apiName: String { _apiName }
