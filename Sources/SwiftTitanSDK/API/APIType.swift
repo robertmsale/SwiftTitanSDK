@@ -51,7 +51,12 @@ public extension APIs {
         func getRawReq(endpoint: String, params: (any URLQueryConvertible)? = nil) async -> Result<Data, APIError> {
             let components = prepComponents(endpoint: endpoint, params: params)
             let errorPreamble = "GET: " + components.path
-            let token = await sdk.getAuthToken()
+            let tokenResult = await sdk.getAuthToken()
+            var token: String!
+            switch tokenResult {
+            case .failure(let err): return .failure(.AuthError(err))
+            case .success(let tok): token = tok
+            }
             var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = "GET"
@@ -70,7 +75,12 @@ public extension APIs {
         func delReq(endpoint: String) async -> APIError? {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "DEL: " + components.path
-            let token = await sdk.getAuthToken()
+            let tokenResult = await sdk.getAuthToken()
+            var token: String!
+            switch tokenResult {
+            case .failure(let err): return .AuthError(err)
+            case .success(let tok): token = tok
+            }
             var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = "DEL"
@@ -89,7 +99,12 @@ public extension APIs {
         func bodiedRawRequest(endpoint: String, body: Data, method: String) async -> Result<Data, APIError> {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
-            let token = await sdk.getAuthToken()
+            let tokenResult = await sdk.getAuthToken()
+            var token: String!
+            switch tokenResult {
+            case .failure(let err): return .failure(.AuthError(err))
+            case .success(let tok): token = tok
+            }
             var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = method
@@ -124,7 +139,12 @@ public extension APIs {
         func bodiedRawReqNoResponse(endpoint: String, body: Data, method: String) async -> APIError? {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
-            let token = await sdk.getAuthToken()
+            let tokenResult = await sdk.getAuthToken()
+            var token: String!
+            switch tokenResult {
+            case .failure(let err): return .AuthError(err)
+            case .success(let tok): token = tok
+            }
             var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = method

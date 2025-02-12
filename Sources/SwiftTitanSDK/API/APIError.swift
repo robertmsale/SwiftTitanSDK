@@ -12,16 +12,18 @@ public extension APIs {
         case HTTPError(Int, String)
         case DecodingError(String)
         case EncodingError(String)
+        case AuthError(AuthManager.AuthError)
         
-        var message: String {
+        public var message: String {
             switch self {
             case .RequestFailed(let m): return m
             case .HTTPError(_, let m): return m
             case .DecodingError(let m): return m
             case .EncodingError(let m): return m
+            case .AuthError(let err): return err.message
             }
         }
-        var statusCode: Int? {
+        public var statusCode: Int? {
             switch self {
             case .HTTPError(let c, _): return c
             default: return nil

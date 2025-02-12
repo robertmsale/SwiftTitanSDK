@@ -30,10 +30,10 @@ public class SwiftTitanSDK {
     }()
     
     // MARK: ServiceTitan API Data
-    let tenant: Int64
-    let appKey: String
-    let clientId: String
-    let clientSecret: String
+    public let tenant: Int64
+    public let appKey: String
+    public let clientId: String
+    public let clientSecret: String
     private var integrationMode: Bool = false
     var host: String {
         if integrationMode {
@@ -160,7 +160,7 @@ public class SwiftTitanSDK {
         ]
     }
     
-    public func getAuthToken() async -> String? {
+    public func getAuthToken() async -> Result<String, AuthManager.AuthError> {
         return await auth.getAuthToken(clientId: clientId, clientSecret: clientSecret)
     }
     

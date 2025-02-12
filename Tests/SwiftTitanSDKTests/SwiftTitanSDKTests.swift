@@ -6,7 +6,7 @@ func environErr(_ name: String) -> String {
     return "Environment not loaded: \(name) is missing. Make sure a .env file with this variable is present in the root project folder."
 }
 
-actor SwiftTitanSDKTests {
+class SwiftTitanSDKTests {
     var sdk: SwiftTitanSDK
     init() async throws {
         EnvLoader.load()
@@ -17,6 +17,20 @@ actor SwiftTitanSDKTests {
         sdk = SwiftTitanSDK(appKey: appKey, tenant: Int64(tenant)!, clientId: clientId, clientSecret: clientSecret)
     }
 
-    @Test func environment() async throws {
+    @Test func auth() async throws {
+        let mysteryToken = await sdk.getAuthToken()
+        switch mysteryToken {
+        case .failure(let err): Issue.record(err, .init(rawValue: err.message))
+        case .success(let token): #expect(!token.isEmpty)
+        }
+    }
+    
+    @Test func getAPCredits() async throws {
+        let result = await sdk.accounting.apCreditsGetList(tenant: sdk.tenant)
+        switch result {
+        case .failure(let err): Issue.record(err)
+        case .success(let data):
+            print(data.data[0])
+        }
     }
 }
