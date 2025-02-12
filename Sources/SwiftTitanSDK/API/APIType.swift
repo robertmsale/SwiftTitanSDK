@@ -41,6 +41,9 @@ public extension APIs {
             let result = await getRawReq(endpoint: endpoint, params: params)
             switch result {
             case .success(let data):
+#if DEBUG
+                let stringified = String(data: data, encoding: .utf8)
+#endif
                 guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
                     return .failure(.DecodingError("GET: \(endpoint) - Decoding Error"))
                 }
@@ -129,6 +132,9 @@ public extension APIs {
             let res = await bodiedRawRequest(endpoint: endpoint, body: encoded, method: method)
             switch res {
             case .success(let data):
+#if DEBUG
+                let stringified = String(data: data, encoding: .utf8)
+#endif
                 guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
                     return .failure(.DecodingError("\(method): \(endpoint) - Decoding Error"))
                 }

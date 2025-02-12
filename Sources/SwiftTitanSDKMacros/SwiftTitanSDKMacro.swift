@@ -166,15 +166,94 @@ public struct MixinMacro: PeerMacro {
     }
 }
 
-//public struct QueryBuilderMacro: MemberMacro {
-//    public static func expansion(of node: AttributeSyntax, providingMembersOf declaration: some DeclGroupSyntax, in context: some MacroExpansionContext) throws -> [DeclSyntax] {
-//        declaration.
-//    }
-//}
+public struct DataInitMacro: MemberMacro {
+    enum StructOrClass {
+        case Struct(StructDeclSyntax), Class(ClassDeclSyntax)
+    }
+    public static func expansion(
+        of node: AttributeSyntax,
+        providingMembersOf declaration: some DeclGroupSyntax,
+        in context: some MacroExpansionContext
+    ) throws -> [DeclSyntax] {
+        
+        // Ensure the macro is applied to a struct or class
+        let structDecl = declaration.as(StructDeclSyntax.self)
+        let classDecl = declaration.as(ClassDeclSyntax.self)
+        guard structDecl != nil || classDecl != nil else {
+            throw MacroError.message("@DataInit can only be applied to structs or classes.")
+        }
+
+        let sorc = structDecl != nil ? StructOrClass.Struct(structDecl!) : StructOrClass.Class(classDecl!)
+        // Extract stored properties
+        let properties = extractProperties(from: sorc)
+
+        // Sort properties: non-optionals first, then optionals (alphabetically within each group)
+        let sortedProperties = properties.sorted { lhs, rhs in
+            if lhs.isOptional == rhs.isOptional {
+                return lhs.name < rhs.name // Sort alphabetically if both are the same type
+            }
+            return !lhs.isOptional // Non-optionals first
+        }
+
+        // Generate initializer parameters
+        let parameters = sortedProperties.map { prop in
+            if prop.isOptional {
+                return "\(prop.name): \(prop.type) = nil"
+            } else {
+                return "\(prop.name): \(prop.type)"
+            }
+        }.joined(separator: ", ")
+
+        // Generate property assignments
+        let assignments = sortedProperties.map { prop in
+            "self.\(prop.name) = \(prop.name)"
+        }.joined(separator: "\n")
+
+        // Create initializer syntax
+        
+
+        return [DeclSyntax("""
+        public init(\(raw: parameters)) {
+            \(raw: assignments)
+        }
+        """)]
+    }
+
+    /// Extracts stored properties from a struct or class declaration
+    private static func extractProperties(from decl: StructOrClass) -> [Property] {
+        let extracted = {
+            switch decl {
+            case .Class(let c): return c.memberBlock
+            case .Struct(let s): return s.memberBlock
+            }
+        }()
+        return extracted.members.compactMap { member -> Property? in
+            guard let varDecl = member.decl.as(VariableDeclSyntax.self) else { return nil }
+            guard varDecl.bindings.count == 1,
+                  let binding = varDecl.bindings.first,
+                  let pattern = binding.pattern.as(IdentifierPatternSyntax.self),
+                  let typeSyntax = binding.typeAnnotation?.type
+            else { return nil }
+
+            let name = pattern.identifier.text
+            let type = typeSyntax.description
+            let isOptional = type.hasSuffix("?") // Check if it's an optional type
+            return Property(name: name, type: type, isOptional: isOptional)
+        }
+    }
+
+    /// Helper struct to represent a property
+    private struct Property {
+        let name: String
+        let type: String
+        let isOptional: Bool
+    }
+}
 
 @main
 struct SwiftTitanSDKPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         MixinMacro.self,
+        DataInitMacro.self
     ]
 }

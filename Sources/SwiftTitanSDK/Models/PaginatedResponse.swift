@@ -7,15 +7,15 @@
 
 public extension Models {
     struct PaginatedResponse<T: Codable>: Codable {
-        public let page: Int32
-        public let pageSize: Int32
-        public let hasMode: Bool
-        public let totalCount: Int32?
-        public let data: [T]
+        public var page: Int32
+        public var pageSize: Int32
+        public var hasMore: Bool
+        public var totalCount: Int32?
+        public var data: [T]
     }
     struct ExportResponse<T: Codable>: Codable {
-        public let hasMore: Bool
-        public let continueFrom: String
-        public let data: [T]
+        public var hasMore: Bool
+        public var continueFrom: String
+        public var data: [T]
     }
 }

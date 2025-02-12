@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftTitanSDKHelper
 public extension Models {
     struct Accounting {
         public struct ApCreditResponse: Codable, Identifiable {
@@ -818,6 +819,7 @@ public extension APIs {
             super.init(sdk, apiName: "accounting")
         }
         /// Query Parameters for func apCreditsGetList
+        @DataInit
         public struct ApCreditsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?

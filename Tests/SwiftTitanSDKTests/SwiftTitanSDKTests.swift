@@ -30,7 +30,18 @@ class SwiftTitanSDKTests {
         switch result {
         case .failure(let err): Issue.record(err)
         case .success(let data):
-            print(data.data[0])
+//            print(data)
+            return
         }
+        var q = APIs.Accounting.ApCreditsGetListQuery()
+        q.createdBefore = Date(timeIntervalSince1970: 0)
+        q.createdOnOrAfter = Date(timeIntervalSince1970: 0)
+        q.includeTotal = false
+        q.pageSize = 12
+        
+        let resultFromQuery = await sdk.accounting.apCreditsGetList(
+            tenant: sdk.tenant,
+            query: q
+        )
     }
 }
