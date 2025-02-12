@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct MarketingAds {
         
-        public struct GetAttributedLeadsResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GetAttributedLeadsResponse: Codable {
             
             public var dateTime: Date
             
@@ -32,7 +33,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct Attribution: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Attribution: Codable {
             
             public var utmSource: String
             
@@ -69,21 +70,21 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct Job: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Job: Codable {
             
             public var id: Int64?
             
             public var name: String
         }
         
-        public struct Customer: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Customer: Codable {
             
             public var id: Int64?
             
             public var name: String
         }
         
-        public struct Call: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Call: Codable {
             
             public var duration: String
             
@@ -100,7 +101,7 @@ public extension Models {
             public var excusedReason: String
         }
         
-        public struct LeadForm: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadForm: Codable {
             
             public var leadNumber: Int64?
             
@@ -109,12 +110,12 @@ public extension Models {
             public var notes: String
         }
         
-        public struct Booking: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Booking: Codable {
             
             public var id: Int64?
         }
         
-        public struct CapacityAwarenessWarningQueryResult: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityAwarenessWarningQueryResult: Codable {
             
             public var tenantId: Int64
             
@@ -125,7 +126,7 @@ public extension Models {
             public var data: CapacityAwarenessWarning
         }
         
-        public struct CapacityAwarenessWarning: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityAwarenessWarning: Codable {
             
             public var campaignName: String
             
@@ -138,7 +139,7 @@ public extension Models {
             public var thresholdValue: Int32
         }
         
-        public struct CreateExternalCallAttributionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateExternalCallAttributionRequest: Codable {
             /// The web session that the entity should be attributed to
             public var webSessionData: WebSessionData
             /// The external call.
@@ -146,7 +147,7 @@ public extension Models {
         }
         /// Data from the web session used by the attribution system to determine the marketing campaign that
         /// led the user to this particular web session.
-        public struct WebSessionData: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct WebSessionData: Codable {
             /// The url of the web page that the user first landed on
             public var landingPageUrl: String
             /// The url of the web page that referred to the website
@@ -173,7 +174,7 @@ public extension Models {
             public var googleAnalyticsClientId: String?
         }
         
-        public struct ExternalCallData: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalCallData: Codable {
             /// The phone number of the customer
             public var customerPhoneNumber: String
             /// The ServiceTitan phone number that the external call tracking service will forward to
@@ -184,7 +185,7 @@ public extension Models {
             public var callStartedOnUtc: Date
         }
         
-        public struct GetPerformanceResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GetPerformanceResponse: Codable {
             
             public var campaign: Campaign
             
@@ -199,7 +200,7 @@ public extension Models {
             public var returnOnInvestment: Double?
         }
         
-        public struct Campaign: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Campaign: Codable {
             
             public var id: Int64?
             
@@ -216,7 +217,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct AdGroup: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AdGroup: Codable, Identifiable {
             
             public var id: String
             
@@ -225,7 +226,7 @@ public extension Models {
             public var status: Status?
         }
         
-        public struct Keyword: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Keyword: Codable, Identifiable {
             
             public var id: String
             
@@ -234,7 +235,7 @@ public extension Models {
             public var status: Status?
         }
         
-        public struct DigitalStats: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DigitalStats: Codable {
             
             public var impressionShare: Double?
             
@@ -257,7 +258,7 @@ public extension Models {
             public var conversionRate: Double?
         }
         
-        public struct LeadStats: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadStats: Codable {
             
             public var leads: Int32
             
@@ -284,21 +285,21 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateScheduledJobAttributionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateScheduledJobAttributionRequest: Codable {
             /// The web session that the entity should be attributed to
             public var webSessionData: WebSessionData
             /// The id of the booking entity in ServiceTitan.
             public var jobId: Int64
         }
         
-        public struct CreateWebBookingAttributionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateWebBookingAttributionRequest: Codable {
             /// The web session that the entity should be attributed to
             public var webSessionData: WebSessionData
             /// The id of the booking entity in ServiceTitan.
             public var bookingId: Int64
         }
         
-        public struct CreateWebLeadFormAttributionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateWebLeadFormAttributionRequest: Codable {
             /// The web session that the entity should be attributed to
             public var webSessionData: WebSessionData
             /// The id of the lead entity (captured from a web form) in ServiceTitan.
@@ -312,7 +313,7 @@ public extension APIs {
             super.init(sdk, apiName: "marketingads")
         }
         /// Query Parameters for func attributedLeadsGet
-        public struct AttributedLeadsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AttributedLeadsGetQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Gets or sets the start date and time in UTC for the filtering period.
             public var fromUtc: Date
             /// Format - date-time (as date-time in RFC3339). Gets or sets the end date and time in UTC for the filtering period.
@@ -347,7 +348,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func performanceGet
-        public struct PerformanceGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PerformanceGetQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Gets or sets the start date and time in UTC for the filtering period.
             public var fromUtc: Date
             /// Format - date-time (as date-time in RFC3339). Gets or sets the end date and time in UTC for the filtering period.

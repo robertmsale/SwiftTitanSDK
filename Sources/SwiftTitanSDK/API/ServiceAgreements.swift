@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct ServiceAgreements {
         
-        public struct ExportServiceAgreementResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportServiceAgreementResponse: Codable, Identifiable {
             /// Service agreement ID
             public var id: Int64
             /// Service agreement name
@@ -87,7 +88,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ServiceAgreementTemplateFieldsResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceAgreementTemplateFieldsResponse: Codable {
             /// ID of the template originally used to create this service agreement.
             /// Note that the content of the original template may have changed since the agreement's creation.
             /// The template fields in this object represent the current state of the service agreement, as they were captured at the time of creation.
@@ -148,7 +149,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ServiceAgreementResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceAgreementResponse: Codable, Identifiable {
             /// Service agreement ID
             public var id: Int64
             /// Service agreement name
@@ -231,7 +232,7 @@ public extension APIs {
             super.init(sdk, apiName: "service-agreements")
         }
         /// Query Parameters for func exportServiceAgreements
-        public struct ExportServiceAgreementsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportServiceAgreementsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -245,7 +246,7 @@ public extension APIs {
             return await getReq(Models.ServiceAgreements.ExportServiceAgreementResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func serviceAgreementsGetList
-        public struct ServiceAgreementsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceAgreementsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters by customer IDs

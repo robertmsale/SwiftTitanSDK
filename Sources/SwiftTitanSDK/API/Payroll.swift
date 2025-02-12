@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Payroll {
         
-        public struct JobSplitExportResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobSplitExportResponse: Codable, Identifiable {
             /// The job split ID
             public var id: Int64
             /// Job ID
@@ -26,7 +27,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct PayrollAdjustmentExportResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollAdjustmentExportResponse: Codable, Identifiable {
             /// ID of the payroll adjustment
             public var id: Int64
             /// Employee type of the payroll adjustment
@@ -57,7 +58,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct JobTimesheetExportResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTimesheetExportResponse: Codable, Identifiable {
             /// The timesheet ID
             public var id: Int64
             /// The job ID
@@ -82,7 +83,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct PayrollActivityCodeExportResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollActivityCodeExportResponse: Codable, Identifiable {
             /// ID of the payroll activity code
             public var id: Int64
             /// Name of the payroll activity code
@@ -101,7 +102,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TimesheetCodeExportResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetCodeExportResponse: Codable, Identifiable {
             /// ID of the timesheet code
             public var id: Int64
             /// Code of the timesheet code
@@ -130,7 +131,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TimesheetCodeRateInfoResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetCodeRateInfoResponse: Codable {
             /// The hourly rate
             public var hourlyRate: TimesheetHourlyRateType
             /// The custom hourly rate
@@ -143,7 +144,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct GrossPayItemExportResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GrossPayItemExportResponse: Codable {
             /// The gross pay item ID
             public var id: Int64?
             /// The employee/technician ID
@@ -234,7 +235,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct PayrollSettingsExportResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsExportResponse: Codable {
             /// The employee ID
             public var employeeId: Int64
             /// The type of employee
@@ -255,12 +256,12 @@ public extension Models {
             public var active: Bool
         }
         /// Default response when creating object with a new ID, or updating object by specified ID.
-        public struct ModificationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ModificationResponse: Codable, Identifiable {
             /// The ID of created/updated object
             public var id: Int64
         }
         
-        public struct GrossPayItemCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GrossPayItemCreateRequest: Codable {
             /// The payroll ID
             public var payrollId: Int64
             /// Amount of the gross pay item
@@ -273,7 +274,7 @@ public extension Models {
             public var invoiceId: Int64?
         }
         
-        public struct GrossPayItemUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GrossPayItemUpdateRequest: Codable {
             /// The payroll ID
             public var payrollId: Int64
             /// Amount of the gross pay item
@@ -286,7 +287,7 @@ public extension Models {
             public var invoiceId: Int64?
         }
         
-        public struct GrossPayItemResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GrossPayItemResponse: Codable {
             /// The gross pay item ID
             public var id: Int64?
             /// The employee/technician ID
@@ -363,7 +364,7 @@ public extension Models {
             public var isPrevailingWageJob: Bool?
         }
         
-        public struct JobSplitResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobSplitResponse: Codable, Identifiable {
             /// The job split ID
             public var id: Int64
             /// Job ID
@@ -382,7 +383,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct LocationLaborTypeResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationLaborTypeResponse: Codable {
             /// Location ID
             public var locationId: Int64
             /// The hourly rate of the location
@@ -397,7 +398,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct PayrollActivityCodeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollActivityCodeResponse: Codable, Identifiable {
             /// ID of the payroll activity code
             public var id: Int64
             /// Name of the payroll activity code
@@ -408,7 +409,7 @@ public extension Models {
             public var earningCategory: PayrollEarningCategory
         }
         
-        public struct PayrollAdjustmentCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollAdjustmentCreateRequest: Codable {
             /// The employee type
             public var employeeType: EmployeeType
             /// ID of the employee
@@ -429,7 +430,7 @@ public extension Models {
             public var rate: Double?
         }
         
-        public struct PayrollAdjustmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollAdjustmentResponse: Codable, Identifiable {
             /// ID of the payroll adjustment
             public var id: Int64
             /// Employee type of the payroll adjustment
@@ -452,7 +453,7 @@ public extension Models {
             public var rate: Double?
         }
         
-        public struct PayrollResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollResponse: Codable, Identifiable {
             /// ID of the payroll
             public var id: Int64
             /// Started on date (UTC) of the payroll
@@ -477,7 +478,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct PayrollSettingsListResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsListResponse: Codable {
             /// The employee ID
             public var employeeId: Int64
             /// The type of employee
@@ -498,7 +499,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct PayrollSettingsResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsResponse: Codable {
             /// The employee ID
             public var employeeId: Int64
             /// The type of employee
@@ -519,12 +520,12 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct PayrollSettingsUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsUpdateResponse: Codable {
             /// The employee ID
             public var employeeId: Int64
         }
         
-        public struct PayrollSettingsUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsUpdateRequest: Codable {
             /// The external payroll ID
             public var externalPayrollId: String?
             /// The hourly rate
@@ -535,7 +536,7 @@ public extension Models {
             public var hireDate: Date?
         }
         
-        public struct TimesheetCodeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetCodeResponse: Codable, Identifiable {
             /// ID of the timesheet code
             public var id: Int64
             /// Code of the timesheet code
@@ -556,7 +557,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct JobTimesheetResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTimesheetResponse: Codable, Identifiable {
             /// The timesheet ID
             public var id: Int64
             /// The job ID
@@ -579,7 +580,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct NonJobTimesheetResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NonJobTimesheetResponse: Codable, Identifiable {
             /// The timesheet ID
             public var id: Int64
             /// The employee/technician ID
@@ -600,7 +601,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct JobTimesheetCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTimesheetCreateRequest: Codable {
             /// The appointment ID
             public var appointmentId: Int64
             /// The technician ID
@@ -615,7 +616,7 @@ public extension Models {
             public var doneOn: Date?
         }
         
-        public struct JobTimesheetUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTimesheetUpdateRequest: Codable {
             /// The appointment ID
             public var appointmentId: Int64
             /// The technician ID
@@ -637,7 +638,7 @@ public extension APIs {
             super.init(sdk, apiName: "payroll")
         }
         /// Query Parameters for func exportJobSplits
-        public struct ExportJobSplitsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobSplitsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -651,7 +652,7 @@ public extension APIs {
             return await getReq(Models.Payroll.JobSplitExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportPayrollAdjustments
-        public struct ExportPayrollAdjustmentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPayrollAdjustmentsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -665,7 +666,7 @@ public extension APIs {
             return await getReq(Models.Payroll.PayrollAdjustmentExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportTimesheets
-        public struct ExportTimesheetsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTimesheetsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -679,7 +680,7 @@ public extension APIs {
             return await getReq(Models.Payroll.JobTimesheetExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportActivityCodes
-        public struct ExportActivityCodesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportActivityCodesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -693,7 +694,7 @@ public extension APIs {
             return await getReq(Models.Payroll.PayrollActivityCodeExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportTimesheetCodes
-        public struct ExportTimesheetCodesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTimesheetCodesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -707,7 +708,7 @@ public extension APIs {
             return await getReq(Models.Payroll.TimesheetCodeExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportGrossPayItems
-        public struct ExportGrossPayItemsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportGrossPayItemsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -721,7 +722,7 @@ public extension APIs {
             return await getReq(Models.Payroll.GrossPayItemExportResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportPayrollSettings
-        public struct ExportPayrollSettingsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPayrollSettingsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -739,7 +740,7 @@ public extension APIs {
             return await bodiedReq(Models.Payroll.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func grossPayItemsGetList
-        public struct GrossPayItemsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GrossPayItemsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -771,7 +772,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func jobSplitsGetList
-        public struct JobSplitsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobSplitsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -801,7 +802,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.JobSplitResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func jobSplitsGetListByJobs
-        public struct JobSplitsGetListByJobsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobSplitsGetListByJobsQuery: URLQueryConvertible {
             public var jobIds: String?
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
@@ -832,7 +833,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.JobSplitResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func locationLaborTypeGetListByLocations
-        public struct LocationLaborTypeGetListByLocationsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationLaborTypeGetListByLocationsQuery: URLQueryConvertible {
             /// Returns location rates for the specified location IDs
             public var locationIds: String?
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
@@ -860,7 +861,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.LocationLaborTypeResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func activityCodesGetList
-        public struct ActivityCodesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ActivityCodesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -881,7 +882,7 @@ public extension APIs {
             return await bodiedReq(Models.Payroll.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func payrollAdjustmentsGetList
-        public struct PayrollAdjustmentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollAdjustmentsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -904,7 +905,7 @@ public extension APIs {
             public var id: String { rawValue }
         }
         /// Query Parameters for func payrollAdjustmentsGet
-        public struct PayrollAdjustmentsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollAdjustmentsGetQuery: URLQueryConvertible {
             /// The employee type\
             /// Values: [Technician, Employee]
             public var employeeType: EmployeeType
@@ -914,7 +915,7 @@ public extension APIs {
             return await getReq(Models.Payroll.PayrollAdjustmentResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func payrollsGetList
-        public struct PayrollsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollsGetListQuery: URLQueryConvertible {
             /// The type of employee\
             /// Values: [Technician, Employee]
             public var employeeType: String?
@@ -946,7 +947,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.PayrollResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func payrollsGetTechnicianPayrolls
-        public struct PayrollsGetTechnicianPayrollsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollsGetTechnicianPayrollsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -975,7 +976,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.PayrollResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func payrollsGetEmployeePayrolls
-        public struct PayrollsGetEmployeePayrollsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollsGetEmployeePayrollsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1004,7 +1005,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.PayrollResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func payrollSettingsGetPayrollSettingsList
-        public struct PayrollSettingsGetPayrollSettingsListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PayrollSettingsGetPayrollSettingsListQuery: URLQueryConvertible {
             /// The type of employee\
             /// Values: [Technician, Employee]
             public var employeeType: String?
@@ -1047,7 +1048,7 @@ public extension APIs {
             return await bodiedReq(Models.Payroll.PayrollSettingsUpdateResponse.self, endpoint: endpoint, body: body, method: "PUT")
         }
         /// Query Parameters for func timesheetCodesGetList
-        public struct TimesheetCodesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetCodesGetListQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
             public var createdBefore: Date?
             /// Format - date-time (as date-time in RFC3339). Return items created on or after certain date/time (in UTC)
@@ -1081,7 +1082,7 @@ public extension APIs {
             return await getReq(Models.Payroll.TimesheetCodeResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func timesheetsGetJobTimesheets
-        public struct TimesheetsGetJobTimesheetsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetsGetJobTimesheetsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1118,7 +1119,7 @@ public extension APIs {
             return await bodiedReq(Models.Payroll.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func timesheetsGetNonJobTimesheets
-        public struct TimesheetsGetNonJobTimesheetsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetsGetNonJobTimesheetsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1153,7 +1154,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Payroll.NonJobTimesheetResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func timesheetsGetJobTimesheetsByJobs
-        public struct TimesheetsGetJobTimesheetsByJobsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimesheetsGetJobTimesheetsByJobsQuery: URLQueryConvertible {
             public var jobIds: String?
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?

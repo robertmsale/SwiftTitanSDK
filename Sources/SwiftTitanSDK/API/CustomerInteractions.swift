@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct CustomerInteractions {
         
-        public struct CreateOrUpdateTechnicianAssessmentRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateOrUpdateTechnicianAssessmentRequest: Codable {
             /// Rating (0-10)
             public var value: Double
         }

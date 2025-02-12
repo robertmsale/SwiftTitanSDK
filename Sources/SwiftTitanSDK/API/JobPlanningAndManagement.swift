@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct JobPlanningAndManagement {
         /// Appointment response model
-        public struct AppointmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentResponse: Codable, Identifiable {
             /// Appointment ID
             public var id: Int64
             /// ID of the job that the appointment was created for
@@ -46,7 +47,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct AppointmentAddRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentAddRequest: Codable {
             /// ID of job for new appointment
             public var jobId: Int64
             /// Start date/time (in UTC) of new appointment
@@ -63,7 +64,7 @@ public extension Models {
             public var specialInstructions: String?
         }
         
-        public struct AppointmentRescheduleRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentRescheduleRequest: Codable {
             /// New start date/time (in UTC) for appointment
             public var start: Date
             /// New end date/time (in UTC) for appointment
@@ -74,19 +75,19 @@ public extension Models {
             public var arrivalWindowEnd: Date?
         }
         
-        public struct HoldAppointmentRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct HoldAppointmentRequest: Codable {
             /// ID of the hold reason
             public var reasonId: Int64
             /// Memo of why the appointment is going on hold
             public var memo: String
         }
         
-        public struct UpdateAppointmentSpecialInstructionsRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateAppointmentSpecialInstructionsRequest: Codable {
             /// New special instructions associated to the appointment
             public var specialInstructions: String
         }
         
-        public struct ExportJobsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobsResponse: Codable, Identifiable {
             /// ID of the job
             public var id: Int64
             /// Job number
@@ -161,7 +162,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct CustomFieldApiModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldApiModel: Codable {
             
             public var typeId: Int64
             
@@ -170,21 +171,21 @@ public extension Models {
             public var value: String
         }
         
-        public struct JobGeneratedLeadSource: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobGeneratedLeadSource: Codable {
             
             public var jobId: Int64?
             
             public var employeeId: Int64?
         }
         
-        public struct ExternalDataModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String
         }
         
-        public struct ExportProjectsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportProjectsResponse: Codable, Identifiable {
             /// ID of the project
             public var id: Int64
             /// Project number
@@ -232,7 +233,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportAppointmentsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAppointmentsResponse: Codable, Identifiable {
             /// Appointment ID
             public var id: Int64
             /// ID of the job that the appointment was created for
@@ -267,7 +268,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportJobCanceledLogResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobCanceledLogResponse: Codable, Identifiable {
             /// ID of the job canceled log
             public var id: Int64
             /// ID of the job that has been canceled
@@ -284,7 +285,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportJobNotesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobNotesResponse: Codable, Identifiable {
             /// Note Id.
             public var id: Int64
             /// Whether this note is active, or not anymore.
@@ -303,7 +304,7 @@ public extension Models {
             public var jobId: Int64
         }
         
-        public struct ExportProjectNotesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportProjectNotesResponse: Codable, Identifiable {
             /// Note Id.
             public var id: Int64
             /// Whether this note is active, or not anymore.
@@ -322,14 +323,14 @@ public extension Models {
             public var projectId: Int64
         }
         
-        public struct ExportJobHistoryResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobHistoryResponse: Codable {
             /// ID of the job
             public var jobId: Int64
             /// Job history entries
             public var history: ExportJobHistoryEntry
         }
         
-        public struct ExportJobHistoryEntry: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobHistoryEntry: Codable, Identifiable {
             /// ID of the log
             public var id: Int64
             /// ID of the employee
@@ -346,7 +347,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct JobCancelReasonResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobCancelReasonResponse: Codable, Identifiable {
             /// ID of the job cancel reason
             public var id: Int64
             /// Name of the job cancel reason
@@ -363,7 +364,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct JobHoldReasonResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobHoldReasonResponse: Codable, Identifiable {
             /// Job Hold Reason Id
             public var id: Int64
             /// Job Hold Reason Name
@@ -376,7 +377,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct JobResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobResponse: Codable, Identifiable {
             /// ID of the job
             public var id: Int64
             /// Job number
@@ -449,7 +450,7 @@ public extension Models {
             public var total: Double?
         }
         
-        public struct JobCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobCreateRequest: Codable {
             /// ID of the job's customer
             public var customerId: Int64
             /// ID of the job's location
@@ -489,7 +490,7 @@ public extension Models {
             public var soldById: Int64?
         }
         
-        public struct AppointmentInformation: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentInformation: Codable {
             /// Start date/time (in UTC) for the appointment
             public var start: Date
             /// End date/time (in UTC) for the appointment
@@ -502,14 +503,14 @@ public extension Models {
             public var technicianIds: Int64?
         }
         
-        public struct CustomFieldModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldModel: Codable {
             /// ID of the custom field
             public var typeId: Int64
             /// Value of the custom field
             public var value: String?
         }
         
-        public struct ExternalDataCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataCreateRequest: Codable {
             /// Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var applicationGuid: String
@@ -517,26 +518,26 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct CancelJobRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CancelJobRequest: Codable {
             /// ID of job cancel reason
             public var reasonId: Int64
             /// Memo of job cancel reason
             public var memo: String
         }
         
-        public struct HoldJobRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct HoldJobRequest: Codable {
             /// ID of job hold reason
             public var reasonId: Int64
             /// Memo of job hold reason
             public var memo: String
         }
         
-        public struct CompleteJobRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CompleteJobRequest: Codable {
             /// Date on which the job was completed
             public var completedOn: Date
         }
         
-        public struct UpdateJobRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateJobRequest: Codable {
             /// ID of the job's customer
             public var customerId: Int64
             /// ID of the job's location
@@ -573,7 +574,7 @@ public extension Models {
             public var soldById: Int64?
         }
         
-        public struct ExternalDataUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateRequest: Codable {
             /// External data patch mode.\
             /// "Replace" (default) replaces all existing keys with new values. If job A has custom data with keys X and Y and this field only contains an item
             /// with a key X, then custom data with a key Y on job A will be removed.\
@@ -590,7 +591,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
@@ -605,7 +606,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct NoteResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NoteResponse: Codable {
             /// Text content of a note
             public var text: String
             /// Whether the note is pinned to the top
@@ -618,14 +619,14 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct JobNoteCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobNoteCreateRequest: Codable {
             /// Text content of job note
             public var text: String
             /// Whether to pin job note to the top
             public var pinToTop: Bool?
         }
         
-        public struct CancelReasonResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CancelReasonResponse: Codable {
             /// Job ID
             public var jobId: Int64
             /// ID of the reason
@@ -636,12 +637,12 @@ public extension Models {
             public var text: String
         }
         
-        public struct JobHistoryResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobHistoryResponse: Codable {
             /// List of logs for the job
             public var history: JobHistoryItemModel?
         }
         
-        public struct JobHistoryItemModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobHistoryItemModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -660,12 +661,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct MessageResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MessageResponse: Codable, Identifiable {
             /// The unique identifier of the message
             public var id: Int64
         }
         
-        public struct MessageCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MessageCreateRequest: Codable {
             /// Text content of a message
             public var body: String
             /// IDs of Users mentioned in this message
@@ -678,7 +679,7 @@ public extension Models {
             public var createdByEmployeeId: Int64
         }
         /// JobCanceledLog response model
-        public struct JobCanceledLogResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobCanceledLogResponse: Codable, Identifiable {
             /// ID of the job canceled log
             public var id: Int64
             /// ID of the job that has been canceled
@@ -695,7 +696,7 @@ public extension Models {
             public var active: Bool
         }
         /// JobBookedLog response model
-        public struct JobBookedLogResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobBookedLogResponse: Codable, Identifiable {
             /// ID of the job booked log
             public var id: Int64
             /// ID of the job that has been booked
@@ -716,7 +717,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct CustomFieldTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldTypeResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -735,7 +736,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct JobTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTypeResponse: Codable, Identifiable {
             /// ID of the job type
             public var id: Int64
             /// Name of the job type
@@ -781,7 +782,7 @@ public extension Models {
             }
         }
         
-        public struct CreateJobTypeRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateJobTypeRequest: Codable {
             /// Name of the job type
             public var name: String
             /// Business Unit Ids associated with job type
@@ -819,7 +820,7 @@ public extension Models {
             }
         }
         
-        public struct UpdateJobTypeRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateJobTypeRequest: Codable {
             /// Name of the job type
             public var name: String
             /// Business Unit Ids associated with job type
@@ -856,7 +857,7 @@ public extension Models {
             }
         }
         
-        public struct ProjectResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectResponse: Codable, Identifiable {
             /// ID of the project
             public var id: Int64
             /// Project number
@@ -902,7 +903,7 @@ public extension Models {
             public var jobIds: Int64
         }
         
-        public struct CreateProjectRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateProjectRequest: Codable {
             /// ID of the project's location
             public var locationId: Int64
             /// ID of the project's customer
@@ -932,14 +933,14 @@ public extension Models {
             public var externalData: ExternalDataCreateRequest?
         }
         
-        public struct CustomFieldCreateOrUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldCreateOrUpdateModel: Codable {
             /// ID of the custom field
             public var typeId: Int64
             /// Value of the custom field
             public var value: String
         }
         
-        public struct UpdateProjectRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateProjectRequest: Codable {
             /// IDs of the project's managers
             public var projectManagerIds: Int64
             /// IDs of the project's jobs
@@ -966,14 +967,14 @@ public extension Models {
             public var externalData: ExternalDataUpdateRequest
         }
         
-        public struct ProjectNoteCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectNoteCreateRequest: Codable {
             /// Text content of job note
             public var text: String
             /// Whether to pin job note to the top
             public var pinToTop: Bool?
         }
         
-        public struct ProjectStatusResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectStatusResponse: Codable, Identifiable {
             /// ID of the project status
             public var id: Int64
             /// Name of the project status
@@ -984,7 +985,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct ProjectSubStatusResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectSubStatusResponse: Codable, Identifiable {
             /// ID of the project sub status
             public var id: Int64
             /// Name of the project sub status
@@ -999,7 +1000,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ProjectTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectTypeResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -1025,7 +1026,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func appointmentsGetList
-        public struct AppointmentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int64. Return all appointments for this job
@@ -1101,7 +1102,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func exportJobs
-        public struct ExportJobsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1115,7 +1116,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportJobsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportProjects
-        public struct ExportProjectsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportProjectsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1129,7 +1130,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportProjectsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportAppointments
-        public struct ExportAppointmentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAppointmentsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1143,7 +1144,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportAppointmentsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportJobCancelReasons
-        public struct ExportJobCancelReasonsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobCancelReasonsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1157,7 +1158,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportJobCanceledLogResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportJobNotes
-        public struct ExportJobNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobNotesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1171,7 +1172,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportJobNotesResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportProjectNotes
-        public struct ExportProjectNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportProjectNotesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1185,7 +1186,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportProjectNotesResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportJobHistory
-        public struct ExportJobHistoryQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportJobHistoryQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1199,7 +1200,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ExportJobHistoryResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func jobCancelReasonsGetList
-        public struct JobCancelReasonsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobCancelReasonsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1229,7 +1230,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.JobPlanningAndManagement.JobCancelReasonResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func jobHoldReasonsGet
-        public struct JobHoldReasonsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobHoldReasonsGetQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1259,7 +1260,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.JobPlanningAndManagement.JobHoldReasonResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func jobsGet
-        public struct JobsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetQuery: URLQueryConvertible {
             /// Format - guid. If this guid is provided, external data corresponding to
             /// this application guid will be returned.
             public var externalDataApplicationGuid: String?
@@ -1277,7 +1278,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.JobResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func jobsGetList
-        public struct JobsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1376,7 +1377,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "PUT")
         }
         /// Query Parameters for func jobsGetNotes
-        public struct JobsGetNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetNotesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1393,7 +1394,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.NoteResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func jobsGetCancelReasons
-        public struct JobsGetCancelReasonsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetCancelReasonsQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
         }
@@ -1410,7 +1411,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.MessageResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func jobsGetJobCanceledLogs
-        public struct JobsGetJobCanceledLogsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetJobCanceledLogsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1427,7 +1428,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.JobBookedLogResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func jobsGetCustomFieldTypes
-        public struct JobsGetCustomFieldTypesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetCustomFieldTypesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1449,7 +1450,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.JobPlanningAndManagement.CustomFieldTypeResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func jobTypesGetList
-        public struct JobTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTypesGetListQuery: URLQueryConvertible {
             /// Filters by job type name
             public var name: String?
             /// Format - int32. Minimum length of time for this job type (in seconds)
@@ -1494,7 +1495,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.JobTypeResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func jobTypesGet
-        public struct JobTypesGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTypesGetQuery: URLQueryConvertible {
             /// Format - guid. If this guid is provided, external data corresponding to
             /// this application guid will be returned.
             public var externalDataApplicationGuid: String?
@@ -1508,7 +1509,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.JobTypeResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func projectsGet
-        public struct ProjectsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectsGetQuery: URLQueryConvertible {
             /// Format - guid. If this guid is provided, external data corresponding to
             /// this application guid will be returned.
             public var externalDataApplicationGuid: String?
@@ -1522,7 +1523,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.ProjectResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func projectsGetList
-        public struct ProjectsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int64. Filters by customer ID
@@ -1595,7 +1596,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.ProjectResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func projectsGetNotes
-        public struct ProjectsGetNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectsGetNotesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1624,7 +1625,7 @@ public extension APIs {
             return await bodiedReq(Models.JobPlanningAndManagement.MessageResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func projectsGetCustomFieldTypes
-        public struct ProjectsGetCustomFieldTypesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectsGetCustomFieldTypesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1646,7 +1647,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.JobPlanningAndManagement.CustomFieldTypeResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func projectStatusesGetList
-        public struct ProjectStatusesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectStatusesGetListQuery: URLQueryConvertible {
             /// Filters by project status name
             public var name: String?
             /// Perform lookup by multiple IDs (maximum 50)
@@ -1681,7 +1682,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ProjectStatusResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func projectSubStatusesGetList
-        public struct ProjectSubStatusesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectSubStatusesGetListQuery: URLQueryConvertible {
             /// Filters by project sub status name
             public var name: String?
             /// Format - int64. Filters by parent project status id
@@ -1725,7 +1726,7 @@ public extension APIs {
             return await getReq(Models.JobPlanningAndManagement.ProjectTypeResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func projectTypesGetList
-        public struct ProjectTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ProjectTypesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)

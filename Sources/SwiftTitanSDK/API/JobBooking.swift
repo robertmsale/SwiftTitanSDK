@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct JobBooking {
         
-        public struct CallReasonResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallReasonResponse: Codable, Identifiable {
             /// Call reason ID
             public var id: Int64
             /// Call reason name
@@ -35,7 +36,7 @@ public extension APIs {
             super.init(sdk, apiName: "jbce")
         }
         /// Query Parameters for func callReasonsGet
-        public struct CallReasonsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallReasonsGetQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)

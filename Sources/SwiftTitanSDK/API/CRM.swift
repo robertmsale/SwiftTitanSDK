@@ -5,11 +5,12 @@
 //  Created by Robert Sale on 2/9/25.
 //
 
+import MemberwiseInit
 import Foundation
 public extension Models {
     struct Crm {
         
-        public struct CreateBookingProviderTagResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateBookingProviderTagResponse: Codable, Identifiable {
             /// id of booking provider tag
             public var id: Int64
             /// Name of tag
@@ -28,14 +29,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateBookingProviderTagRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateBookingProviderTagRequest: Codable {
             /// Name of tag
             public var tagName: String
             /// Description of tag
             public var description: String
         }
         
-        public struct GetBookingProviderTagResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GetBookingProviderTagResponse: Codable, Identifiable {
             /// id of booking provider tag
             public var id: Int64
             /// Name of tag
@@ -52,7 +53,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct BookingProviderTagResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingProviderTagResponse: Codable, Identifiable {
             /// id of booking provider tag
             public var id: Int64
             /// Name of tag
@@ -67,14 +68,14 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct UpdateBookingProviderTagRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateBookingProviderTagRequest: Codable {
             /// Name of tag
             public var tagName: String
             /// Description of tag
             public var description: String
         }
         
-        public struct BookingResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingResponse: Codable, Identifiable {
             /// ID of the booking
             public var id: Int64
             /// Source of the booking
@@ -119,7 +120,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct AddressModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressModel: Codable {
             /// Booking address street
             public var street: String
             /// Booking address unit
@@ -146,7 +147,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct BookingContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingContactResponse: Codable, Identifiable {
             /// Id of contact
             public var id: Int64
             /// Type of contact
@@ -163,7 +164,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateBookingRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateBookingRequest: Codable {
             /// Source of the booking
             public var source: String
             /// Name of the customer
@@ -196,7 +197,7 @@ public extension Models {
             public var externalId: String
         }
         
-        public struct BookingContactModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingContactModel: Codable {
             
             public var type: ContactType
             
@@ -205,7 +206,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct UpdateBookingRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateBookingRequest: Codable {
             /// Source of the booking
             public var source: String
             /// Name of the booking's customer
@@ -234,7 +235,7 @@ public extension Models {
             public var externalId: String
         }
         
-        public struct ContactCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactCreateRequest: Codable {
             /// Type of contact
             public var type: String
             /// Value of contact
@@ -243,7 +244,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct UpdateBookingContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateBookingContactRequest: Codable {
             
             public var type: ContactType
             
@@ -252,21 +253,21 @@ public extension Models {
             public var memo: String
         }
         /// Add bulk tags request.
-        public struct AddBulkTagsRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddBulkTagsRequest: Codable {
             /// List of Customer ID(s)
             public var customerIds: Int64
             /// List of TagType ID(s) to add to the customers
             public var tagTypeIds: Int64
         }
         /// Remove bulk tags request.
-        public struct RemoveBulkTagsRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RemoveBulkTagsRequest: Codable {
             /// List of Customer ID(s)
             public var customerIds: Int64
             /// List of TagType ID(s) to add to the customers
             public var tagTypeIds: Int64
         }
         
-        public struct ContactMethodResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactMethodResponse: Codable, Identifiable {
             /// ID of the contact method
             public var id: String
             /// ID of the contact
@@ -289,7 +290,7 @@ public extension Models {
             public var modifiedBy: Int64
         }
         
-        public struct CreateContactMethodRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateContactMethodRequest: Codable {
             /// Reference ID of the contact method
             public var referenceId: String?
             /// Type of the contact method
@@ -300,7 +301,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct UpsertContactMethodRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpsertContactMethodRequest: Codable {
             /// Reference ID of the contact method
             public var referenceId: String?
             /// Type of the contact method
@@ -311,14 +312,14 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct UpdateContactMethodRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateContactMethodRequest: Codable {
             /// Value of the contact method
             public var value: String
             /// Memo for the contact method
             public var memo: String
         }
         
-        public struct ContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactResponse: Codable, Identifiable {
             /// ID of the contact
             public var id: String
             /// External reference ID of the contact
@@ -339,7 +340,7 @@ public extension Models {
             public var modifiedBy: Int64
         }
         
-        public struct ReplaceContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReplaceContactRequest: Codable {
             /// Name of the contact
             public var name: String?
             /// Title of the contact
@@ -350,7 +351,7 @@ public extension Models {
             public var isArchived: Bool
         }
         
-        public struct CreateContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateContactRequest: Codable {
             /// Name of the contact
             public var name: String?
             /// Title of the contact
@@ -359,7 +360,7 @@ public extension Models {
             public var referenceId: String?
         }
         
-        public struct ContactRelationshipResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactRelationshipResponse: Codable, Identifiable {
             /// ID of the contact relationship
             public var id: String
             /// ID of the related entity
@@ -374,7 +375,7 @@ public extension Models {
             public var createdBy: Int64
         }
         
-        public struct UpdateContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateContactRequest: Codable {
             /// Name of the contact
             public var name: String?
             /// Title of the contact
@@ -385,7 +386,7 @@ public extension Models {
             public var isArchived: Bool
         }
         
-        public struct CustomerResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerResponse: Codable, Identifiable {
             /// ID of the customer
             public var id: Int64
             /// False indicates that someone has deactivated the customer record, typically upon merging with another record.
@@ -419,7 +420,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct CustomerAddress: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerAddress: Codable {
             /// Street
             public var street: String
             /// Unit
@@ -438,7 +439,7 @@ public extension Models {
             public var longitude: Double?
         }
         
-        public struct CustomFieldModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldModel: Codable {
             /// ID of the custom field
             public var typeId: Int64
             /// Name/label of the custom field
@@ -447,7 +448,7 @@ public extension Models {
             public var value: String?
         }
         
-        public struct ExternalDataModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
@@ -458,7 +459,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreatedCustomerResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreatedCustomerResponse: Codable, Identifiable {
             /// ID of the customer
             public var id: Int64
             /// False indicates that someone has deactivated the customer record, typically upon merging with another record.
@@ -496,7 +497,7 @@ public extension Models {
             public var contacts: CustomerContact
         }
         
-        public struct CreateLocationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateLocationResponse: Codable, Identifiable {
             /// ID of the location tax zone
             public var taxZoneId: Int64?
             /// ID of the location
@@ -530,7 +531,7 @@ public extension Models {
             public var contacts: LocationContact
         }
         
-        public struct LocationContact: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationContact: Codable, Identifiable {
             /// ID of the contact
             public var id: Int64
             /// Landline, mobile, e-mail, or fax.
@@ -541,7 +542,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct CustomerContact: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerContact: Codable, Identifiable {
             /// ID of the contact
             public var id: Int64
             /// Landline, mobile, e-mail, or fax.
@@ -552,7 +553,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct CreateCustomerRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateCustomerRequest: Codable {
             /// Name of the customer
             public var name: String
             /// Residential or commercial
@@ -576,7 +577,7 @@ public extension Models {
             public var externalData: ExternalDataCreateRequest?
         }
         
-        public struct NewLocation: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NewLocation: Codable {
             /// Name of the location
             public var name: String
             /// Address of the location record
@@ -592,7 +593,7 @@ public extension Models {
             public var externalData: ExternalDataCreateRequest?
         }
         
-        public struct NewCustomerContact: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NewCustomerContact: Codable {
             /// Landline, mobile, e-mail, or fax.
             public var type: ContactType
             /// The email, phone number, or fax number for the contact.
@@ -601,14 +602,14 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct CustomFieldUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldUpdateModel: Codable {
             /// ID of the custom field
             public var typeId: Int64
             /// Value of the custom field
             public var value: String
         }
         
-        public struct ExternalDataCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataCreateRequest: Codable {
             /// Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var applicationGuid: String
@@ -616,7 +617,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct UpdateCustomerRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateCustomerRequest: Codable {
             /// Name of the customer
             public var name: String
             /// Residential or commercial
@@ -637,7 +638,7 @@ public extension Models {
             public var tagTypeIds: Int64
         }
         
-        public struct UpdateCustomerAddress: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateCustomerAddress: Codable {
             /// Street
             public var street: String
             /// Unit
@@ -656,7 +657,7 @@ public extension Models {
             public var longitude: Double
         }
         
-        public struct ExternalDataUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateRequest: Codable {
             /// External data patch mode.\
             /// "Replace" (default) replaces all existing keys with new values. If job A has custom data with keys X and Y and this field only contains an item
             /// with a key X, then custom data with a key Y on job A will be removed.\
@@ -673,14 +674,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String?
         }
         
-        public struct NoteResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NoteResponse: Codable, Identifiable {
             /// Id of the note
             public var id: Int64
             /// Text content of a note
@@ -695,7 +696,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct CustomerNoteCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerNoteCreateRequest: Codable {
             /// Text content of customer note
             public var text: String
             /// Whether to pin customer note to the top
@@ -704,7 +705,7 @@ public extension Models {
             public var addToLocations: Bool?
         }
         
-        public struct CustomerContactWithModifiedOnResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerContactWithModifiedOnResponse: Codable, Identifiable {
             /// ID of the contact
             public var id: Int64
             /// Landline, mobile, e-mail, or fax.
@@ -721,14 +722,14 @@ public extension Models {
             public var createdOn: Date
         }
         
-        public struct PhoneSettings: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PhoneSettings: Codable {
             /// Phone Number
             public var phoneNumber: String
             /// If the phone number has opted-out from notifications.
             public var doNotText: Bool
         }
         
-        public struct CreateCustomerContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateCustomerContactRequest: Codable {
             /// Landline, mobile, e-mail, or fax
             public var type: ContactType
             /// The email, phone number, or fax number for the contact
@@ -737,7 +738,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct UpdateCustomerContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateCustomerContactRequest: Codable {
             /// Landline, mobile, e-mail, or fax
             public var type: ContactType
             /// The email, phone number, or fax number for the contact
@@ -746,7 +747,7 @@ public extension Models {
             public var memo: String
         }
         
-        public struct CustomerContactWithModifiedOnAndCustomerIdResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerContactWithModifiedOnAndCustomerIdResponse: Codable, Identifiable {
             /// Modified On (UTC) for the record
             public var modifiedOn: Date
             /// Phone settings of the customer contact
@@ -765,14 +766,14 @@ public extension Models {
             public var customerId: Int64
         }
         
-        public struct CreateCustomerTagResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateCustomerTagResponse: Codable {
             
             public var customerId: Int64
             
             public var tagTypeIds: Int64
         }
         
-        public struct ExportBookingResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportBookingResponse: Codable, Identifiable {
             /// ID of the booking
             public var id: Int64
             /// Source of the booking
@@ -819,7 +820,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportCustomerContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCustomerContactResponse: Codable, Identifiable {
             /// Modified On (UTC) for the record
             public var modifiedOn: Date
             /// Phone settings of the customer contact
@@ -840,7 +841,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportLocationContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationContactResponse: Codable, Identifiable {
             /// Id of contact
             public var id: Int64
             /// Type of contact
@@ -861,7 +862,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportCustomerResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCustomerResponse: Codable, Identifiable {
             /// ID of the customer
             public var id: Int64
             /// False indicates that someone has deactivated the customer record, typically upon merging with another record.
@@ -895,7 +896,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct ExportLeadsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLeadsResponse: Codable, Identifiable {
             /// ID of the lead
             public var id: Int64
             /// Status of the lead
@@ -944,7 +945,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportLocationsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationsResponse: Codable, Identifiable {
             /// ID of the location tax zone
             public var taxZoneId: Int64?
             /// ID of the location
@@ -976,7 +977,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct LeadResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadResponse: Codable, Identifiable {
             /// ID of the lead
             public var id: Int64
             /// Status of the lead
@@ -1019,7 +1020,7 @@ public extension Models {
             public var leadUrl: String?
         }
         
-        public struct FollowUpResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FollowUpResponse: Codable {
             /// ID of the lead the follow-up is for
             public var leadId: Int64
             /// Follow-up date
@@ -1030,7 +1031,7 @@ public extension Models {
             public var pinToTop: Bool
         }
         
-        public struct CreateFollowUpRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateFollowUpRequest: Codable {
             /// Follow-up date
             public var followUpDate: Date
             /// Text of follow-up note
@@ -1039,7 +1040,7 @@ public extension Models {
             public var pinToTop: Bool?
         }
         
-        public struct LeadCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadCreateRequest: Codable {
             /// ID of the customer
             public var customerId: Int64?
             /// ID of the location
@@ -1062,7 +1063,7 @@ public extension Models {
             public var followUpDate: Date?
         }
         
-        public struct LeadUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadUpdateRequest: Codable {
             /// ID of the campaign
             public var campaignId: Int64
             /// Priority of the lead
@@ -1073,24 +1074,24 @@ public extension Models {
             public var jobTypeId: Int64
         }
         
-        public struct LeadNoteCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadNoteCreateRequest: Codable {
             /// Text content of lead note
             public var text: String
             /// Whether to pin lead note to the top
             public var pinToTop: Bool?
         }
         
-        public struct DismissLeadRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DismissLeadRequest: Codable {
             /// Select a Call Reason to associate to a Booking that’s being dismissed for reporting purposes.
             public var dismissingReasonId: Int64
         }
         
-        public struct SubmitLeadFormResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubmitLeadFormResponse: Codable {
             /// The id of the lead entity that represents the lead form
             public var leadId: Int64
         }
         
-        public struct SubmitLeadFormRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubmitLeadFormRequest: Codable {
             /// The name of the customer
             public var name: String
             /// The email of the customer
@@ -1103,7 +1104,7 @@ public extension Models {
             public var summary: String?
         }
         
-        public struct LocationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationResponse: Codable, Identifiable {
             /// ID of the location
             public var id: Int64
             /// ID of the location’s customer.
@@ -1135,7 +1136,7 @@ public extension Models {
             public var taxZoneId: Int64?
         }
         
-        public struct CreateLocationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateLocationRequest: Codable {
             /// Name of the location
             public var name: String
             /// Address of the location record
@@ -1153,7 +1154,7 @@ public extension Models {
             public var customerId: Int64
         }
         
-        public struct UpdateLocationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateLocationRequest: Codable {
             /// ID of the location’s customer.
             public var customerId: Int64
             /// Name of the location
@@ -1176,7 +1177,7 @@ public extension Models {
             public var externalData: ExternalDataUpdateRequest
         }
         
-        public struct AddressPatchModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressPatchModel: Codable {
             /// Street
             public var street: String
             /// Unit
@@ -1195,7 +1196,7 @@ public extension Models {
             public var longitude: Double?
         }
         
-        public struct LocationNoteCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationNoteCreateRequest: Codable {
             /// Text content of location note
             public var text: String
             /// Whether to pin location note to the top
@@ -1204,7 +1205,7 @@ public extension Models {
             public var addToCustomer: Bool?
         }
         
-        public struct LocationContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationContactResponse: Codable, Identifiable {
             /// Id of contact
             public var id: Int64
             /// Type of contact
@@ -1221,7 +1222,7 @@ public extension Models {
             public var createdOn: Date
         }
         
-        public struct LocationsContactResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationsContactResponse: Codable, Identifiable {
             /// Id of contact
             public var id: Int64
             /// Type of contact
@@ -1240,7 +1241,7 @@ public extension Models {
             public var locationId: Int64
         }
         
-        public struct LocationContactCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationContactCreateRequest: Codable {
             /// Type of contact
             public var type: ContactType
             /// Value of contact
@@ -1249,7 +1250,7 @@ public extension Models {
             public var memo: String?
         }
         
-        public struct LocationContactUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationContactUpdateRequest: Codable {
             /// Type of contact
             public var type: ContactType
             /// Value of contact
@@ -1258,7 +1259,7 @@ public extension Models {
             public var memo: String
         }
         
-        public struct CreateLocationTagResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateLocationTagResponse: Codable {
             
             public var locationId: Int64
             
@@ -1276,7 +1277,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.CreateBookingProviderTagResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func bookingProviderTagsGetList
-        public struct BookingProviderTagsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingProviderTagsGetListQuery: URLQueryConvertible {
             /// Name of the booking provider tag
             public var name: String?
             /// Perform lookup by multiple IDs (maximum 50)
@@ -1319,7 +1320,7 @@ public extension APIs {
             return await getReq(Models.Crm.BookingResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func bookingsGetList
-        public struct BookingsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -1350,7 +1351,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Crm.BookingResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func bookingsGetContactList
-        public struct BookingsGetContactListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingsGetContactListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1371,7 +1372,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.BookingResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func bookingsGetList2
-        public struct BookingsGetList2Query: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingsGetList2Query: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -1410,7 +1411,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.BookingContactResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func bookingsGetContactList2
-        public struct BookingsGetContactList2Query: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BookingsGetContactList2Query: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1439,7 +1440,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func contactMethodsGetContactMethods
-        public struct ContactMethodsGetContactMethodsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactMethodsGetContactMethodsQuery: URLQueryConvertible {
             /// Filters by reference ID
             public var referenceId: String?
             /// Filters by contact method type
@@ -1508,7 +1509,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.ContactResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func contactsGetByRelationshipId
-        public struct ContactsGetByRelationshipIdQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactsGetByRelationshipIdQuery: URLQueryConvertible {
             /// Filters by contact name
             public var name: String?
             /// Filters by contact title
@@ -1543,7 +1544,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Crm.ContactResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func contactsGetList
-        public struct ContactsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactsGetListQuery: URLQueryConvertible {
             /// Filters by contact name
             public var name: String?
             /// Filters by contact title
@@ -1590,7 +1591,7 @@ public extension APIs {
             return await bodiedRawReqNoResponse(endpoint: endpoint, body: Data(), method: "POST")
         }
         /// Query Parameters for func contactsGetContactRelationshipList
-        public struct ContactsGetContactRelationshipListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactsGetContactRelationshipListQuery: URLQueryConvertible {
             /// Format - int64. Filters by related entity id
             public var relatedEntityId: Int64?
             /// Relationship type slug: customer, location, booking
@@ -1627,7 +1628,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.CustomerResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func customersGetList
-        public struct CustomersGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomersGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1689,7 +1690,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.CreatedCustomerResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func customersGetNotes
-        public struct CustomersGetNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomersGetNotesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1718,7 +1719,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func customersGetContactList
-        public struct CustomersGetContactListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomersGetContactListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1743,7 +1744,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.CustomerContactWithModifiedOnResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func customersGetModifiedContactsList
-        public struct CustomersGetModifiedContactsListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomersGetModifiedContactsListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1782,7 +1783,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func exportBookingsGet
-        public struct ExportBookingsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportBookingsGetQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1796,7 +1797,7 @@ public extension APIs {
             return await getReq(Models.Crm.ExportBookingResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportContactsCustomersContacts
-        public struct ExportContactsCustomersContactsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportContactsCustomersContactsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1810,7 +1811,7 @@ public extension APIs {
             return await getReq(Models.Crm.ExportCustomerContactResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportContactsLocationsContacts
-        public struct ExportContactsLocationsContactsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportContactsLocationsContactsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1824,7 +1825,7 @@ public extension APIs {
             return await getReq(Models.Crm.ExportLocationContactResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportCustomersGetCustomers
-        public struct ExportCustomersGetCustomersQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCustomersGetCustomersQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1838,7 +1839,7 @@ public extension APIs {
             return await getReq(Models.Crm.ExportCustomerResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportLeadsLeads
-        public struct ExportLeadsLeadsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLeadsLeadsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1852,7 +1853,7 @@ public extension APIs {
             return await getReq(Models.Crm.ExportLeadsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportLocationsLocations
-        public struct ExportLocationsLocationsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationsLocationsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1874,7 +1875,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.LeadResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func leadsGetList
-        public struct LeadsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1942,7 +1943,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.FollowUpResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func leadsGetNotes
-        public struct LeadsGetNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadsGetNotesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1971,7 +1972,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func leadsSubmitLeadForm
-        public struct LeadsSubmitLeadFormQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LeadsSubmitLeadFormQuery: URLQueryConvertible {
             /// Format - int64.
             public var id: Int64
         }
@@ -1992,7 +1993,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.CreateLocationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func locationsGetList
-        public struct LocationsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters by customer's name
@@ -2050,7 +2051,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Crm.LocationResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func locationsGetNotes
-        public struct LocationsGetNotesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationsGetNotesQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -2079,7 +2080,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func locationsGetContactList
-        public struct LocationsGetContactListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationsGetContactListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -2096,7 +2097,7 @@ public extension APIs {
             return await bodiedReq(Models.Crm.LocationContactResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func locationsGetLocationsContactsList
-        public struct LocationsGetLocationsContactsListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationsGetLocationsContactsListQuery: URLQueryConvertible {
             /// Format - int32.
             public var page: Int32?
             /// Format - int32.

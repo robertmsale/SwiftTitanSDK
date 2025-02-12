@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct SchedulingPro {
         
-        public struct SchedulerResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SchedulerResponse: Codable, Identifiable {
             /// Scheduler ID
             public var id: String
             /// Scheduler name
@@ -28,7 +29,7 @@ public extension Models {
             public var isDefault: Bool
         }
         
-        public struct SchedulerSessionResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SchedulerSessionResponse: Codable, Identifiable {
             /// Session ID
             public var id: String
             /// When this session was created
@@ -65,7 +66,7 @@ public extension Models {
             public var sourceTracking: SourceTracking
         }
         
-        public struct Customer: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Customer: Codable {
             /// Whether this is a new customer
             public var isNewCustomer: Bool
             /// Customer ID
@@ -84,7 +85,7 @@ public extension Models {
             public var address: Address
         }
         
-        public struct Address: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct Address: Codable {
             /// Street
             public var street: String?
             /// Unit
@@ -99,7 +100,7 @@ public extension Models {
             public var country: String?
         }
         
-        public struct SourceTracking: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SourceTracking: Codable {
             /// Whether the session came from Reserve with Google
             public var isRWGSession: Bool?
             /// Campaign ID
@@ -135,7 +136,7 @@ public extension APIs {
             super.init(sdk, apiName: "schedulingpro")
         }
         /// Query Parameters for func schedulerSchedulers
-        public struct SchedulerSchedulersQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SchedulerSchedulersQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
             public var createdBefore: Date?
             /// Format - date-time (as date-time in RFC3339). Return items created on or after certain date/time (in UTC)
@@ -156,7 +157,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.SchedulingPro.SchedulerResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func schedulerSchedulerSessions
-        public struct SchedulerSchedulerSessionsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SchedulerSchedulerSessionsQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
             public var createdBefore: Date?
             /// Format - date-time (as date-time in RFC3339). Return items created on or after certain date/time (in UTC)

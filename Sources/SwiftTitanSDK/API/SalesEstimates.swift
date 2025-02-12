@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct SalesEstimates {
         
-        public struct EstimateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimateResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -54,7 +55,7 @@ public extension Models {
             public var businessUnitName: String?
         }
         
-        public struct EstimateStatusModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimateStatusModel: Codable {
             
             public var value: Int32
             
@@ -65,7 +66,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct EstimateItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimateItemResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -98,7 +99,7 @@ public extension Models {
             public var chargeable: Bool?
         }
         
-        public struct SkuModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -117,7 +118,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct ExternalLinkResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalLinkResponse: Codable {
             
             public var name: String
             
@@ -128,7 +129,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateEstimateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateEstimateRequest: Codable {
             
             public var name: String?
             
@@ -159,7 +160,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct EstimateItemCreateUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimateItemCreateUpdateRequest: Codable {
             
             public var id: Int64?
             
@@ -188,14 +189,14 @@ public extension Models {
             public var useDefaultProjectLabels: Bool?
         }
         
-        public struct ExternalLinkInModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalLinkInModel: Codable {
             
             public var name: String?
             
             public var url: String?
         }
         
-        public struct UpdateEstimateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateEstimateRequest: Codable {
             
             public var name: String?
             
@@ -216,12 +217,12 @@ public extension Models {
             public var useDefaultProjectLabels: Bool?
         }
         
-        public struct SellRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SellRequest: Codable {
             
             public var soldBy: Int64
         }
         
-        public struct EstimateItemUpdateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimateItemUpdateResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -256,7 +257,7 @@ public extension Models {
             public var estimateId: Int64
         }
         
-        public struct ExportEstimatesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportEstimatesResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -316,7 +317,7 @@ public extension APIs {
             return await bodiedReq(Models.SalesEstimates.EstimateResponse.self, endpoint: endpoint, body: body, method: "PUT")
         }
         /// Query Parameters for func estimatesGetList
-        public struct EstimatesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimatesGetListQuery: URLQueryConvertible {
             /// Format - int64.
             public var jobId: Int64?
             /// Format - int64.
@@ -368,7 +369,7 @@ public extension APIs {
             return await bodiedReq(Models.SalesEstimates.EstimateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func estimatesGetItems
-        public struct EstimatesGetItemsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimatesGetItemsQuery: URLQueryConvertible {
             /// Format - int64.
             public var estimateId: Int64?
             /// Perform lookup by multiple IDs (maximum 50)
@@ -412,7 +413,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func estimatesExportEstimates
-        public struct EstimatesExportEstimatesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EstimatesExportEstimatesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.

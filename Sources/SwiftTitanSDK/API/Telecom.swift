@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Telecom {
         
-        public struct CallResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -24,7 +25,7 @@ public extension Models {
             public var leadCall: CallModelResponse
         }
         
-        public struct CallModelResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallModelResponse: Codable, Identifiable {
             
             public var createdOn: Date
             
@@ -67,12 +68,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// List of opt-outs
-        public struct OptOutListResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct OptOutListResponse: Codable {
             /// The list of opt-out responses.
             public var data: OptOutResponse
         }
         /// Single contact number opt-out status
-        public struct OptOutResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct OptOutResponse: Codable {
             /// Contact number in E.164 format
             public var contactNumber: String
             /// Opt-out type
@@ -83,17 +84,17 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// List of phone numbers to get opt-out status for
-        public struct GetOptOutListRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GetOptOutListRequest: Codable {
             /// Contact numbers (must be valid parseable phone numbers, E.164 format is recommended)
             public var contactNumbers: String
         }
         /// Result of creating the opt-outs
-        public struct CreateOptOutListResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateOptOutListResponse: Codable {
             /// Individual results for each number
             public var data: CreateOptOutResponse
         }
         /// Result of creating a single opt-out
-        public struct CreateOptOutResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateOptOutResponse: Codable {
             /// Contact number in E.164 format
             public var contactNumber: String
             /// Result of opt-out creation
@@ -104,14 +105,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// List of phone numbers to create the opt-out status for
-        public struct CreateOptOutListRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateOptOutListRequest: Codable {
             /// Type of opt-out to create
             public var optOutType: OptOutType
             /// Contact numbers (must be valid parseable phone numbers, E.164 format is recommended)
             public var contactNumbers: String
         }
         
-        public struct DetailedBundleCallModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DetailedBundleCallModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -126,7 +127,7 @@ public extension Models {
             public var leadCall: DetailedCallModel
         }
         
-        public struct BusinessUnitModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -171,7 +172,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct BusinessUnitAddressModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitAddressModel: Codable {
             
             public var street: String
             
@@ -186,7 +187,7 @@ public extension Models {
             public var country: String
         }
         
-        public struct BusinessUnitTenantModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitTenantModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -203,7 +204,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct JobTypeModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobTypeModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -212,7 +213,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct DetailedCallModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DetailedCallModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -253,7 +254,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CallReasonModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallReasonModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -264,14 +265,14 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct NamedModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NamedModel: Codable, Identifiable {
             
             public var id: Int64
             
             public var name: String
         }
         
-        public struct CustomerModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -312,7 +313,7 @@ public extension Models {
             public var phoneSettings: CustomerPhoneModel
         }
         
-        public struct AddressOutput: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressOutput: Codable {
             
             public var street: String
             
@@ -337,7 +338,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ContactOutputModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactOutputModel: Codable {
             
             public var id: Int64?
             
@@ -352,7 +353,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct MembershipModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -369,7 +370,7 @@ public extension Models {
             public var locationId: Int64
         }
         
-        public struct MembershipTypeModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypeModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -378,7 +379,7 @@ public extension Models {
             public var name: String
         }
         
-        public struct CustomFieldApiModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldApiModel: Codable {
             
             public var typeId: Int64
             
@@ -387,14 +388,14 @@ public extension Models {
             public var value: String
         }
         
-        public struct CustomerPhoneModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerPhoneModel: Codable {
             
             public var phoneNumber: String
             
             public var doNotText: Bool
         }
         
-        public struct CampaignModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -421,7 +422,7 @@ public extension Models {
             public var dnis: String?
         }
         
-        public struct CampaignCategoryModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCategoryModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -430,7 +431,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct CallAgentModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallAgentModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -439,7 +440,7 @@ public extension Models {
             public var externalId: Int64?
         }
         
-        public struct BundleCallModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BundleCallModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -454,7 +455,7 @@ public extension Models {
             public var leadCall: CallModel
         }
         
-        public struct CallModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -491,7 +492,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct CallInUpdateModelV2: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallInUpdateModelV2: Codable {
             
             public var callId: Int64?
             
@@ -512,14 +513,14 @@ public extension Models {
             public var location: LocationInModel
         }
         
-        public struct ReasonInModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReasonInModel: Codable {
             
             public var name: String
             
             public var lead: Bool
         }
         
-        public struct CustomerInModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerInModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -530,7 +531,7 @@ public extension Models {
             public var contacts: ContactInputModel
         }
         
-        public struct AddressInput: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressInput: Codable {
             
             public var street: String
             
@@ -549,7 +550,7 @@ public extension Models {
             public var longitude: Double?
         }
         
-        public struct ContactInputModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ContactInputModel: Codable {
             
             public var id: Int64?
             
@@ -560,7 +561,7 @@ public extension Models {
             public var memo: String
         }
         
-        public struct LocationInModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationInModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -571,7 +572,7 @@ public extension Models {
             public var contacts: ContactInputModel
         }
         
-        public struct ExportCallResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCallResponse: Codable, Identifiable {
             /// The ID of the call
             public var id: Int64
             /// The duration of the call
@@ -622,7 +623,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct JobModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobModel: Codable, Identifiable {
             /// The ID of the job
             public var id: Int64
             /// Human readable number of the job
@@ -636,7 +637,7 @@ public extension APIs {
             super.init(sdk, apiName: "telecom")
         }
         /// Query Parameters for func callsCalls
-        public struct CallsCallsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallsCallsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -705,7 +706,7 @@ public extension APIs {
             return await bodiedReq(Models.Telecom.DetailedCallModel.self, endpoint: endpoint, body: body, method: "PUT")
         }
         /// Query Parameters for func callsGetCalls
-        public struct CallsGetCallsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CallsGetCallsQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). Modified before a certain date/time (as date-time in RFC3339), not inclusive
             public var modifiedBefore: Date?
             /// Format - date-time (as date-time in RFC3339). Modified on or after a certain date/time (as date-time in RFC3339), inclusive
@@ -746,7 +747,7 @@ public extension APIs {
             let endpoint = "/telecom/v2/tenant/\(tenant)/calls"
             return await getReq(Models.PaginatedResponse<Models.Telecom.BundleCallModel>.self, endpoint: endpoint, params: query)
         }
-        public struct EmptyQuery: URLQueryConvertible {}
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmptyQuery: URLQueryConvertible {}
         public func callsGetRecording(id: Int64, tenant: Int64) async -> Result<Data, APIError> {
             let endpoint = "/telecom/v2/tenant/\(tenant)/calls/\(id)/recording"
             return await getRawReq(endpoint: endpoint, params: EmptyQuery())
@@ -756,7 +757,7 @@ public extension APIs {
             return await getRawReq(endpoint: endpoint, params: EmptyQuery())
         }
         /// Query Parameters for func exportCalls
-        public struct ExportCallsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCallsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Marketing {
         
-        public struct CampaignCategoryResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCategoryResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -26,24 +27,24 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Default response when creating object with a new ID, or updating object by specified ID.
-        public struct ModificationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ModificationResponse: Codable, Identifiable {
             /// The ID of created/updated object
             public var id: Int64
         }
         
-        public struct CampaignCategoryUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCategoryUpdateRequest: Codable {
             
             public var name: String
             
             public var active: Bool?
         }
         
-        public struct CampaignCategoryCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCategoryCreateRequest: Codable {
             
             public var name: String
         }
         
-        public struct CampaignCostResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCostResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -56,7 +57,7 @@ public extension Models {
             public var campaignId: Int64
         }
         
-        public struct CreateCampaignCostRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateCampaignCostRequest: Codable {
             
             public var campaignId: Int64
             
@@ -67,12 +68,12 @@ public extension Models {
             public var dailyCost: Double
         }
         
-        public struct UpdateCampaignCostRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateCampaignCostRequest: Codable {
             
             public var dailyCost: Double
         }
         
-        public struct CampaignResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -99,7 +100,7 @@ public extension Models {
             public var campaignPhoneNumbers: String?
         }
         
-        public struct CampaignResponseCategory: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignResponseCategory: Codable, Identifiable {
             
             public var id: Int64
             
@@ -112,7 +113,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CampaignUpsertRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignUpsertRequest: Codable {
             
             public var name: String
             
@@ -133,7 +134,7 @@ public extension Models {
             public var otherMedium: String?
         }
         
-        public struct SuppressionResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SuppressionResponse: Codable {
             
             public var email: String
             
@@ -144,12 +145,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct RemoveSuppressionsRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RemoveSuppressionsRequest: Codable {
             /// Email addresses to remove from the suppression list, max items: 1000
             public var emails: String
         }
         
-        public struct AddSuppressionsRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddSuppressionsRequest: Codable {
             /// Email addresses to add to the suppression list, max items: 1000
             public var emails: String
             
@@ -163,7 +164,7 @@ public extension APIs {
             super.init(sdk, apiName: "marketing")
         }
         /// Query Parameters for func campaignCategoriesGetList
-        public struct CampaignCategoriesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCategoriesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -198,7 +199,7 @@ public extension APIs {
             return await bodiedReq(Models.Marketing.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func campaignCostsGetList
-        public struct CampaignCostsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignCostsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -235,7 +236,7 @@ public extension APIs {
             return await bodiedReq(Models.Marketing.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func campaignsGetList
-        public struct CampaignsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -283,7 +284,7 @@ public extension APIs {
             return await bodiedReq(Models.Marketing.CampaignResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func campaignsGetCosts
-        public struct CampaignsGetCostsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CampaignsGetCostsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -306,7 +307,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Marketing.CampaignCostResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func suppressionsGetList
-        public struct SuppressionsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SuppressionsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)

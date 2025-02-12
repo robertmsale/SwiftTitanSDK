@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct EquipmentSystems {
         
-        public struct InstalledEquipmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -58,7 +59,7 @@ public extension Models {
             public var predictedReplacementDate: String?
         }
         
-        public struct TagResponseModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TagResponseModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -77,7 +78,7 @@ public extension Models {
             public var code: String?
         }
         
-        public struct InstalledEquipmentDetailedResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentDetailedResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -130,7 +131,7 @@ public extension Models {
             public var attachments: AttachmentApiModel?
         }
         
-        public struct CustomFieldResponseModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldResponseModel: Codable, Identifiable {
             
             public var id: Int64
             
@@ -141,7 +142,7 @@ public extension Models {
             public var value: String?
         }
         
-        public struct AttachmentApiModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AttachmentApiModel: Codable {
             /// Attachment Alias
             public var alias: String?
             /// Attachment file name when downloaded
@@ -156,7 +157,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct InstalledEquipmentCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentCreateRequest: Codable {
             
             public var locationId: Int64
             
@@ -193,7 +194,7 @@ public extension Models {
             public var tagTypeIds: Int64?
         }
         
-        public struct CustomFieldRequestModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldRequestModel: Codable {
             
             public var id: Int64?
             
@@ -202,7 +203,7 @@ public extension Models {
             public var value: String?
         }
         
-        public struct InstalledEquipmentUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentUpdateRequest: Codable {
             
             public var name: String
             
@@ -237,11 +238,11 @@ public extension Models {
             public var tagTypeIds: Int64
         }
         
-        public struct AttachmentUploadResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AttachmentUploadResponse: Codable {
             public var path: String
         }
         
-        public struct AttachmentUploadRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AttachmentUploadRequest: Codable {
             public var file: String
         }
     }
@@ -252,7 +253,7 @@ public extension APIs {
             super.init(sdk, apiName: "equipmentsystems")
         }
         /// Query Parameters for func installedEquipmentGetList
-        public struct InstalledEquipmentGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentGetListQuery: URLQueryConvertible {
             public var locationIds: String?
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
@@ -298,7 +299,7 @@ public extension APIs {
             return await bodiedReq(Models.EquipmentSystems.AttachmentUploadResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func installedEquipmentGet2
-        public struct InstalledEquipmentGet2Query: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InstalledEquipmentGet2Query: URLQueryConvertible {
             public var path: String
         }
         public func installedEquipmentGet2(tenant: Int64, query: InstalledEquipmentGet2Query? = nil) async -> Result<Data, APIError> {

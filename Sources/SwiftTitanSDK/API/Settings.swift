@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Settings {
         
-        public struct EmployeeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeResponse: Codable, Identifiable {
             /// ID of the employee
             public var id: Int64
             /// ID of the user that belongs to the employee
@@ -47,7 +48,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct EmployeeCustomFieldResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeCustomFieldResponse: Codable {
             
             public var typeId: Int64
             
@@ -56,7 +57,7 @@ public extension Models {
             public var value: String?
         }
         
-        public struct EmployeePermissionResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeePermissionResponse: Codable, Identifiable {
             
             public var id: Int32
             
@@ -67,12 +68,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct EmployeeCreateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeCreateResponse: Codable, Identifiable {
             /// Employee Id
             public var id: Int64
         }
         
-        public struct EmployeeCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeCreateRequest: Codable {
             /// Employee name
             public var name: String
             /// Mobile phone
@@ -107,19 +108,19 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct EmployeeCustomFieldCreateOrUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeCustomFieldCreateOrUpdateRequest: Codable {
             
             public var typeId: Int64
             
             public var value: String?
         }
         
-        public struct EmployeeUpdateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeUpdateResponse: Codable, Identifiable {
             /// Employee Id
             public var id: Int64
         }
         
-        public struct EmployeeUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeUpdateRequest: Codable {
             /// Employee name
             public var name: String
             /// Mobile phone
@@ -142,7 +143,7 @@ public extension Models {
             public var customFields: EmployeeCustomFieldCreateOrUpdateRequest
         }
         
-        public struct AccountActionResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AccountActionResponse: Codable {
             /// Status
             public var status: AccountActionStatus
         }
@@ -151,7 +152,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct AccountActionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AccountActionRequest: Codable {
             /// Action name
             public var action: AccountAction
         }
@@ -160,7 +161,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportEmployeeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportEmployeeResponse: Codable, Identifiable {
             /// ID of the employee
             public var id: Int64
             /// ID of the user that belongs to the employee
@@ -194,7 +195,7 @@ public extension Models {
             public var permissions: EmployeePermissionResponse?
         }
         
-        public struct ExportTechnicianResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTechnicianResponse: Codable, Identifiable {
             /// ID of the technician
             public var id: Int64
             /// ID of the user that belongs to the technician
@@ -241,7 +242,7 @@ public extension Models {
             public var permissions: TechnicianPermissionResponse?
         }
         
-        public struct TechnicianAddressResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianAddressResponse: Codable {
             
             public var street: String?
             
@@ -262,7 +263,7 @@ public extension Models {
             public var longitude: Double?
         }
         
-        public struct TechnicianCustomFieldResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianCustomFieldResponse: Codable {
             
             public var typeId: Int64
             
@@ -275,14 +276,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TechnicianPermissionResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianPermissionResponse: Codable, Identifiable {
             
             public var id: Int32
             
             public var value: String?
         }
         
-        public struct TechnicianResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianResponse: Codable, Identifiable {
             /// ID of the technician
             public var id: Int64
             /// ID of the user that belongs to the technician
@@ -329,12 +330,12 @@ public extension Models {
             public var permissions: TechnicianPermissionResponse?
         }
         
-        public struct TechnicianCreateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianCreateResponse: Codable, Identifiable {
             /// Technician Id
             public var id: Int64
         }
         
-        public struct TechnicianCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianCreateRequest: Codable {
             /// Technician name
             public var name: String
             /// Technician's phone number
@@ -389,7 +390,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateOrUpdateAddressRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateOrUpdateAddressRequest: Codable {
             
             public var unit: String?
             
@@ -408,19 +409,19 @@ public extension Models {
             public var longitude: Double?
         }
         
-        public struct TechnicianCustomFieldCreateOrUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianCustomFieldCreateOrUpdateRequest: Codable {
             
             public var typeId: Int64
             
             public var value: String?
         }
         
-        public struct TechnicianUpdateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianUpdateResponse: Codable, Identifiable {
             /// Technician Id
             public var id: Int64
         }
         
-        public struct TechnicianUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianUpdateRequest: Codable {
             /// Technician name
             public var name: String
             /// Technician's phone number
@@ -459,7 +460,7 @@ public extension Models {
             public var customFields: TechnicianCustomFieldCreateOrUpdateRequest
         }
         
-        public struct TechnicianAccountActionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianAccountActionRequest: Codable {
             /// Action name
             public var action: AccountAction
             /// License type to assign to a technician, it is required for AccountAction = Activate
@@ -472,7 +473,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct UserRoleResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UserRoleResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -493,7 +494,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct BusinessUnitResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -543,7 +544,7 @@ public extension Models {
             public var externalData: ExternalDataModel?
         }
         
-        public struct BusinessUnitAddressResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitAddressResponse: Codable {
             
             public var street: String?
             
@@ -558,7 +559,7 @@ public extension Models {
             public var country: String?
         }
         
-        public struct BusinessUnitTenantResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitTenantResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -573,25 +574,25 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct ExternalDataModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String
         }
         /// Default response when creating object with a new ID, or updating object by specified ID.
-        public struct ModificationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ModificationResponse: Codable, Identifiable {
             /// The ID of created/updated object
             public var id: Int64
         }
         
-        public struct UpdateBusinessUnitRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateBusinessUnitRequest: Codable {
             /// Optional model that contains a list of external data items
             /// that should be attached to this business unit.
             public var externalData: ExternalDataUpdateRequest
         }
         
-        public struct ExternalDataUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateRequest: Codable {
             /// External data patch mode.\
             /// "Replace" (default) replaces all existing keys with new values. If job A has custom data with keys X and Y and this field only contains an item
             /// with a key X, then custom data with a key Y on job A will be removed.\
@@ -608,14 +609,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String?
         }
         
-        public struct ExportBusinessUnitResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportBusinessUnitResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -665,7 +666,7 @@ public extension Models {
             public var externalData: ExternalDataModel?
         }
         
-        public struct ExportTagTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTagTypeResponse: Codable, Identifiable {
             /// ID of the tag type
             public var id: Int64
             /// Name of the tag type
@@ -690,7 +691,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TagTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TagTypeResponse: Codable, Identifiable {
             /// ID of the tag type
             public var id: Int64
             /// Name of the tag type
@@ -718,7 +719,7 @@ public extension APIs {
             super.init(sdk, apiName: "settings")
         }
         /// Query Parameters for func employeesGetList
-        public struct EmployeesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Perform lookup by multiple User Ids (maximum 50)
@@ -764,7 +765,7 @@ public extension APIs {
             return await bodiedReq(Models.Settings.AccountActionResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func exportEmployees
-        public struct ExportEmployeesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportEmployeesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -778,7 +779,7 @@ public extension APIs {
             return await getReq(Models.Settings.ExportEmployeeResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportTechnicians
-        public struct ExportTechniciansQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTechniciansQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -792,7 +793,7 @@ public extension APIs {
             return await getReq(Models.Settings.ExportTechnicianResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func techniciansGetList
-        public struct TechniciansGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechniciansGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Perform lookup by multiple User Ids (maximum 50)
@@ -838,7 +839,7 @@ public extension APIs {
             return await bodiedReq(Models.Settings.AccountActionResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func userRolesGetList
-        public struct UserRolesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UserRolesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters records by name (case-insensitive "contains" operation)
@@ -865,7 +866,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Settings.UserRoleResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func businessUnitsGetList
-        public struct BusinessUnitsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters records by name (case-insensitive "contains" operation)
@@ -896,7 +897,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Settings.BusinessUnitResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func businessUnitsGet
-        public struct BusinessUnitsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessUnitsGetQuery: URLQueryConvertible {
             /// Format - guid.
             public var externalDataApplicationGuid: String?
         }
@@ -909,7 +910,7 @@ public extension APIs {
             return await bodiedReq(Models.Settings.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func exportBusinessUnits
-        public struct ExportBusinessUnitsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportBusinessUnitsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -923,7 +924,7 @@ public extension APIs {
             return await getReq(Models.Settings.ExportBusinessUnitResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportTagTypes
-        public struct ExportTagTypesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTagTypesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -937,7 +938,7 @@ public extension APIs {
             return await getReq(Models.Settings.ExportTagTypeResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func tagTypesGetList
-        public struct TagTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TagTypesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)

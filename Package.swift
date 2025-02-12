@@ -16,6 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "600.0.0-latest"),
+        .package(url: "https://github.com/gohanlon/swift-memberwise-init-macro", .upToNextMajor(from: "0.5.1")),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -31,7 +32,10 @@ let package = Package(
 
         // Library that exposes a macro as part of its API, which is used in client programs.
         .target(name: "SwiftTitanSDKHelper", dependencies: ["SwiftTitanSDKMacros"]),
-        .target(name: "SwiftTitanSDK", dependencies: ["SwiftTitanSDKHelper"]),
+        .target(name: "SwiftTitanSDK", dependencies: [
+            "SwiftTitanSDKHelper",
+            .product(name: "MemberwiseInit", package: "swift-memberwise-init-macro"),
+        ]),
 
         // A client of the library, which is able to use the macro in its own code.
         .executableTarget(name: "SwiftTitanSDKClient", dependencies: ["SwiftTitanSDK"]),

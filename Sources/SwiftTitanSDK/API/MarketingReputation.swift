@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct MarketingReputation {
         public enum JobStatus: Int32, CaseIterable, Identifiable, Codable {
@@ -25,7 +26,7 @@ public extension Models {
             public var id: Int32 { rawValue }
         }
         
-        public struct ReviewReport: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReviewReport: Codable {
             
             public var address: String?
             
@@ -85,7 +86,7 @@ public extension APIs {
             super.init(sdk, apiName: "marketingreputation")
         }
         /// Query Parameters for func reviews
-        public struct ReviewsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReviewsQuery: URLQueryConvertible {
             /// Format - int32.
             public var page: Int32?
             /// Format - int32.

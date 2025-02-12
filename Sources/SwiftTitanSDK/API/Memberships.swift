@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Memberships {
         
-        public struct CustomerMembershipResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerMembershipResponse: Codable, Identifiable {
             /// Customer membership ID
             public var id: Int64
             /// When customer membership was created
@@ -98,7 +99,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CustomFieldResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldResponse: Codable {
             /// Custom field type id
             public var typeId: Int64
             /// Custom field name
@@ -111,7 +112,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CustomFieldTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldTypeResponse: Codable, Identifiable {
             /// The ID of the custom field.
             public var id: Int64
             /// The name of the custom field.
@@ -130,7 +131,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CustomerMembershipStatusChangeItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerMembershipStatusChangeItemResponse: Codable, Identifiable {
             /// ID of the status change record
             public var id: Int64
             /// Previous status value
@@ -145,12 +146,12 @@ public extension Models {
             public var createdById: Int64?
         }
         /// Default response when creating object with a new ID, or updating object by specified ID.
-        public struct ModificationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ModificationResponse: Codable, Identifiable {
             /// The ID of created/updated object
             public var id: Int64
         }
         
-        public struct CustomerMembershipUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerMembershipUpdateRequest: Codable {
             /// ID of the Business Unit associated with this membership
             public var businessUnitId: Int64
             /// Next date that this membership will be billed on
@@ -199,14 +200,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct MembershipSaleInvoiceCreateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipSaleInvoiceCreateResponse: Codable {
             /// ID of sale invoice created
             public var invoiceId: Int64
             /// ID of customer membership that was created
             public var customerMembershipId: Int64
         }
         
-        public struct MembershipSaleInvoiceCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipSaleInvoiceCreateRequest: Codable {
             /// ID of the customer you are creating the Membership Sale Invoice for
             public var customerId: Int64
             /// Business unit ID
@@ -224,7 +225,7 @@ public extension Models {
             public var recurringLocationId: Int64?
         }
         
-        public struct ExportMembershipTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportMembershipTypeResponse: Codable, Identifiable {
             /// Membership type ID
             public var id: Int64
             /// When membership type was created
@@ -267,7 +268,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportRecurringServiceTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportRecurringServiceTypeResponse: Codable, Identifiable {
             /// Recurring service type ID
             public var id: Int64
             /// When recurring service type was created
@@ -322,7 +323,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportCustomerMembershipResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCustomerMembershipResponse: Codable, Identifiable {
             /// Customer membership ID
             public var id: Int64
             /// When customer membership was created
@@ -399,7 +400,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         
-        public struct ExportInvoiceTemplateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoiceTemplateResponse: Codable, Identifiable {
             /// Invoice template ID
             public var id: Int64
             /// Invoice template name (used only for shared invoice templates)
@@ -422,7 +423,7 @@ public extension Models {
             public var items: InvoiceTemplateItemResponse
         }
         
-        public struct InvoiceTemplateItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateItemResponse: Codable, Identifiable {
             /// Invoice template item ID
             public var id: Int64
             /// Linked SKU ID
@@ -451,7 +452,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportLocationRecurringServiceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationRecurringServiceResponse: Codable, Identifiable {
             /// Recurring service ID
             public var id: Int64
             /// Recurring service name
@@ -535,7 +536,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExportLocationRecurringServiceEventResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationRecurringServiceEventResponse: Codable, Identifiable {
             /// Recurring service event ID
             public var id: Int64
             /// Recurring service ID
@@ -563,7 +564,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ExportCustomerMembershipStatusChangesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportCustomerMembershipStatusChangesResponse: Codable, Identifiable {
             /// ID of the status change record
             public var id: Int64
             /// Previous status value
@@ -580,7 +581,7 @@ public extension Models {
             public var membershipId: Int64
         }
         
-        public struct InvoiceTemplateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateResponse: Codable, Identifiable {
             /// Invoice template ID
             public var id: Int64
             /// Invoice template name (used only for shared invoice templates)
@@ -603,12 +604,12 @@ public extension Models {
             public var items: InvoiceTemplateItemResponse
         }
         
-        public struct InvoiceTemplateCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateCreateRequest: Codable {
             /// Invoice template items
             public var items: InvoiceTemplateItemCreateRequest?
         }
         
-        public struct InvoiceTemplateItemCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateItemCreateRequest: Codable {
             /// Linked SKU ID
             public var skuId: Int64
             /// Quantity
@@ -627,7 +628,7 @@ public extension Models {
             public var hours: Double?
         }
         
-        public struct InvoiceTemplateUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateUpdateRequest: Codable {
             /// Invoice template name (used only for shared invoice templates)
             public var name: String
             /// Invoice template creation date
@@ -640,7 +641,7 @@ public extension Models {
             public var items: [InvoiceTemplateItemUpdateRequest]
         }
         
-        public struct InvoiceTemplateItemUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplateItemUpdateRequest: Codable {
             /// Invoice template item ID
             public var id: Int64?
             /// Linked SKU ID
@@ -659,7 +660,7 @@ public extension Models {
             public var hours: Double?
         }
         
-        public struct LocationRecurringServiceEventResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationRecurringServiceEventResponse: Codable, Identifiable {
             /// Recurring service event ID
             public var id: Int64
             /// Recurring service ID
@@ -685,12 +686,12 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct MarkEventCompletedStatusUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkEventCompletedStatusUpdateRequest: Codable {
             /// The job ID that the event is marked as completed/incompleted on
             public var jobId: Int64
         }
         
-        public struct LocationRecurringServiceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationRecurringServiceResponse: Codable, Identifiable {
             /// Recurring service ID
             public var id: Int64
             /// Recurring service name
@@ -766,7 +767,7 @@ public extension Models {
             public var estimatedPayrollCost: Double?
         }
         
-        public struct LocationRecurringServiceUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationRecurringServiceUpdateRequest: Codable {
             /// Recurring service name
             public var name: String
             /// Whether recurring service is active
@@ -817,7 +818,7 @@ public extension Models {
             public var estimatedPayrollCost: Double?
         }
         
-        public struct MembershipTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypeResponse: Codable, Identifiable {
             /// Membership type name
             public var name: String
             /// Whether membership type is active
@@ -848,7 +849,7 @@ public extension Models {
             public var billingTemplateId: Int64?
         }
         
-        public struct MembershipTypeRecurringServiceItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypeRecurringServiceItemResponse: Codable, Identifiable {
             /// ID of the recurring service item
             public var id: Int64
             /// Membership type ID associated with the item
@@ -873,7 +874,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct MembershipTypeDiscountItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypeDiscountItemResponse: Codable, Identifiable {
             /// ID of the discount item
             public var id: Int64
             /// ID of the discount's target, which can be either a business unit or pricebook category
@@ -886,7 +887,7 @@ public extension Models {
             public var createdById: Int64?
         }
         
-        public struct MembershipTypeDurationBillingItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypeDurationBillingItemResponse: Codable, Identifiable {
             /// ID of the duration/billing option
             public var id: Int64
             /// Duration of the entry
@@ -909,7 +910,7 @@ public extension Models {
             public var createdById: Int64?
         }
         
-        public struct RecurringServiceTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RecurringServiceTypeResponse: Codable, Identifiable {
             /// Recurring service type ID
             public var id: Int64
             /// When recurring service type was created
@@ -955,7 +956,7 @@ public extension APIs {
             super.init(sdk, apiName: "memberships")
         }
         /// Query Parameters for func customerMembershipsGetList
-        public struct CustomerMembershipsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerMembershipsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters by customer IDs
@@ -991,7 +992,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Memberships.CustomerMembershipResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func customerMembershipsGetCustomFields
-        public struct CustomerMembershipsGetCustomFieldsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomerMembershipsGetCustomFieldsQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1030,7 +1031,7 @@ public extension APIs {
             return await bodiedReq(Models.Memberships.MembershipSaleInvoiceCreateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func exportMembershipTypes
-        public struct ExportMembershipTypesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportMembershipTypesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1044,7 +1045,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportMembershipTypeResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportRecurringServiceTypes
-        public struct ExportRecurringServiceTypesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportRecurringServiceTypesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1058,7 +1059,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportRecurringServiceTypeResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportMemberships
-        public struct ExportMembershipsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportMembershipsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1072,7 +1073,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportCustomerMembershipResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportInvoiceTemplates
-        public struct ExportInvoiceTemplatesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoiceTemplatesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1086,7 +1087,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportInvoiceTemplateResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportLocationRecurringServices
-        public struct ExportLocationRecurringServicesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationRecurringServicesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1100,7 +1101,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportLocationRecurringServiceResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportLocationRecurringServiceEvents
-        public struct ExportLocationRecurringServiceEventsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportLocationRecurringServiceEventsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1114,7 +1115,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportLocationRecurringServiceEventResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportMembershipStatusChanges
-        public struct ExportMembershipStatusChangesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportMembershipStatusChangesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1128,7 +1129,7 @@ public extension APIs {
             return await getReq(Models.Memberships.ExportCustomerMembershipStatusChangesResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func invoiceTemplatesGetList
-        public struct InvoiceTemplatesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceTemplatesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
         }
@@ -1149,7 +1150,7 @@ public extension APIs {
             return await bodiedReq(Models.Memberships.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func locationRecurringServiceEventsGetList
-        public struct LocationRecurringServiceEventsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationRecurringServiceEventsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int64. Location ID
@@ -1183,7 +1184,7 @@ public extension APIs {
             return await bodiedReq(Models.Memberships.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func locationRecurringServicesGetList
-        public struct LocationRecurringServicesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct LocationRecurringServicesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters by customer membership IDs
@@ -1221,7 +1222,7 @@ public extension APIs {
             return await bodiedReq(Models.Memberships.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func membershipTypesGetList
-        public struct MembershipTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -1264,7 +1265,7 @@ public extension APIs {
             return await getReq(Models.Memberships.MembershipTypeDiscountItemResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func membershipTypesGetDurationBillingList
-        public struct MembershipTypesGetDurationBillingListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MembershipTypesGetDurationBillingListQuery: URLQueryConvertible {
             /// What kind of items should be returned (only active items will be returned by default)\
             /// Values: [True, Any, False]
             public var active: String?
@@ -1274,7 +1275,7 @@ public extension APIs {
             return await getReq(Models.Memberships.MembershipTypeDurationBillingItemResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func recurringServiceTypesGetList
-        public struct RecurringServiceTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RecurringServiceTypesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int64. Filters by membership type ID

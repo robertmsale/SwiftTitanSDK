@@ -6,10 +6,11 @@
 //
 
 import Foundation
-import SwiftTitanSDKHelper
+import MemberwiseInit
 public extension Models {
     struct Accounting {
-        public struct ApCreditResponse: Codable, Identifiable {
+        
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApCreditResponse: Codable, Identifiable {
             public var id: Int64
             public var inventoryReturnId: Int64?
             public var jobId: Int64?
@@ -40,12 +41,12 @@ public extension Models {
             case Pending, Posted, Exported
             public var id: String { rawValue }
         }
-        public struct BatchResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BatchResponse: Codable, Identifiable {
             public var id: Int64
             public var number: String?
             public var name: String?
         }
-        public struct NamedFieldResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NamedFieldResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
         }
@@ -53,7 +54,7 @@ public extension Models {
             case Unpaid, ReadyForApproval, Initiated, Paid, Cancelled, InTransit, Processing
             public var id: String { rawValue }
         }
-        public struct ApCreditSplitModelResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApCreditSplitModelResponse: Codable, Identifiable {
             public var id: Int64
             public var active: Bool
             public var createdOn: Date
@@ -61,15 +62,15 @@ public extension Models {
             public var vendorCreditId: Int64
             public var amount: Double
         }
-        public struct MarkApCreditAsExportedUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkApCreditAsExportedUpdateResponse: Codable {
             public var apCreditId: Int64
             public var success: Bool
             public var errorMessage: String?
         }
-        public struct MarkApCreditAsExportedUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkApCreditAsExportedUpdateRequest: Codable {
             public var apCreditId: Int64
         }
-        public struct ApPaymentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApPaymentResponse: Codable, Identifiable {
             public var id: Int64
             public var active: Bool?
             public var createdOn: Date
@@ -98,14 +99,14 @@ public extension Models {
             case Pending, Posted, Exported
             public var id: String { rawValue }
         }
-        public struct GLAccountResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GLAccountResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
             public var number: String?
             public var type: String?
             public var detailType: String?
         }
-        public struct ApPaymentSplitApiModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApPaymentSplitApiModel: Codable, Identifiable {
             public var id: Int64
             public var active: Bool?
             public var createdOn: Date
@@ -113,17 +114,17 @@ public extension Models {
             public var inventoryBillId: Int64?
             public var amount: Double
         }
-        public struct MarkApPaymentAsExportedUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkApPaymentAsExportedUpdateResponse: Codable {
             public var apPaymentId: Int64
             public var success: Bool
             public var errorMessage: String?
         }
-        public struct MarkApPaymentAsExportedUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkApPaymentAsExportedUpdateRequest: Codable {
             public var apPaymentId: Int64
             public var externalId: String?
             public var externalMessage: String?
         }
-        public struct ExportInvoiceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoiceResponse: Codable, Identifiable {
             public var id: Int64
             public var syncStatus: String?
             public var summary: String?
@@ -160,12 +161,12 @@ public extension Models {
             public var customFields: CustomFieldResponse?
             public var active: Bool
         }
-        public struct SalesTaxResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SalesTaxResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
             public var taxRate: Double
         }
-        public struct AddressResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressResponse: Codable {
             public var street: String?
             public var unit: String?
             public var city: String?
@@ -173,18 +174,18 @@ public extension Models {
             public var zip: String?
             public var country: String?
         }
-        public struct JobResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobResponse: Codable, Identifiable {
             public var id: Int64
             public var number: String?
             public var type: String?
         }
-        public struct RoyaltyResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RoyaltyResponse: Codable {
             public var status: String?
             public var date: Date?
             public var sentOn: Date?
             public var memo: String?
         }
-        public struct EmployeeInfoResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EmployeeInfoResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
             public var modifiedOn: Date
@@ -197,7 +198,7 @@ public extension Models {
             case NeedsReview, OnHold, Reviewed
             public var id: String { rawValue }
         }
-        public struct InvoiceItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceItemResponse: Codable, Identifiable {
             public var id: Int64
             public var description: String?
             public var quantity: String?
@@ -227,15 +228,15 @@ public extension Models {
             case Service, Material, Equipment, PriceModifier, Unspecified
             public var id: String { rawValue }
         }
-        public struct ItemGroupResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ItemGroupResponse: Codable {
             public var rootId: Int64
             public var name: String?
         }
-        public struct CustomFieldResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldResponse: Codable {
             public var name: String?
             public var value: String?
         }
-        public struct ExportInvoiceItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoiceItemResponse: Codable, Identifiable {
             public var id: Int64
             public var description: String?
             public var quantity: String?
@@ -263,7 +264,7 @@ public extension Models {
             public var active: Bool
             public var invoiceId: Int64
         }
-        public struct ExportPaymentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPaymentResponse: Codable, Identifiable {
             public var id: Int64
             public var syncStatus: String?
             public var referenceNumber: String?
@@ -286,7 +287,7 @@ public extension Models {
             public var createdOn: Date
             public var active: Bool
         }
-        public struct PaymentAppliedResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentAppliedResponse: Codable {
             public var appliedId: Int64
             public var appliedTo: Int64
             public var appliedAmount: String?
@@ -294,11 +295,11 @@ public extension Models {
             public var appliedBy: String?
             public var appliedToReferenceNumber: String?
         }
-        public struct CustomFieldModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldModel: Codable {
             public var name: String
             public var value: String
         }
-        public struct ExportInventoryBillResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInventoryBillResponse: Codable, Identifiable {
             public var id: Int64
             public var purchaseOrderId: Int64?
             public var syncStatus: String?
@@ -324,7 +325,7 @@ public extension Models {
             public var jobNumber: String?
             public var active: Bool
         }
-        public struct InventoryBillItemResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryBillItemResponse: Codable {
             public var order: Int32
             public var name: String?
             public var description: String?
@@ -338,7 +339,7 @@ public extension Models {
             public var skuId: Int64
             public var skuCode: String
         }
-        public struct GlAccountExtendedResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountExtendedResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
             public var number: String?
@@ -365,7 +366,7 @@ public extension Models {
             case True, any = "Any", False
             public var id: String { rawValue }
         }
-        public struct GlAccountTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountTypeResponse: Codable, Identifiable {
             public var id: Int64
             public var parentTypeId: Int64?
             public var name: String?
@@ -373,14 +374,14 @@ public extension Models {
             public var createdOn: Date
             public var modifiedOn: Date
         }
-        public struct GlAccountCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountCreateRequest: Codable {
             public var name: String?
             public var number: String?
             public var description: String?
             public var type: String?
             public var subtype: String?
         }
-        public struct GlAccountUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountUpdateRequest: Codable {
             public var name: String?
             public var number: String?
             public var description: String?
@@ -388,7 +389,7 @@ public extension Models {
             public var subtype: String?
             public var active: Bool?
         }
-        public struct InventoryBillResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryBillResponse: Codable, Identifiable {
             public var id: Int64
             public var purchaseOrderId: Int64?
             public var syncStatus: String?
@@ -421,26 +422,26 @@ public extension Models {
             case Pending, Posted, Exported, PostedAndExported
             public var id: String { rawValue }
         }
-        public struct CustomFieldUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldUpdateRequest: Codable {
             public var operations: CustomFieldOperationRequest
         }
-        public struct CustomFieldOperationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldOperationRequest: Codable {
             public var objectId: Int64
             public var customFields: CustomFieldPairRequest
         }
-        public struct CustomFieldPairRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldPairRequest: Codable {
             public var name: String
             public var value: String?
         }
-        public struct MarkInventoryBillAsExportedUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkInventoryBillAsExportedUpdateResponse: Codable {
             public var inventoryBillId: Int64
             public var success: Bool
             public var errorMessage: String?
         }
-        public struct MarkInventoryBillAsExportedUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkInventoryBillAsExportedUpdateRequest: Codable {
             public var inventoryBillIds: Int64
         }
-        public struct InvoiceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceResponse: Codable, Identifiable {
             public var id: Int64
             public var syncStatus: String?
             public var summary: String?
@@ -484,7 +485,7 @@ public extension Models {
             case Equals, NotEquals, Greater, Less
             public var id: String { rawValue }
         }
-        public struct AdjustmentInvoiceCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AdjustmentInvoiceCreateRequest: Codable {
             public var number: String?
             public var typeId: Int64?
             public var invoicedOn: Date?
@@ -505,7 +506,7 @@ public extension Models {
             case Pending, Sent, Failed
             public var id: String { rawValue }
         }
-        public struct InvoiceItemUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceItemUpdateRequest: Codable {
             public var skuId: Int64?
             public var skuName: String?
             public var technicianId: Int64?
@@ -525,7 +526,7 @@ public extension Models {
             public var durationBillingId: Int64?
             public var id: Int64?
         }
-        public struct InvoiceUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoiceUpdateRequest: Codable {
             public var number: String?
             public var typeId: Int64?
             public var invoicedOn: Date?
@@ -542,7 +543,7 @@ public extension Models {
             public var items: InvoiceItemUpdateRequest?
             public var payments: PaymentSettlementUpdateRequest?
         }
-        public struct PaymentSettlementUpdateRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentSettlementUpdateRequest: Codable, Identifiable {
             public var id: Int64
             public var settlementStatus: SettlementStatus?
             public var settlementDate: Date?
@@ -551,17 +552,17 @@ public extension Models {
             case NotSettled, Settled
             public var id: String { rawValue }
         }
-        public struct MarkInvoiceAsExportedUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkInvoiceAsExportedUpdateResponse: Codable {
             public var invoiceId: Int64
             public var success: Bool
             public var errorMessage: String?
         }
-        public struct MarkInvoiceAsExportedUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MarkInvoiceAsExportedUpdateRequest: Codable {
             public var invoiceId: Int64
             public var externalId: String?
             public var externalMessage: String?
         }
-        public struct JournalEntryResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntryResponse: Codable {
             public var id: String?
             public var createdOn: Date
             public var modifiedOn: Date
@@ -582,7 +583,7 @@ public extension Models {
             case Invoice, Payment, Bill, VendorCredit, VendorPayment, InventoryAdjustment, PaymentApplication, BankDeposit, RevenueRecognition
             public var id: String { rawValue }
         }
-        public struct JournalEntrySummaryResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntrySummaryResponse: Codable {
             public var postDate: Date?
             public var account: GeneralLedgerAccount
             public var credit: Double
@@ -590,14 +591,14 @@ public extension Models {
             public var memo: String?
             public var businessUnit: NamedFieldResponse?
         }
-        public struct GeneralLedgerAccount: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GeneralLedgerAccount: Codable, Identifiable {
             public var id: Int64
             public var number: String?
             public var name: String?
             public var type: String?
             public var subtype: String?
         }
-        public struct JournalEntryDetailsResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntryDetailsResponse: Codable {
             public var postDate: Date?
             public var account: GeneralLedgerAccount
             public var debit: Double
@@ -616,16 +617,16 @@ public extension Models {
             public var appliedTo: JournalEntryTransaction?
             public var sku: JournalEntrySku?
         }
-        public struct JournalEntryTransaction: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntryTransaction: Codable, Identifiable {
             public var id: Int64
             public var type: JournalEntryTransactionType
             public var refNumber: String?
         }
-        public struct NumberFieldResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NumberFieldResponse: Codable, Identifiable {
             public var id: Int64
             public var number: String?
         }
-        public struct JournalEntrySku: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntrySku: Codable, Identifiable {
             public var id: Int64
             public var type: JournalEntrySkuType?
             public var code: String?
@@ -634,7 +635,7 @@ public extension Models {
             case Service, Material, Equipment, PriceModifier
             public var id: String { rawValue }
         }
-        public struct JournalEntryUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntryUpdateRequest: Codable {
             public var status: JournalEntryStatus
             public var customFields: Dictionary<String, String>?
         }
@@ -642,7 +643,7 @@ public extension Models {
             case Open, Closed
             public var id: String { rawValue }
         }
-        public struct DetailedPaymentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DetailedPaymentResponse: Codable, Identifiable {
             public var id: Int64
             public var syncStatus: String?
             public var referenceNumber: String?
@@ -668,7 +669,7 @@ public extension Models {
             case Undefined, JournalEntry, ReceivePayment
             public var id: String { rawValue }
         }
-        public struct PaymentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentResponse: Codable, Identifiable {
             public var id: Int64
             public var typeId: Int64
             public var active: Bool?
@@ -689,11 +690,11 @@ public extension Models {
             case Pending, Posted, Exported
             public var id: String { rawValue }
         }
-        public struct PaymentSplitApiModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentSplitApiModel: Codable {
             public var invoiceId: Int64?
             public var amount: Double?
         }
-        public struct PaymentCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentCreateRequest: Codable {
             public var typeId: Int64
             public var memo: String?
             public var paidOn: Date?
@@ -703,7 +704,7 @@ public extension Models {
             public var status: PaymentStatus?
             public var splits: PaymentSplitApiModel
         }
-        public struct PaymentUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentUpdateRequest: Codable {
             public var typeId: Int64
             public var active: Bool
             public var memo: String
@@ -714,11 +715,11 @@ public extension Models {
             public var status: PaymentStatus
             public var splits: PaymentSplitApiModel
         }
-        public struct PaymentStatusBatchRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentStatusBatchRequest: Codable {
             public var status: PaymentStatus
             public var paymentIds: Int64
         }
-        public struct PaymentTermAPIModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentTermAPIModel: Codable {
             public var id: Int64?
             public var name: String?
             public var dueDayType: PaymentTermDueDayType
@@ -735,7 +736,7 @@ public extension Models {
             case NumberOfDays, CertainDayOfCurrentMonth, CertainDayOfFollowingMonth
             public var id: String { rawValue }
         }
-        public struct PaymentTermDiscountAPIModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentTermDiscountAPIModel: Codable {
             public var id: Int64?
             public var discountApplyTo: PaymentTermApplyTo?
             public var discount: Double?
@@ -756,7 +757,7 @@ public extension Models {
             case NumberOfDays, DayOfMonth, DayOfFollowingMonth
             public var id: String { rawValue }
         }
-        public struct InterestSettingsAPIModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InterestSettingsAPIModel: Codable {
             public var id: Int64?
             public var rateType: InterestRateType
             public var flatRateValue: Double?
@@ -784,12 +785,12 @@ public extension Models {
             case JobInvoices, MembershipInvoices, ProgressInvoices, PointOfSalesInvoices
             public var id: String { rawValue }
         }
-        public struct PaymentTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentTypeResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String
             public var modifiedOn: Date?
         }
-        public struct TaxZoneResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaxZoneResponse: Codable, Identifiable {
             public var id: Int64
             public var name: String?
             public var color: Int32?
@@ -800,7 +801,7 @@ public extension Models {
             public var modifiedOn: Date
             public var active: Bool
         }
-        public struct TaxRateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaxRateResponse: Codable {
             public var id: Int64?
             public var taxName: String?
             public var taxBaseType: TaxBaseTypeNames
@@ -819,8 +820,7 @@ public extension APIs {
             super.init(sdk, apiName: "accounting")
         }
         /// Query Parameters for func apCreditsGetList
-        @DataInit
-        public struct ApCreditsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApCreditsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -849,7 +849,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.MarkApCreditAsExportedUpdateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func apPaymentsGetList
-        public struct ApPaymentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ApPaymentsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -878,7 +878,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.MarkApPaymentAsExportedUpdateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func exportInvoices
-        public struct ExportInvoicesQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoicesQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -892,7 +892,7 @@ public extension APIs {
             return await getReq(Models.Accounting.ExportInvoiceResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportInvoiceItems
-        public struct ExportInvoiceItemsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInvoiceItemsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -906,7 +906,7 @@ public extension APIs {
             return await getReq(Models.Accounting.ExportInvoiceItemResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportPayments
-        public struct ExportPaymentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPaymentsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -920,7 +920,7 @@ public extension APIs {
             return await getReq(Models.Accounting.ExportPaymentResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportInventoryBills
-        public struct ExportInventoryBillsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportInventoryBillsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -934,7 +934,7 @@ public extension APIs {
             return await getReq(Models.Accounting.ExportInventoryBillResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func glAccountsGetList
-        public struct GlAccountsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountsGetListQuery: URLQueryConvertible {
             /// Comma-delimited list of account IDs, maximum 50 items
             public var ids: String?
             /// Comma-delimited list of account names, maximum 50 items
@@ -992,7 +992,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.GlAccountExtendedResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func glAccountsGetTypeList
-        public struct GlAccountsGetTypeListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GlAccountsGetTypeListQuery: URLQueryConvertible {
             /// Comma-delimited list of account type IDs, maximum 50 items
             public var ids: String?
             /// Comma-delimited list of account type names, maximum 50 items
@@ -1022,7 +1022,7 @@ public extension APIs {
             return await getReq(Models.Accounting.GlAccountTypeResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func inventoryBillsGetList
-        public struct InventoryBillsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryBillsGetListQuery: URLQueryConvertible {
             public var ids: String?
             /// Format - int64.
             public var batchId: Int64?
@@ -1069,7 +1069,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.MarkInventoryBillAsExportedUpdateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func invoicesGetList
-        public struct InvoicesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InvoicesGetListQuery: URLQueryConvertible {
             /// Comma-delimited list of invoice IDs.
             public var ids: String?
             /// Format - date-time (as date-time in RFC3339). Return items modified before certain date/time (in UTC)
@@ -1152,7 +1152,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.MarkInvoiceAsExportedUpdateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func journalEntriesGetList
-        public struct JournalEntriesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntriesGetListQuery: URLQueryConvertible {
             /// Comma-delimited list of journal entry IDs, maximum 50 items
             public var ids: String?
             /// Format - date-time (as date-time in RFC3339). Exported on or after certain date/time (in UTC)
@@ -1214,7 +1214,7 @@ public extension APIs {
             return await getReq(Models.Accounting.JournalEntryResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func journalEntriesGetSummary
-        public struct JournalEntriesGetSummaryQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntriesGetSummaryQuery: URLQueryConvertible {
             /// Format - int32. How many records to return (50 by default). Maximum value is 500.
             public var pageSize: Int32?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -1227,7 +1227,7 @@ public extension APIs {
             return await getReq(Models.Accounting.JournalEntrySummaryResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func journalEntriesGetDetails
-        public struct JournalEntriesGetDetailsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JournalEntriesGetDetailsQuery: URLQueryConvertible {
             /// Format - int32. How many records to return (50 by default). Maximum value is 500.
             public var pageSize: Int32?
             /// Format - int32. The logical number of page to return, starting from 1
@@ -1244,7 +1244,7 @@ public extension APIs {
             return await bodiedReq(Models.Accounting.JournalEntryResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func paymentsGetList
-        public struct PaymentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             public var appliedToInvoiceIds: String?
@@ -1311,7 +1311,7 @@ public extension APIs {
             return await getReq(Models.Accounting.PaymentTermAPIModel.self, endpoint: endpoint)
         }
         /// Query Parameters for func paymentTermsGetList
-        public struct PaymentTermsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentTermsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
@@ -1340,7 +1340,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Accounting.PaymentTermAPIModel>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func paymentTypesGetList
-        public struct PaymentTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PaymentTypesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -1366,7 +1366,7 @@ public extension APIs {
             return await getReq(Models.Accounting.PaymentTypeResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func taxZonesGetList
-        public struct TaxZonesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaxZonesGetListQuery: URLQueryConvertible {
             /// Tax Zone Ids to pull tax zones for
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\

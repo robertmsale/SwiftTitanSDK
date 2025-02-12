@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Pricebook {
         
-        public struct ClientSpecificPricingResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSpecificPricingResponse: Codable, Identifiable {
             
             public var id: Int64
             
             public var exceptions: ClientSpecificPricingExceptionResponse
         }
         
-        public struct ClientSpecificPricingExceptionResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSpecificPricingExceptionResponse: Codable {
             
             public var skuId: Int64
             
@@ -39,12 +40,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct UpdateClientSpecificPricingResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateClientSpecificPricingResponse: Codable {
             
             public var exceptions: UpdateClientSpecificPricingExceptionResponse
         }
         
-        public struct UpdateClientSpecificPricingExceptionResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateClientSpecificPricingExceptionResponse: Codable {
             
             public var skuId: Int64
             
@@ -53,12 +54,12 @@ public extension Models {
             public var valueType: MarkupType
         }
         
-        public struct UpdateClientSpecificPricingRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateClientSpecificPricingRequest: Codable {
             
             public var exceptions: ClientSpecificPricingExceptionRequest?
         }
         
-        public struct ClientSpecificPricingExceptionRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSpecificPricingExceptionRequest: Codable {
             
             public var skuId: Int64
             
@@ -102,7 +103,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CategoryCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CategoryCreateRequest: Codable {
             /// The name of the category
             public var name: String
             /// Active shows if this category is currently active
@@ -125,7 +126,7 @@ public extension Models {
             public var skuVideos: String?
         }
         
-        public struct CategoryUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CategoryUpdateRequest: Codable {
             /// The name of the category
             public var name: String
             /// Active shows if this category is currently active
@@ -148,7 +149,7 @@ public extension Models {
             public var skuVideos: String
         }
         
-        public struct DiscountAndFeesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesResponse: Codable, Identifiable {
             /// Unique id for the discount or fee
             public var id: Int64
             /// Type should be entered as Discount or Fee to show the type
@@ -200,7 +201,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct SkuAssetResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuAssetResponse: Codable {
             /// Asset alias
             public var alias: String?
             /// Asset file name when downloaded
@@ -215,14 +216,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String
         }
         
-        public struct DiscountAndFeesCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesCreateRequest: Codable {
             /// Type should be entered as Discount or Fee to show the type
             public var type: PriceModifierType
             /// Code used for the discount or fee
@@ -267,7 +268,7 @@ public extension Models {
             public var externalData: ExternalDataCreateRequest?
         }
         
-        public struct SkuAssetRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuAssetRequest: Codable {
             /// Attached asset type - Image, Video, PDF
             public var type: SkuAssetType
             /// Asset file name. Useful when downloading PDFs
@@ -276,7 +277,7 @@ public extension Models {
             public var url: String
         }
         
-        public struct ExternalDataCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataCreateRequest: Codable {
             /// Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var applicationGuid: String
@@ -284,7 +285,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         
-        public struct DiscountAndFeesUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesUpdateRequest: Codable {
             /// Type should be entered as Discount or Fee to show the type
             public var type: PriceModifierType
             /// Code used for the discount or fee
@@ -328,7 +329,7 @@ public extension Models {
             public var externalData: ExternalDataUpdateRequest?
         }
         
-        public struct ExternalDataUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateRequest: Codable {
             /// External data patch mode.\
             /// "Replace" (default) replaces all existing keys with new values. If job A has custom data with keys X and Y and this field only contains an item
             /// with a key X, then custom data with a key Y on job A will be removed.\
@@ -345,14 +346,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String?
         }
         
-        public struct EquipmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentResponse: Codable, Identifiable {
             /// Unique id for the SKU
             public var id: Int64
             /// Code for the SKU
@@ -440,14 +441,14 @@ public extension Models {
             public var createdOn: Date
         }
         
-        public struct SkuWarrantyResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuWarrantyResponse: Codable {
             /// Warranty duration
             public var duration: Int32
             /// Description of the warranty included in this SKU
             public var description: String?
         }
         
-        public struct EquipmentRecommendationResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentRecommendationResponse: Codable {
             /// SKU unique identifier
             public var skuId: Int64
             /// Recommended SKU type (Service or Material)
@@ -458,14 +459,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct SkuLinkResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuLinkResponse: Codable {
             /// Linked SKU unique id
             public var skuId: Int64
             /// Quantity of linked SKUs
             public var quantity: Double
         }
         
-        public struct SkuVendorResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuVendorResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -486,7 +487,7 @@ public extension Models {
             public var otherSubAccounts: SkuVendorSubAccountResponse?
         }
         
-        public struct SkuVendorSubAccountResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuVendorSubAccountResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -495,7 +496,7 @@ public extension Models {
             public var accountName: String
         }
         
-        public struct EquipmentCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentCreateRequest: Codable {
             /// Array of materials used with this equipment
             public var equipmentMaterials: SkuLinkRequest?
             /// Recommended services and materials to include with this SKU
@@ -570,28 +571,28 @@ public extension Models {
             public var variationEquipment: Int64?
         }
         
-        public struct SkuLinkRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuLinkRequest: Codable {
             /// Linked SKU unique Id
             public var skuId: Int64
             /// Linked SKUs quantity
             public var quantity: Double
         }
         
-        public struct EquipmentRecommendationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentRecommendationRequest: Codable {
             
             public var skuId: Int64
             
             public var type: EquipmentRecommendationType
         }
         
-        public struct SkuWarrantyRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuWarrantyRequest: Codable {
             /// Warranty duration
             public var duration: Int32
             /// Description of the warranty included in this SKU
             public var description: String?
         }
         
-        public struct SkuVendorRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuVendorRequest: Codable {
             
             public var vendorId: Int64
             
@@ -608,14 +609,14 @@ public extension Models {
             public var otherSubAccounts: SkuVendorSubAccountRequest?
         }
         
-        public struct SkuVendorSubAccountRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuVendorSubAccountRequest: Codable {
             
             public var cost: Double
             
             public var accountName: String
         }
         
-        public struct EquipmentUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentUpdateRequest: Codable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -689,12 +690,12 @@ public extension Models {
             public var variationEquipment: Int64
         }
         
-        public struct ImageUploadResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ImageUploadResponse: Codable {
             /// The storage path where the image was uploaded
             public var path: String
         }
         
-        public struct MaterialResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialResponse: Codable, Identifiable {
             /// Unique id for the SKU
             public var id: Int64
             /// Code for the SKU
@@ -772,7 +773,7 @@ public extension Models {
             public var generalLedgerAccountId: Int64?
         }
         
-        public struct MaterialCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialCreateRequest: Codable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -835,7 +836,7 @@ public extension Models {
             public var variationMaterials: Int64?
         }
         
-        public struct MaterialUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialUpdateRequest: Codable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -897,7 +898,7 @@ public extension Models {
             public var variationMaterials: Int64
         }
         
-        public struct MaterialsMarkupResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsMarkupResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -908,12 +909,12 @@ public extension Models {
             public var percent: Double
         }
         
-        public struct MaterialsMarkupCreatedResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsMarkupCreatedResponse: Codable {
             
             public var data: MaterialsMarkupResponse
         }
         
-        public struct MaterialsMarkupRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsMarkupRequest: Codable, Identifiable {
             
             public var id: Int64
             
@@ -924,7 +925,7 @@ public extension Models {
             public var percent: Double
         }
         
-        public struct PricebookBulkCreateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PricebookBulkCreateResponse: Codable {
             
             public var services: CustomIdMappingModel?
             
@@ -935,14 +936,14 @@ public extension Models {
             public var discountAndFees: CustomIdMappingModel?
         }
         
-        public struct CustomIdMappingModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomIdMappingModel: Codable, Identifiable {
             
             public var customId: String
             
             public var id: Int64
         }
         
-        public struct PricebookBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PricebookBulkCreateRequest: Codable {
             
             public var services: ServiceBulkCreateRequest?
             
@@ -953,7 +954,7 @@ public extension Models {
             public var discountAndFees: DiscountAndFeesBulkCreateRequest?
         }
         
-        public struct ServiceBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceBulkCreateRequest: Codable {
             /// Array of materials linked to the service
             public var serviceMaterials: SkuLinkBulkCreateRequest?
             /// Array of equipment linked to the service
@@ -1010,7 +1011,7 @@ public extension Models {
             public var customId: String?
         }
         
-        public struct SkuLinkBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuLinkBulkCreateRequest: Codable {
             /// Linked SKU unique Id
             public var skuId: Int64?
             /// Linked SKU custom Id
@@ -1019,21 +1020,21 @@ public extension Models {
             public var quantity: Double
         }
         
-        public struct ServiceRecommendationBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceRecommendationBulkCreateRequest: Codable {
             /// Linked SKU unique Id
             public var skuId: Int64?
             /// Linked SKU custom Id
             public var customId: String?
         }
         
-        public struct SkuUpgradeBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuUpgradeBulkCreateRequest: Codable {
             /// Linked SKU unique Id
             public var skuId: Int64?
             /// Linked SKU custom Id
             public var customId: String?
         }
         
-        public struct EquipmentBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentBulkCreateRequest: Codable {
             /// Array of materials used with this equipment
             public var equipmentMaterials: SkuLinkBulkCreateRequest?
             /// Recommended services and materials to include with this SKU
@@ -1110,7 +1111,7 @@ public extension Models {
             public var customId: String?
         }
         
-        public struct EquipmentRecommendationBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentRecommendationBulkCreateRequest: Codable {
             /// Linked SKU unique Id
             public var skuId: Int64?
             /// Linked SKU custom Id
@@ -1119,7 +1120,7 @@ public extension Models {
             public var type: EquipmentRecommendationType
         }
         
-        public struct MaterialBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialBulkCreateRequest: Codable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1184,7 +1185,7 @@ public extension Models {
             public var customId: String?
         }
         
-        public struct DiscountAndFeesBulkCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesBulkCreateRequest: Codable {
             /// Type should be entered as Discount or Fee to show the type
             public var type: PriceModifierType
             /// Code used for the discount or fee
@@ -1231,7 +1232,7 @@ public extension Models {
             public var customId: String?
         }
         
-        public struct PricebookBulkUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PricebookBulkUpdateRequest: Codable {
             
             public var services: ServiceBulkUpdateRequest?
             
@@ -1242,7 +1243,7 @@ public extension Models {
             public var discountAndFees: DiscountAndFeesBulkUpdateRequest?
         }
         
-        public struct ServiceBulkUpdateRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceBulkUpdateRequest: Codable, Identifiable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1298,7 +1299,7 @@ public extension Models {
             public var id: Int64
         }
         
-        public struct EquipmentBulkUpdateRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentBulkUpdateRequest: Codable, Identifiable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1374,7 +1375,7 @@ public extension Models {
             public var id: Int64
         }
         
-        public struct MaterialBulkUpdateRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialBulkUpdateRequest: Codable, Identifiable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1438,7 +1439,7 @@ public extension Models {
             public var id: Int64
         }
         
-        public struct DiscountAndFeesBulkUpdateRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesBulkUpdateRequest: Codable, Identifiable {
             /// Type should be entered as Discount or Fee to show the type
             public var type: PriceModifierType
             /// Code used for the discount or fee
@@ -1484,7 +1485,7 @@ public extension Models {
             public var id: Int64
         }
         
-        public struct ServiceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceResponse: Codable, Identifiable {
             /// Unique id for the SKU
             public var id: Int64
             /// Code for the SKU
@@ -1552,7 +1553,7 @@ public extension Models {
             public var soldByCommission: Double
         }
         
-        public struct SkuCategoryResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuCategoryResponse: Codable, Identifiable {
             /// Unique Category Id
             public var id: Int64
             /// Category name
@@ -1561,7 +1562,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ServiceCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceCreateRequest: Codable {
             /// Array of materials linked to the service
             public var serviceMaterials: SkuLinkRequest?
             /// Array of equipment linked to the service
@@ -1616,7 +1617,7 @@ public extension Models {
             public var externalData: ExternalDataCreateRequest?
         }
         
-        public struct ServiceUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceUpdateRequest: Codable {
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1677,7 +1678,7 @@ public extension APIs {
             super.init(sdk, apiName: "pricebook")
         }
         /// Query Parameters for func clientSpecificPricingGetAllRateSheets
-        public struct ClientSpecificPricingGetAllRateSheetsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSpecificPricingGetAllRateSheetsQuery: URLQueryConvertible {
             public var ids: String?
             public var searchTerm: String?
             /// Values: [True, Any, False]
@@ -1697,7 +1698,7 @@ public extension APIs {
             return await bodiedReq(Models.Pricebook.UpdateClientSpecificPricingResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func categoriesGetList
-        public struct CategoriesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CategoriesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1738,7 +1739,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func discountAndFeesGetList
-        public struct DiscountAndFeesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1781,7 +1782,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func discountAndFeesGet
-        public struct DiscountAndFeesGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesGetQuery: URLQueryConvertible {
             /// Format - guid. Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var externalDataApplicationGuid: String?
@@ -1799,7 +1800,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func equipmentGetList
-        public struct EquipmentGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1842,7 +1843,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func equipmentGet
-        public struct EquipmentGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentGetQuery: URLQueryConvertible {
             /// Format - guid. Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var externalDataApplicationGuid: String?
@@ -1860,7 +1861,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func imagesGet
-        public struct ImagesGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ImagesGetQuery: URLQueryConvertible {
             /// The storage path of the pricebook image to retrieve, as returned by other pricebook API endpoints.
             /// The path is case sensitive and must begin with "Images/".
             public var path: String
@@ -1874,7 +1875,7 @@ public extension APIs {
             return await bodiedRawReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func materialsGetList
-        public struct MaterialsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -1917,7 +1918,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func materialsGet
-        public struct MaterialsGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsGetQuery: URLQueryConvertible {
             /// Format - guid. Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var externalDataApplicationGuid: String?
@@ -1935,7 +1936,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func materialsMarkupGetList
-        public struct MaterialsMarkupGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsMarkupGetListQuery: URLQueryConvertible {
             /// Format - int32.
             public var page: Int32?
             /// Format - int32.
@@ -1966,7 +1967,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func servicesGetList
-        public struct ServicesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServicesGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -2009,7 +2010,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func servicesGet
-        public struct ServicesGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServicesGetQuery: URLQueryConvertible {
             /// Format - guid. Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var externalDataApplicationGuid: String?

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Forms {
         
-        public struct FormResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -38,7 +39,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct FormSubmissionResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormSubmissionResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -61,7 +62,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct FormOwner: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormOwner: Codable, Identifiable {
             
             public var type: OwnerType
             
@@ -72,7 +73,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct FormUnitApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormUnitApiDto: Codable, Identifiable {
             
             public var id: String
             
@@ -81,7 +82,7 @@ public extension Models {
             public var type: String
         }
         
-        public struct FormSectionApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormSectionApiDto: Codable, Identifiable {
             
             public var id: String
             
@@ -94,7 +95,7 @@ public extension Models {
 //            public var units:
         }
         
-        public struct FormFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormFieldApiDto: Codable, Identifiable {
             
             public var id: String
             
@@ -107,7 +108,7 @@ public extension Models {
             public var attachments: FormAttachment
         }
         
-        public struct FormAttachment: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormAttachment: Codable {
             
             public var fileName: String
             
@@ -118,7 +119,7 @@ public extension Models {
             public var thumbnail: String
         }
         
-        public struct DropdownFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DropdownFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -135,7 +136,7 @@ public extension Models {
             public var value: String
         }
         
-        public struct NumberFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NumberFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -150,7 +151,7 @@ public extension Models {
             public var value: Double?
         }
         
-        public struct TextFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TextFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -165,7 +166,7 @@ public extension Models {
             public var value: String
         }
         
-        public struct CheckboxFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CheckboxFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -182,7 +183,7 @@ public extension Models {
             public var options: String
         }
         
-        public struct DateFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DateFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -197,7 +198,7 @@ public extension Models {
             public var value: Date?
         }
         
-        public struct PictureFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PictureFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -210,7 +211,7 @@ public extension Models {
             public var name: String
         }
         
-        public struct RadioFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct RadioFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -227,7 +228,7 @@ public extension Models {
             public var value: String
         }
         
-        public struct SignatureFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SignatureFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -246,7 +247,7 @@ public extension Models {
             public var refusalReason: String
         }
         
-        public struct StoplightFieldApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct StoplightFieldApiDto: Codable, Identifiable {
             
             public var type: String
             
@@ -265,7 +266,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct FormStaticElementApiDto: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormStaticElementApiDto: Codable, Identifiable {
             
             public var id: String
             
@@ -278,7 +279,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct AttachmentResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AttachmentResponse: Codable {
             /// Original filename
             public var fileName: String
         }
@@ -290,7 +291,7 @@ public extension APIs {
             super.init(sdk, apiName: "forms")
         }
         /// Query Parameters for func formGetForms
-        public struct FormGetFormsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormGetFormsQuery: URLQueryConvertible {
             public var hasConditionalLogic: Bool?
             public var hasTriggers: Bool?
             public var name: String?
@@ -319,7 +320,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Forms.FormResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func formSubmissionGetFormSubmissions
-        public struct FormSubmissionGetFormSubmissionsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct FormSubmissionGetFormSubmissionsQuery: URLQueryConvertible {
             /// Form Ids (comma separated Ids)
             public var formIds: String?
             /// Values: [True, Any, False]
@@ -356,7 +357,7 @@ public extension APIs {
 //            return await bodiedReq(Models.Forms.AttachmentResponse.self, endpoint: endpoint, body: body, method: "POST")
 //        }
         /// Query Parameters for func jobsGetJobAttachments
-        public struct JobsGetJobAttachmentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct JobsGetJobAttachmentsQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339).
             public var createdBefore: Date?
             /// Format - date-time (as date-time in RFC3339).

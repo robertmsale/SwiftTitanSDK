@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct TaskManagement {
         
-        public struct ClientSideDataResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideDataResponse: Codable {
             
             public var employees: ClientSideEmployeeResponse
             
@@ -28,7 +29,7 @@ public extension Models {
             public var taskResolutions: ClientSideTaskResolutionResponse
         }
         
-        public struct ClientSideEmployeeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideEmployeeResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -37,29 +38,29 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ClientSideBusinessUnitResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideBusinessUnitResponse: Codable {
             
             public var name: String
             
             public var value: Int64
         }
         
-        public struct ClientSideTaskPriorityResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskPriorityResponse: Codable {
             
             public var name: String
         }
         
-        public struct ClientSideTaskResolutionTypeResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskResolutionTypeResponse: Codable {
             
             public var name: String
         }
         
-        public struct ClientSideTaskStatusResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskStatusResponse: Codable {
             
             public var name: String
         }
         
-        public struct ClientSideTaskTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskTypeResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -70,7 +71,7 @@ public extension Models {
             public var excludedTaskResolutionIds: Int64
         }
         
-        public struct ClientSideTaskSourceResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskSourceResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -79,7 +80,7 @@ public extension Models {
             public var active: Bool
         }
         
-        public struct ClientSideTaskResolutionResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ClientSideTaskResolutionResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -96,7 +97,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TaskGetResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskGetResponse: Codable, Identifiable {
             
             public var reportedById: Int64
             
@@ -159,7 +160,7 @@ public extension Models {
             public var subTasksData: SubTasksInfo?
         }
         
-        public struct TaskComment: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskComment: Codable {
             
             public var employeeId: Int64
             
@@ -168,7 +169,7 @@ public extension Models {
             public var createdOn: Date
         }
         
-        public struct TaskAttachmentGroup: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskAttachmentGroup: Codable {
             
             public var createdOn: Date
             
@@ -179,21 +180,21 @@ public extension Models {
             public var files: TaskAttachment
         }
         
-        public struct TaskAttachment: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskAttachment: Codable {
             
             public var url: String
             
             public var filename: String
         }
         
-        public struct SubTasksInfo: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubTasksInfo: Codable {
             
             public var count: Int32
             
             public var subTasks: SubTaskGet
         }
         
-        public struct SubTaskGet: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubTaskGet: Codable {
             
             public var assignedToId: Int64?
             
@@ -224,7 +225,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TaskCreateResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskCreateResponse: Codable, Identifiable {
             
             public var reportedById: Int64
             
@@ -281,7 +282,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TaskCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TaskCreateRequest: Codable {
             
             public var reportedById: Int64
             
@@ -316,7 +317,7 @@ public extension Models {
             public var priority: TaskPriority
         }
         
-        public struct SubtaskCreateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubtaskCreateResponse: Codable {
             
             public var isClosed: Bool
             
@@ -337,7 +338,7 @@ public extension Models {
             public var createdOn: Date
         }
         
-        public struct SubtaskCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SubtaskCreateRequest: Codable {
             
             public var isClosed: Bool
             
@@ -359,7 +360,7 @@ public extension APIs {
             return await getReq(Models.TaskManagement.ClientSideDataResponse.self, endpoint: endpoint)
         }
         /// Query Parameters for func tasksGetTasks
-        public struct TasksGetTasksQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TasksGetTasksQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -434,7 +435,7 @@ public extension APIs {
             return await bodiedReq(Models.TaskManagement.TaskCreateResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func tasksGetTask
-        public struct TasksGetTaskQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TasksGetTaskQuery: URLQueryConvertible {
             public var includeSubtasks: Bool?
         }
         public func tasksGetTask(id: Int64, tenant: Int64, query: TasksGetTaskQuery? = nil) async -> Result<Models.TaskManagement.TaskGetResponse, APIError> {

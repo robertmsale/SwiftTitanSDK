@@ -30,10 +30,9 @@ class SwiftTitanSDKTests {
         switch result {
         case .failure(let err): Issue.record(err)
         case .success(let data):
-//            print(data)
             return
         }
-        var q = APIs.Accounting.ApCreditsGetListQuery()
+        var q = APIs.Accounting.ApCreditsGetListQuery(ids: "")
         q.createdBefore = Date(timeIntervalSince1970: 0)
         q.createdOnOrAfter = Date(timeIntervalSince1970: 0)
         q.includeTotal = false
@@ -43,5 +42,10 @@ class SwiftTitanSDKTests {
             tenant: sdk.tenant,
             query: q
         )
+        switch resultFromQuery {
+        case .failure(let err): Issue.record(err)
+        case .success(let data):
+            return
+        }
     }
 }

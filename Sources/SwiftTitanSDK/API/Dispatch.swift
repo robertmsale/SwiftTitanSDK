@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Dispatch {
-        public struct GpsPingResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GpsPingResponse: Codable {
             /// Unique External ID for data point
             public var externalId: String
             /// Request status
@@ -21,7 +22,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct GpsPingCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GpsPingCreateRequest: Codable {
             /// Gets or sets the ID of the object for which location information is provided
             public var unitId: String
             /// Gets or sets the name of the object for which location information is provided
@@ -52,7 +53,7 @@ public extension Models {
             public var statusMessage: String
         }
         
-        public struct AppointmentAssignmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentAssignmentResponse: Codable, Identifiable {
             /// ID of the appointment assignment
             public var id: Int64
             /// ID of the technician
@@ -77,7 +78,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Appointment response model
-        public struct AppointmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentResponse: Codable, Identifiable {
             /// Appointment ID
             public var id: Int64
             /// ID of the job that the appointment was created for
@@ -106,21 +107,21 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct AssignTechniciansRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AssignTechniciansRequest: Codable {
             /// Id of the appointment to assign to.
             public var jobAppointmentId: Int64
             /// Assign these technicians to the appointment.
             public var technicianIds: Int64
         }
         
-        public struct UnassignTechniciansRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UnassignTechniciansRequest: Codable {
             /// Id of the appointment to unassign from.
             public var jobAppointmentId: Int64
             /// Unassign these technicians from the appointment.
             public var technicianIds: Int64
         }
         
-        public struct ArrivalWindowResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ArrivalWindowResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -137,7 +138,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateArrivalWindowRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateArrivalWindowRequest: Codable {
             /// The start time for the arrival window defined as TimeSpan. I.e. "09:00"
             public var start: String
             /// The end time for the arrival window defined as TimeSpan. I.e. "11:00"
@@ -146,7 +147,7 @@ public extension Models {
             public var businessUnitIds: Int64
         }
         
-        public struct UpdateArrivalWindowRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateArrivalWindowRequest: Codable {
             /// The start time for the arrival window defined as TimeSpan. I.e. "09:00"
             public var start: String
             /// The end time for the arrival window defined as TimeSpan. I.e. "11:00"
@@ -155,12 +156,12 @@ public extension Models {
             public var businessUnitIds: Int64
         }
         
-        public struct SetArrivalWindowStatusRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SetArrivalWindowStatusRequest: Codable {
             
             public var isActive: Bool
         }
         
-        public struct ArrivalWindowConfigurationResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ArrivalWindowConfigurationResponse: Codable {
             
             public var configuration: ArrivalWindowConfiguration
         }
@@ -169,12 +170,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct UpdateArrivalWindowConfigurationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateArrivalWindowConfigurationRequest: Codable {
             
             public var configuration: ArrivalWindowConfiguration
         }
         
-        public struct BusinessHourModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BusinessHourModel: Codable {
             
             public var weekdays: TimeRange
             
@@ -183,14 +184,14 @@ public extension Models {
             public var sunday: TimeRange
         }
         
-        public struct TimeRange: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TimeRange: Codable {
             
             public var fromHour: Int32
             
             public var toHour: Int32
         }
         
-        public struct CreateBusinessHourResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateBusinessHourResponse: Codable {
             
             public var weekdays: TimeRange
             
@@ -199,7 +200,7 @@ public extension Models {
             public var sunday: TimeRange
         }
         
-        public struct CreateBusinessHourRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateBusinessHourRequest: Codable {
             
             public var weekdays: TimeRange
             
@@ -208,14 +209,14 @@ public extension Models {
             public var sunday: TimeRange
         }
         
-        public struct CapacityResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityResponse: Codable {
             /// When the request was processed
             public var timeStamp: Date
             /// Availability calculations by time frame
             public var availabilities: CapacityResponseAvailability
         }
         
-        public struct CapacityResponseAvailability: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityResponseAvailability: Codable {
             /// When the availability time frame starts
             public var start: Date
             /// When the availability time frame ends
@@ -238,7 +239,7 @@ public extension Models {
             public var isExceedingIdealBookingPercentage: Bool
         }
         
-        public struct CapacityResponseTechnician: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityResponseTechnician: Codable, Identifiable {
             /// Unique Id of technician
             public var id: Int64
             /// Name of technician
@@ -253,7 +254,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CapacityRequestArgs: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CapacityRequestArgs: Codable {
             /// When the time frame should start at or after
             public var startsOnOrAfter: Date
             /// When the time frame should end at or before
@@ -266,7 +267,7 @@ public extension Models {
             public var skillBasedAvailability: Bool
         }
         
-        public struct ExportAppointmentAssignmentsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAppointmentAssignmentsResponse: Codable, Identifiable {
             /// ID of the appointment assignment
             public var id: Int64
             /// ID of the technician
@@ -287,7 +288,7 @@ public extension Models {
             public var appointmentId: Int64
         }
         
-        public struct GetNonJobAppointmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GetNonJobAppointmentResponse: Codable, Identifiable {
             
             public var id: Int64
             
@@ -320,7 +321,7 @@ public extension Models {
             public var createdById: Int64
         }
         
-        public struct NonJobAppointmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NonJobAppointmentResponse: Codable, Identifiable {
             /// Non-job appointment id
             public var id: Int64
             /// Non-job appointment's technician id
@@ -353,7 +354,7 @@ public extension Models {
             public var createdById: Int64
         }
         
-        public struct CreateNonJobAppointmentResult: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateNonJobAppointmentResult: Codable, Identifiable {
             /// Non-job appointment id
             public var id: Int64
             /// Non-job appointment's technician id
@@ -416,7 +417,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct CreateNonJobAppointmentRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateNonJobAppointmentRequest: Codable {
             public var technicianId: Int64
             public var start: Date
             public var duration: String
@@ -446,7 +447,7 @@ public extension Models {
             }
         }
         
-        public struct NonJobAppointmentUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NonJobAppointmentUpdateRequest: Codable {
             public var technicianId: Int64
             public var start: Date
             public var duration: String
@@ -476,14 +477,14 @@ public extension Models {
             }
         }
         
-        public struct DeleteNonJobAppointmentResult: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DeleteNonJobAppointmentResult: Codable, Identifiable {
             
             public var message: String
             
             public var id: Int64
         }
         
-        public struct TeamResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TeamResponse: Codable, Identifiable {
             /// Unique id of the team record
             public var id: Int64
             /// Whether the team is enabled
@@ -498,7 +499,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         
-        public struct CreateTeamResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateTeamResponse: Codable, Identifiable {
             /// Unique id of the team record
             public var id: Int64
             /// Whether the team is enabled
@@ -515,14 +516,14 @@ public extension Models {
             public var created: Bool
         }
         
-        public struct CreateTeamRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateTeamRequest: Codable {
             /// Whether the team is enabled
             public var active: Bool
             /// Descriptive identifier
             public var name: String?
         }
         
-        public struct TechnicianShiftResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianShiftResponse: Codable, Identifiable {
             /// Unique id of the shift record
             public var id: Int64
             /// How the shift is displayed and contributes to availability calculations
@@ -547,14 +548,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TechnicianShiftCreateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianShiftCreateResponse: Codable {
             
             public var created: Bool
             
             public var technicianShifts: TechnicianShiftResponse
         }
         
-        public struct CreateTechnicianShiftRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateTechnicianShiftRequest: Codable {
             
             public var technicianIds: Int64
             
@@ -583,12 +584,12 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct TechnicianShiftUpdateResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianShiftUpdateResponse: Codable {
             
             public var technicianShifts: TechnicianShiftResponse
         }
         
-        public struct UpdateTechnicianShiftRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateTechnicianShiftRequest: Codable {
             
             public var shiftType: ShiftType
             
@@ -603,28 +604,28 @@ public extension Models {
             public var timesheetCodeId: Int64?
         }
         
-        public struct DeleteTechnicianShiftResult: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DeleteTechnicianShiftResult: Codable, Identifiable {
             
             public var message: String
             
             public var id: Int64
         }
         
-        public struct BulkDeleteTechnicianShiftResult: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BulkDeleteTechnicianShiftResult: Codable {
             
             public var message: String
             
             public var deletedIds: Int64
         }
         
-        public struct BulkDeleteTechnicianShiftRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BulkDeleteTechnicianShiftRequest: Codable {
             /// The start date for the range deletion
             public var start: Date
             /// The end date for the range deletion
             public var end: Date
         }
         
-        public struct ZoneResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ZoneResponse: Codable, Identifiable {
             /// Unique id of the zone record
             public var id: Int64
             /// Whether the zone is enabled
@@ -666,7 +667,7 @@ public extension APIs {
             return await bodiedReq(Models.Dispatch.GpsPingResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func appointmentAssignmentsGetList
-        public struct AppointmentAssignmentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AppointmentAssignmentsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Return appointment assignments for one or more appointments
@@ -707,7 +708,7 @@ public extension APIs {
             return await bodiedReq(Models.Dispatch.AppointmentResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func arrivalWindowsGetList
-        public struct ArrivalWindowsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ArrivalWindowsGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -763,7 +764,7 @@ public extension APIs {
             return await bodiedReq(Models.Dispatch.CapacityResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func exportAppointmentAssignments
-        public struct ExportAppointmentAssignmentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAppointmentAssignmentsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -789,7 +790,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func nonJobAppointmentsGetList
-        public struct NonJobAppointmentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct NonJobAppointmentsGetListQuery: URLQueryConvertible {
             /// Format - int64. Unique id of the technician this non-job appointment applies to
             public var technicianId: Int64?
             /// Format - date-time (as date-time in RFC3339). When the Start of non-job appointment should be at or after
@@ -824,7 +825,7 @@ public extension APIs {
             return await bodiedReq(Models.Dispatch.CreateNonJobAppointmentResult.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func teamGetList
-        public struct TeamGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TeamGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)
@@ -851,7 +852,7 @@ public extension APIs {
             return await delReq(endpoint: endpoint)
         }
         /// Query Parameters for func technicianShiftsGetList
-        public struct TechnicianShiftsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TechnicianShiftsGetListQuery: URLQueryConvertible {
             /// Format - date-time (as date-time in RFC3339). When the Start of shift should be at or after
             public var startsOnOrAfter: Date?
             /// Format - date-time (as date-time in RFC3339). When the End of shift should be at or before
@@ -908,7 +909,7 @@ public extension APIs {
             return await bodiedReq(Models.Dispatch.BulkDeleteTechnicianShiftResult.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func zoneGetList
-        public struct ZoneGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ZoneGetListQuery: URLQueryConvertible {
             /// Format - int32. The logical number of page to return, starting from 1
             public var page: Int32?
             /// Format - int32. How many records to return (50 by default)

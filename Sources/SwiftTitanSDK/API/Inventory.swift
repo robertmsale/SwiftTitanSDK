@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import MemberwiseInit
 public extension Models {
     struct Inventory {
         /// Inventory adjustment response
-        public struct InventoryAdjustmentResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryAdjustmentResponse: Codable, Identifiable {
             /// Inventory adjustment Id
             public var id: Int64
             /// Is active
@@ -55,7 +56,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         /// Represents Batch response
-        public struct BatchResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct BatchResponse: Codable, Identifiable {
             /// Batch Id
             public var id: Int64
             /// Batch number
@@ -72,14 +73,14 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String
         }
         /// Inventory adjustment item response
-        public struct InventoryAdjustmentItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryAdjustmentItemResponse: Codable, Identifiable {
             /// Item Id
             public var id: Int64
             /// Sku Id
@@ -104,14 +105,14 @@ public extension Models {
             public var serialNumbers: SerialNumberResponse?
         }
         /// Represents serial number response
-        public struct SerialNumberResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SerialNumberResponse: Codable, Identifiable {
             /// Id of this serial number
             public var id: Int64
             /// Serial number value
             public var number: String
         }
         /// Represents custom field response
-        public struct CustomFieldResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldResponse: Codable {
             /// Id of custom field type
             public var typeId: Int64
             /// Custom field name
@@ -128,17 +129,17 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Default response when creating object with a new ID, or updating object by specified ID.
-        public struct ModificationResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ModificationResponse: Codable, Identifiable {
             /// The ID of created/updated object
             public var id: Int64
         }
         /// Represents request to update adjustment
-        public struct UpdateAdjustmentRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateAdjustmentRequest: Codable {
             /// Contains a list of external data items that should be attached to this adjustment
             public var externalData: ExternalDataUpdateRequest
         }
         
-        public struct ExternalDataUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateRequest: Codable {
             /// External data patch mode.\
             /// "Replace" (default) replaces all existing keys with new values. If job A has custom data with keys X and Y and this field only contains an item
             /// with a key X, then custom data with a key Y on job A will be removed.\
@@ -155,33 +156,33 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataUpdateModel: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataUpdateModel: Codable {
             /// External data key.
             public var key: String
             /// External data value.
             public var value: String?
         }
         /// Represents a batch request to update custom fields
-        public struct CustomFieldUpdateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldUpdateRequest: Codable {
             /// Collection of custom field update operations
             public var operations: CustomFieldOperationRequest
         }
         /// Represents a request to update custom fields on a single transaction
-        public struct CustomFieldOperationRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldOperationRequest: Codable {
             /// Id of inventory transaction where custom fields will be updated
             public var objectId: Int64
             /// Collection of custom fields to be updated
             public var customFields: CustomFieldRequest
         }
         /// Request model to update a single custom field
-        public struct CustomFieldRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CustomFieldRequest: Codable {
             /// Custom field name
             public var name: String
             /// Custom field value
             public var value: String
         }
         
-        public struct ExportAdjustmentsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAdjustmentsResponse: Codable, Identifiable {
             /// Inventory adjustment Id
             public var id: Int64
             /// Is active
@@ -227,7 +228,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         
-        public struct ExportPurchaseOrdersResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPurchaseOrdersResponse: Codable, Identifiable {
             /// Purchase order Id
             public var id: Int64
             /// Purchase order number
@@ -282,7 +283,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         /// Represents address response
-        public struct AddressResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressResponse: Codable {
             /// Street
             public var street: String?
             /// Unit
@@ -297,7 +298,7 @@ public extension Models {
             public var country: String?
         }
         /// Represents purchase order item response
-        public struct PurchaseOrderItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderItemResponse: Codable, Identifiable {
             /// Item Id
             public var id: Int64
             /// Sku Id
@@ -332,7 +333,7 @@ public extension Models {
             public var chargeable: Bool
         }
         
-        public struct ExportReturnsResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportReturnsResponse: Codable, Identifiable {
             /// Return Id
             public var id: Int64
             /// Is active
@@ -398,7 +399,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Inventory return item response
-        public struct InventoryReturnItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryReturnItemResponse: Codable, Identifiable {
             /// Item Id
             public var id: Int64
             /// Sku Id
@@ -431,7 +432,7 @@ public extension Models {
             public var active: Bool
         }
         /// Represents GL account response
-        public struct GLAccountResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct GLAccountResponse: Codable {
             /// GL Account name
             public var name: String?
             /// GL Account number
@@ -442,7 +443,7 @@ public extension Models {
             public var detailType: String?
         }
         
-        public struct ExportTransfersResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTransfersResponse: Codable, Identifiable {
             /// Inventory transfer Id
             public var id: Int64
             /// Type
@@ -504,7 +505,7 @@ public extension Models {
             public var externalData: ExternalDataModel?
         }
         /// Inventory transfer item response
-        public struct InventoryTransferItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryTransferItemResponse: Codable, Identifiable {
             /// Item Id
             public var id: Int64
             /// Sku Id
@@ -531,7 +532,7 @@ public extension Models {
             public var active: Bool
         }
         /// Request model to create PO
-        public struct CreatePurchaseOrderRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreatePurchaseOrderRequest: Codable {
             /// Id of the vendor for this PO
             public var vendorId: Int64
             /// Id of the purchase order type for this PO
@@ -566,14 +567,14 @@ public extension Models {
             public var items: CreatePurchaseOrderItemRequest
         }
         /// Request model for address with description
-        public struct CreateAddressRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateAddressRequest: Codable {
             /// Description of the shipping address, like customer address or technician's truck for example
             public var description: String
             /// Actual shipping address
             public var address: AddressRequest
         }
         /// Request model for actual address
-        public struct AddressRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AddressRequest: Codable {
             /// Street
             public var street: String
             /// Unit
@@ -588,7 +589,7 @@ public extension Models {
             public var country: String
         }
         /// Request model for new PO item
-        public struct CreatePurchaseOrderItemRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreatePurchaseOrderItemRequest: Codable {
             /// Id of the SKU from pricebook, can be any active material or equipment
             public var skuId: Int64
             /// Item description
@@ -601,7 +602,7 @@ public extension Models {
             public var cost: Double
         }
         /// Represents purchase order response
-        public struct PurchaseOrderResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderResponse: Codable, Identifiable {
             /// Purchase order Id
             public var id: Int64
             /// Purchase order number
@@ -656,7 +657,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         /// Represents purchase order request response
-        public struct PurchaseOrderRequestResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderRequestResponse: Codable, Identifiable {
             /// Purchase order request Id
             public var id: Int64
             /// Purchase order request number
@@ -711,7 +712,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Represents a request to update single purchase order
-        public struct UpdatePurchaseOrderRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdatePurchaseOrderRequest: Codable {
             /// Id of the vendor for this PO
             public var vendorId: Int64
             /// Id of the purchase order type for this PO
@@ -746,14 +747,14 @@ public extension Models {
             public var items: UpdatePurchaseOrderItemRequest
         }
         /// Update address with description request
-        public struct UpdateAddressRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateAddressRequest: Codable {
             /// Description of the shipping address, like customer address or technician's truck for example
             public var description: String
             /// Actual shipping address
             public var address: AddressRequest
         }
         /// Update purchase order item request
-        public struct UpdatePurchaseOrderItemRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdatePurchaseOrderItemRequest: Codable, Identifiable {
             /// Id of purchase order item to update
             public var id: Int64
             /// Id of the SKU from pricebook, can be any active material or equipment
@@ -768,7 +769,7 @@ public extension Models {
             public var cost: Double
         }
         /// Cancel Resource Request
-        public struct PurchaseOrderCancellationReason: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderCancellationReason: Codable {
             /// Resource cancellation reason
             public var canceledReason: PurchaseOrderCancellationReasonValue
         }
@@ -777,7 +778,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct PurchaseOrderRequestRejectionArgs: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderRequestRejectionArgs: Codable {
             /// Resource rejection reason
             public var rejectionReason: PoApprovalRejectionReason
         }
@@ -786,7 +787,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Represents purchase order markup response
-        public struct PurchaseOrderMarkupResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderMarkupResponse: Codable, Identifiable {
             
             public var createdOn: Date
             
@@ -801,7 +802,7 @@ public extension Models {
             public var id: Int64
         }
         /// Represents create purchase order markup request
-        public struct CreatePurchaseOrderMarkupRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreatePurchaseOrderMarkupRequest: Codable {
             
             public var from: Double
             
@@ -810,7 +811,7 @@ public extension Models {
             public var percent: Double
         }
         /// Represents update purchase order markup request
-        public struct UpdatePurchaseOrderMarkupRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdatePurchaseOrderMarkupRequest: Codable {
             
             public var from: Double
             
@@ -820,7 +821,7 @@ public extension Models {
         }
         /// Request model to create Purchase Order Types
         ///
-        public struct CreatePurchaseOrderTypeRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreatePurchaseOrderTypeRequest: Codable {
             /// Name of the Purchase Order Type
             public var name: String
             /// Active
@@ -854,7 +855,7 @@ public extension Models {
         }
         /// Purchase Order Type Alert settings
         ///
-        public struct PoTypeAlertSettings: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PoTypeAlertSettings: Codable {
             /// Send Email To Technician When PO Moved To Send
             public var sendEmailToTechnicianWhenPoMovedToSend: Bool
             /// Send Email To Technician When PO Moved To Receive
@@ -865,7 +866,7 @@ public extension Models {
             public var sendEmailToPmWhenPoMovedToReceived: Bool
         }
         /// Represents purchase order type response
-        public struct PurchaseOrderTypeResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderTypeResponse: Codable, Identifiable {
             /// Purchase order type Id
             public var id: Int64
             /// Purchase order type Name
@@ -892,7 +893,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         /// Request model to Update Purchase Order Types
-        public struct UpdatePurchaseOrderTypeRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdatePurchaseOrderTypeRequest: Codable {
             /// Is the Purchase Order Type Active
             public var active: Bool
             /// Name of the Purchase Order Type
@@ -925,7 +926,7 @@ public extension Models {
             public var alertSettings: PoTypeAlertSettings
         }
         /// Inventory receipt response
-        public struct InventoryReceiptResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryReceiptResponse: Codable, Identifiable {
             /// Receipt Id
             public var id: Int64
             /// Is active
@@ -978,7 +979,7 @@ public extension Models {
             public var customFields: CustomFieldResponse
         }
         /// Inventory receipt item response
-        public struct InventoryReceiptItemResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryReceiptItemResponse: Codable, Identifiable {
             /// Item Id
             public var id: Int64
             /// Sku Id
@@ -1001,7 +1002,7 @@ public extension Models {
             public var assetAccount: GLAccountResponse?
         }
         /// Request model to create Purchase Order Receipt
-        public struct ReceivePurchaseOrderRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReceivePurchaseOrderRequest: Codable {
             /// Id of the purchase order for this receipt
             public var purchaseOrderId: Int64
             /// Receipt date
@@ -1018,7 +1019,7 @@ public extension Models {
             public var items: ReceivePurchaseOrderItemRequest
         }
         
-        public struct ReceivePurchaseOrderItemRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReceivePurchaseOrderItemRequest: Codable {
             /// Id of purchase order item
             public var purchaseOrderItemId: Int64?
             /// Id of the SKU from pricebook, can be any active material or equipment
@@ -1033,7 +1034,7 @@ public extension Models {
             public var cost: Double
         }
         /// Cancel Resource Request
-        public struct ReceiptCancellationReason: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReceiptCancellationReason: Codable {
             /// Resource cancellation reason
             public var canceledReason: ReceiptCancellationReasonValue
         }
@@ -1042,7 +1043,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Inventory return response
-        public struct InventoryReturnResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryReturnResponse: Codable, Identifiable {
             /// Return Id
             public var id: Int64
             /// Is active
@@ -1104,7 +1105,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         /// Represents request to update return
-        public struct UpdateReturnRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateReturnRequest: Codable {
             /// Return type Id
             public var returnTypeId: Int64
             /// Business unit Id
@@ -1129,7 +1130,7 @@ public extension Models {
             public var externalData: ExternalDataUpdateRequest
         }
         
-        public struct UpdateReturnItemModel: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateReturnItemModel: Codable, Identifiable {
             /// Item ID
             public var id: Int64
             /// SKU ID
@@ -1142,7 +1143,7 @@ public extension Models {
             public var cost: Double
         }
         /// Cancel Resource Request
-        public struct ReturnCancellationReason: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReturnCancellationReason: Codable {
             /// Resource cancellation reason
             public var canceledReason: ReturnCancellationReasonValue
         }
@@ -1151,7 +1152,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         /// Represents request to create return
-        public struct CreateInventoryReturnRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateInventoryReturnRequest: Codable {
             /// Vendor Id
             public var vendorId: Int64
             /// Job Id
@@ -1180,7 +1181,7 @@ public extension Models {
             public var items: CreateInventoryReturnItemRequest?
         }
         /// Inventory return create item request
-        public struct CreateInventoryReturnItemRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateInventoryReturnItemRequest: Codable {
             /// Sku Id
             public var skuId: Int64
             /// Item description
@@ -1191,7 +1192,7 @@ public extension Models {
             public var cost: Double
         }
         /// Request model to create Return Types
-        public struct CreateReturnTypeRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateReturnTypeRequest: Codable {
             /// Name of the Return Type
             public var name: String
             /// Should the return type allow receiving Vendor Credits automatically.
@@ -1204,7 +1205,7 @@ public extension Models {
             public var isDefaultForConsignment: Bool
         }
         /// Request model to Update Return Types
-        public struct UpdateReturnTypeRequest: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateReturnTypeRequest: Codable, Identifiable {
             /// Id of the Return Type
             public var id: Int64
             /// Is the Return Type Active
@@ -1221,7 +1222,7 @@ public extension Models {
             public var isDefaultForConsignment: Bool
         }
         
-        public struct ListReturnTypesResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ListReturnTypesResponse: Codable, Identifiable {
             /// Return Id
             public var id: Int64
             /// Name of the Return Type
@@ -1242,7 +1243,7 @@ public extension Models {
             public var modifiedOn: Date
         }
         /// Inventory transfer response
-        public struct InventoryTransferResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct InventoryTransferResponse: Codable, Identifiable {
             /// Inventory transfer Id
             public var id: Int64
             /// Type
@@ -1304,12 +1305,12 @@ public extension Models {
             public var externalData: ExternalDataModel?
         }
         /// Represents request to update transfer
-        public struct UpdateTransferRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateTransferRequest: Codable {
             /// Contains a list of external data items that should be attached to this transfer
             public var externalData: ExternalDataUpdateRequest
         }
         /// Represents truck response
-        public struct TruckResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TruckResponse: Codable, Identifiable {
             /// Truck Id
             public var id: Int64
             /// Truck Name
@@ -1331,12 +1332,12 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         /// Represents a request to update truck
-        public struct UpdateTruckRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateTruckRequest: Codable {
             /// Contains a list of external data items that should be attached to this truck
             public var externalData: ExternalDataUpdateRequest
         }
         /// Request model to create vendor
-        public struct CreateVendorRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateVendorRequest: Codable {
             /// Name
             public var name: String
             /// Active
@@ -1382,7 +1383,7 @@ public extension Models {
             public var id: String { rawValue }
         }
         
-        public struct ExternalDataCreateRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExternalDataCreateRequest: Codable {
             /// Items that are created with a specific guid, could be fetched/updated/removed
             /// only when the same application guid is provided.
             public var applicationGuid: String
@@ -1390,19 +1391,19 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         /// Represents tag request
-        public struct TagRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TagRequest: Codable {
             /// Tag Type Id
             public var tagTypeId: Int64
         }
         /// Request model to create vendor contact
-        public struct CreateVendorContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CreateVendorContactRequest: Codable {
             /// Name
             public var name: String
             /// Email
             public var email: String
         }
         /// Vendor response
-        public struct VendorResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct VendorResponse: Codable, Identifiable {
             /// Vendor Id
             public var id: Int64
             /// Vendor name
@@ -1432,7 +1433,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         /// Vendor contact info response
-        public struct VendorContactInfoResponse: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct VendorContactInfoResponse: Codable {
             /// Vendor first name
             public var firstName: String
             /// Vendor last name
@@ -1445,7 +1446,7 @@ public extension Models {
             public var fax: String
         }
         /// Represents request to update vendor
-        public struct UpdateVendorRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateVendorRequest: Codable {
             /// Name
             public var name: String
             /// Active
@@ -1486,7 +1487,7 @@ public extension Models {
             public var externalData: ExternalDataUpdateRequest
         }
         /// Represents request to update vendor contact
-        public struct UpdateVendorContactRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateVendorContactRequest: Codable {
             /// Id of Vendor Contact to update
             public var id: Int64?
             /// Name
@@ -1495,7 +1496,7 @@ public extension Models {
             public var email: String
         }
         /// Represents warehouse response
-        public struct WarehouseResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct WarehouseResponse: Codable, Identifiable {
             /// Warehouse Id
             public var id: Int64
             /// Warehouse Name
@@ -1513,7 +1514,7 @@ public extension Models {
             public var externalData: ExternalDataModel
         }
         /// Represents a request to update warehouse
-        public struct UpdateWarehouseRequest: Codable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct UpdateWarehouseRequest: Codable {
             /// Contains a list of external data items that should be attached to this warehouse
             public var externalData: ExternalDataUpdateRequest
         }
@@ -1525,7 +1526,7 @@ public extension APIs {
             super.init(sdk, apiName: "inventory")
         }
         /// Query Parameters for func adjustmentsGetList
-        public struct AdjustmentsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct AdjustmentsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -1590,7 +1591,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func exportAdjustments
-        public struct ExportAdjustmentsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportAdjustmentsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1604,7 +1605,7 @@ public extension APIs {
             return await getReq(Models.Inventory.ExportAdjustmentsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportPurchaseOrders
-        public struct ExportPurchaseOrdersQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportPurchaseOrdersQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1618,7 +1619,7 @@ public extension APIs {
             return await getReq(Models.Inventory.ExportPurchaseOrdersResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportReturns
-        public struct ExportReturnsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportReturnsQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1632,7 +1633,7 @@ public extension APIs {
             return await getReq(Models.Inventory.ExportReturnsResponse.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func exportTransfers
-        public struct ExportTransfersQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ExportTransfersQuery: URLQueryConvertible {
             /// Continuation token received from previous export request in "continueFrom" field.
             /// When not specified, the export process starts from the beginning.\
             /// Use custom date strings, e.g. "2020-01-01" to start the export process from the certain point in time.
@@ -1650,7 +1651,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func purchaseOrdersGetList
-        public struct PurchaseOrdersGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrdersGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filters by PO status
@@ -1701,7 +1702,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Inventory.PurchaseOrderResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func purchaseOrdersGetRequests
-        public struct PurchaseOrdersGetRequestsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrdersGetRequestsQuery: URLQueryConvertible {
             public var ids: String?
             /// Filters by PO request status
             /// Available values are: PendingApproval, Rejected\
@@ -1775,7 +1776,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func purchaseOrdersMarkupGet
-        public struct PurchaseOrdersMarkupGetQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrdersMarkupGetQuery: URLQueryConvertible {
             public var ids: String?
             /// Format - date-time (as date-time in RFC3339). Return items created before certain date/time (in UTC)
             public var createdBefore: Date?
@@ -1822,7 +1823,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func purchaseOrderTypesGetList
-        public struct PurchaseOrderTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PurchaseOrderTypesGetListQuery: URLQueryConvertible {
             /// What kind of items should be returned (only active items will be returned by default)\
             /// Values: [True, Any, False]
             public var active: String?
@@ -1856,7 +1857,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func receiptsGetList
-        public struct ReceiptsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReceiptsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -1918,7 +1919,7 @@ public extension APIs {
             return await bodiedReqNoResponse(endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func receiptsCancelReceipts
-        public struct ReceiptsCancelReceiptsQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReceiptsCancelReceiptsQuery: URLQueryConvertible {
             /// Format - int64.
             public var id: Int64
         }
@@ -1927,7 +1928,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func returnsGetList
-        public struct ReturnsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReturnsGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -2008,7 +2009,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func returnTypesGetList
-        public struct ReturnTypesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ReturnTypesGetListQuery: URLQueryConvertible {
             /// Filter by active only
             public var activeOnly: Bool
             /// Filter by name
@@ -2039,7 +2040,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func transfersGetList
-        public struct TransfersGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TransfersGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// Filter by a collection of statuses
@@ -2103,7 +2104,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func trucksGetList
-        public struct TrucksGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct TrucksGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\
@@ -2150,7 +2151,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func vendorsGetList
-        public struct VendorsGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct VendorsGetListQuery: URLQueryConvertible {
             /// What kind of items should be returned (only active items will be returned by default)\
             /// Values: [True, Any, False]
             public var active: String?
@@ -2187,7 +2188,7 @@ public extension APIs {
             return await getReq(Models.PaginatedResponse<Models.Inventory.VendorResponse>.self, endpoint: endpoint, params: query)
         }
         /// Query Parameters for func vendorsGetById
-        public struct VendorsGetByIdQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct VendorsGetByIdQuery: URLQueryConvertible {
             /// Format - guid. If this guid is provided, external data corresponding to
             /// this application guid will be returned.
             public var externalDataApplicationGuid: String?
@@ -2205,7 +2206,7 @@ public extension APIs {
             return await bodiedReq(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
         /// Query Parameters for func warehousesGetList
-        public struct WarehousesGetListQuery: URLQueryConvertible {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct WarehousesGetListQuery: URLQueryConvertible {
             /// Perform lookup by multiple IDs (maximum 50)
             public var ids: String?
             /// What kind of items should be returned (only active items will be returned by default)\

@@ -24,7 +24,11 @@ The SDK automatically handles authentication with respect to rate limits.
 - Test everything thoroughly
 - Include better code documentation 
 
-This library is currently in alpha and subject to changes in the future. The data structures are all fairly concrete, but once handling binary payloads is completed it may involve changes to how requests are made. This library has only a single dependency, Apple's Foundation framework.
+This library is currently in alpha and subject to changes in the future. The data structures are all fairly concrete, but once handling binary payloads is completed it may involve changes to how requests are made. 
+
+## Special Thanks
+
+- https://github.com/gohanlon/swift-memberwise-init-macro
 
 ## Disclaimer
 
