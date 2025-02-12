@@ -52,7 +52,7 @@ public extension APIs {
             let components = prepComponents(endpoint: endpoint, params: params)
             let errorPreamble = "GET: " + components.path
             let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
+            var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = "GET"
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
@@ -71,7 +71,7 @@ public extension APIs {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "DEL: " + components.path
             let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
+            var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = "DEL"
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
@@ -90,7 +90,7 @@ public extension APIs {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
             let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
+            var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = method
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
@@ -125,7 +125,7 @@ public extension APIs {
             let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
             let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
+            var request = URLRequest(url: components.url!)
             request.url = components.url!
             request.httpMethod = method
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")

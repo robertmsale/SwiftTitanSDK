@@ -28,7 +28,6 @@ public class SwiftTitanSDK {
         d.dateDecodingStrategy = .formatted(RFC3339DateFormatter)
         return d
     }()
-    let requestBuilder: () -> URLRequest
     
     // MARK: ServiceTitan API Data
     let tenant: Int64
@@ -150,7 +149,7 @@ public class SwiftTitanSDK {
     public var telecom: APIs.Telecom { _telecom }
     
     // MARK: Initialization
-    public init(appKey: String, tenant: Int64, clientId: String, clientSecret: String, requestBuilder: @escaping () -> URLRequest) {
+    public init(appKey: String, tenant: Int64, clientId: String, clientSecret: String) {
         self.appKey = appKey
         self.tenant = tenant
         self.clientId = clientId
@@ -159,7 +158,6 @@ public class SwiftTitanSDK {
         session.configuration.httpAdditionalHeaders = [
             "Content-Type": "application/json"
         ]
-        self.requestBuilder = requestBuilder
     }
     
     public func getAuthToken() async -> String? {
