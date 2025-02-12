@@ -26,42 +26,31 @@ public extension APIs {
             self._apiName = apiName
         }
         
-        func getReq<T: Codable, Query: URLQueryConvertible>(_ type: T.Type, endpoint: String, params: Query?) async -> Result<T, APIError> {
+        func prepComponents(endpoint: String, params: (any URLQueryConvertible)? = nil) -> URLComponents {
             var components = URLComponents()
             components.scheme = "https"
             components.host = sdk.host
             components.path = endpoint
-            let errorPreamble = "GET: " + components.path
             if let queryItems = try? params?.toQueryItems() {
                 components.queryItems = queryItems
             }
-            let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
-            request.url = components.url!
-            request.httpMethod = "GET"
-            request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
-            request.setValue(token, forHTTPHeaderField: "Authorization")
-            guard let (data, res) = try? await sdk.session.data(for: request) else {
-                return .failure(.RequestFailed(errorPreamble))
-            }
-            let response = res as! HTTPURLResponse
-            if let err = APIError.isError(response) {
-                return .failure(err)
-            }
-            guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
-                return .failure(.DecodingError(errorPreamble))
-            }
-            return .success(decoded)
+            return components
         }
-        func getRawReq<Query: URLQueryConvertible>(endpoint: String, params: Query?) async -> Result<Data, APIError> {
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = sdk.host
-            components.path = endpoint
-            let errorPreamble = "GET: " + components.path
-            if let queryItems = try? params?.toQueryItems() {
-                components.queryItems = queryItems
+        
+        func getReq<T: Codable>(_ type: T.Type, endpoint: String, params: (any URLQueryConvertible)? = nil) async -> Result<T, APIError> {
+            let result = await getRawReq(endpoint: endpoint, params: params)
+            switch result {
+            case .success(let data):
+                guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
+                    return .failure(.DecodingError("GET: \(endpoint) - Decoding Error"))
+                }
+                return .success(decoded)
+            case .failure(let v): return .failure(v)
             }
+        }
+        func getRawReq(endpoint: String, params: (any URLQueryConvertible)? = nil) async -> Result<Data, APIError> {
+            let components = prepComponents(endpoint: endpoint, params: params)
+            let errorPreamble = "GET: " + components.path
             let token = await sdk.getAuthToken()
             var request = sdk.requestBuilder()
             request.url = components.url!
@@ -77,36 +66,9 @@ public extension APIs {
             }
             return .success(data)
         }
-        func getReq<T: Codable>(_ type: T.Type, endpoint: String) async -> Result<T, APIError> {
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = sdk.host
-            components.path = endpoint
-            let errorPreamble = "GET: " + components.path
-            let token = await sdk.getAuthToken()
-            var request = sdk.requestBuilder()
-            request.url = components.url!
-            request.httpMethod = "GET"
-            request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
-            request.setValue(token, forHTTPHeaderField: "Authorization")
-            guard let (data, res) = try? await sdk.session.data(for: request) else {
-                return .failure(.RequestFailed(errorPreamble))
-            }
-            let response = res as! HTTPURLResponse
-            if let err = APIError.isError(response) {
-                return .failure(err)
-            }
-            guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
-                return .failure(.DecodingError(errorPreamble))
-            }
-            return .success(decoded)
-        }
         
         func delReq(endpoint: String) async -> APIError? {
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = sdk.host
-            components.path = endpoint
+            let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "DEL: " + components.path
             let token = await sdk.getAuthToken()
             var request = sdk.requestBuilder()
@@ -114,7 +76,7 @@ public extension APIs {
             request.httpMethod = "DEL"
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
             request.setValue(token, forHTTPHeaderField: "Authorization")
-            guard let (data, res) = try? await sdk.session.data(for: request) else {
+            guard let (_, res) = try? await sdk.session.data(for: request) else {
                 return .RequestFailed(errorPreamble)
             }
             let response = res as! HTTPURLResponse
@@ -124,11 +86,8 @@ public extension APIs {
             return nil
         }
         
-        func bodiedRawRequest<Res: Codable>(_ type: Res.Type, endpoint: String, body: Data, method: String) async -> Result<Res, APIError> {
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = sdk.host
-            components.path = endpoint
+        func bodiedRawRequest(endpoint: String, body: Data, method: String) async -> Result<Data, APIError> {
+            let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
             let token = await sdk.getAuthToken()
             var request = sdk.requestBuilder()
@@ -144,23 +103,26 @@ public extension APIs {
             if let err = APIError.isError(response) {
                 return .failure(err)
             }
-            guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
-                return .failure(.DecodingError(errorPreamble))
-            }
-            return .success(decoded)
+            
+            return .success(data)
         }
         
-        func bodiedReq<Req: Codable, Res: Codable>(_ type: Res.Type, endpoint: String, body: Req, method: String) async -> Result<Res, APIError> {
+        func bodiedReq<Res: Codable>(_ type: Res.Type, endpoint: String, body: (any Codable), method: String) async -> Result<Res, APIError> {
             guard let encoded = try? sdk.encoder.encode(body) else {
                 return .failure(.EncodingError(""))
             }
-            return await bodiedRawRequest(type.self, endpoint: endpoint, body: encoded, method: method)
+            let res = await bodiedRawRequest(endpoint: endpoint, body: encoded, method: method)
+            switch res {
+            case .success(let data):
+                guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
+                    return .failure(.DecodingError("\(method): \(endpoint) - Decoding Error"))
+                }
+                return .success(decoded)
+            case .failure(let err): return .failure(err)
+            }
         }
         func bodiedRawReqNoResponse(endpoint: String, body: Data, method: String) async -> APIError? {
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = sdk.host
-            components.path = endpoint
+            let components = prepComponents(endpoint: endpoint, params: nil)
             let errorPreamble = "\(method): \(components.path)"
             let token = await sdk.getAuthToken()
             var request = sdk.requestBuilder()
@@ -169,7 +131,7 @@ public extension APIs {
             request.setValue(sdk.appKey, forHTTPHeaderField: "ST-App-Key")
             request.setValue(token, forHTTPHeaderField: "Authorization")
             request.httpBody = body
-            guard let (data, res) = try? await sdk.session.data(for: request) else {
+            guard let (_, res) = try? await sdk.session.data(for: request) else {
                 return .RequestFailed(errorPreamble)
             }
             let response = res as! HTTPURLResponse

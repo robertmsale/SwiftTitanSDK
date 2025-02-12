@@ -1767,7 +1767,15 @@ public extension APIs {
         }
         public func customersCreateTag(id: Int64, tagTypeId: Int64, tenant: Int64) async -> Result<Models.Crm.CreateCustomerTagResponse, APIError> {
             let endpoint = "/crm/v2/tenant/\(tenant)/customers/\(id)/tags/\(tagTypeId)"
-            return await bodiedRawRequest(Models.Crm.CreateCustomerTagResponse.self, endpoint: endpoint, body: Data(), method: "POST")
+            let response = await bodiedRawRequest(endpoint: endpoint, body: Data(), method: "POST")
+            switch response {
+            case .success(let data):
+                guard let decoded = try? sdk.decoder.decode(Models.Crm.CreateCustomerTagResponse.self, from: data) else {
+                    return .failure(.DecodingError("POST: \(endpoint) - Decoding Error"))
+                }
+                return .success(decoded)
+            case .failure(let err): return .failure(err)
+            }
         }
         public func customersDeleteTag(id: Int64, tagTypeId: Int64, tenant: Int64) async -> APIError? {
             let endpoint = "/crm/v2/tenant/\(tenant)/customers/\(id)/tags/\(tagTypeId)"
@@ -2119,7 +2127,15 @@ public extension APIs {
         }
         public func locationsCreateTag(id: Int64, tagTypeId: Int64, tenant: Int64) async -> Result<Models.Crm.CreateLocationTagResponse, APIError> {
             let endpoint = "/crm/v2/tenant/\(tenant)/locations/\(id)/tags/\(tagTypeId)"
-            return await bodiedRawRequest(Models.Crm.CreateLocationTagResponse.self, endpoint: endpoint, body: Data(), method: "POST")
+            let response = await bodiedRawRequest(endpoint: endpoint, body: Data(), method: "POST")
+            switch response {
+            case .success(let data):
+                guard let decoded = try? sdk.decoder.decode(Models.Crm.CreateLocationTagResponse.self, from: data) else {
+                    return .failure(.DecodingError("POST: \(endpoint) - Decoding Error"))
+                }
+                return .success(decoded)
+            case .failure(let err): return .failure(err)
+            }
         }
         public func locationsDeleteTag(id: Int64, tagTypeId: Int64, tenant: Int64) async -> APIError? {
             let endpoint = "/crm/v2/tenant/\(tenant)/locations/\(id)/tags/\(tagTypeId)"

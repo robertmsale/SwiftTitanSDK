@@ -238,8 +238,11 @@ public extension Models {
         }
         
         public struct AttachmentUploadResponse: Codable {
-            
             public var path: String
+        }
+        
+        public struct AttachmentUploadRequest: Codable {
+            public var file: String
         }
     }
 }
@@ -290,9 +293,9 @@ public extension APIs {
             let endpoint = "/equipmentsystems/v2/tenant/\(tenant)/installed-equipment/\(id)"
             return await bodiedReq(Models.EquipmentSystems.InstalledEquipmentDetailedResponse.self, endpoint: endpoint, body: body, method: "PATCH")
         }
-        public func installedEquipmentPostAttachment(tenant: Int64, body: Data) async -> Result<Models.EquipmentSystems.AttachmentUploadResponse, APIError> {
+        public func installedEquipmentPostAttachment(tenant: Int64, body: Models.EquipmentSystems.AttachmentUploadRequest) async -> Result<Models.EquipmentSystems.AttachmentUploadResponse, APIError> {
             let endpoint = "/equipmentsystems/v2/tenant/\(tenant)/installed-equipment/attachments"
-            return await bodiedRawRequest(Models.EquipmentSystems.AttachmentUploadResponse.self, endpoint: endpoint, body: body, method: "POST")
+            return await bodiedReq(Models.EquipmentSystems.AttachmentUploadResponse.self, endpoint: endpoint, body: body, method: "POST")
         }
         /// Query Parameters for func installedEquipmentGet2
         public struct InstalledEquipmentGet2Query: URLQueryConvertible {

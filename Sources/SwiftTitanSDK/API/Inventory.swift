@@ -1760,7 +1760,15 @@ public extension APIs {
         }
         public func purchaseOrdersApproveRequest(id: Int64, tenant: Int64) async -> Result<Models.Inventory.ModificationResponse, APIError> {
             let endpoint = "/inventory/v2/tenant/\(tenant)/purchase-orders/requests/\(id)/approve"
-            return await bodiedRawRequest(Models.Inventory.ModificationResponse.self, endpoint: endpoint, body: Data(), method: "PATCH")
+            let response = await bodiedRawRequest(endpoint: endpoint, body: Data(), method: "PATCH")
+            switch response {
+            case .success(let data):
+                guard let decoded = try? sdk.decoder.decode(Models.Inventory.ModificationResponse.self, from: data) else {
+                    return .failure(.DecodingError("PATCH: \(endpoint) - Decoding Error"))
+                }
+                return .success(decoded)
+            case .failure(let err): return .failure(err)
+            }
         }
         public func purchaseOrdersRejectRequest(id: Int64, tenant: Int64, body: Models.Inventory.PurchaseOrderRequestRejectionArgs) async -> Result<Models.Inventory.ModificationResponse, APIError> {
             let endpoint = "/inventory/v2/tenant/\(tenant)/purchase-orders/requests/\(id)/reject"
