@@ -14,7 +14,7 @@ actor SwiftTitanSDKTests {
         let appKey = try #require(EnvLoader.appKey, .init(rawValue: environErr("ST_APPKEY")))
         let clientId = try #require(EnvLoader.clientId, .init(rawValue: environErr("ST_CLIENTID")))
         let clientSecret = try #require(EnvLoader.clientSecret, .init(rawValue: environErr("ST_CLIENTSECRET")))
-        sdk = SwiftTitanSDK(appKey: appKey, tenant: Int64(tenant)!, clientId: clientId, clientSecret: clientSecret, requestBuilder: {return URLRequest()})
+        sdk = SwiftTitanSDK(appKey: appKey, tenant: Int64(tenant)!, clientId: clientId, clientSecret: clientSecret)
     }
 
     @Test func environment() async throws {
