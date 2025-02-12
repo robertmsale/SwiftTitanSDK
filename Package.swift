@@ -13,10 +13,6 @@ let package = Package(
             name: "SwiftTitanSDK",
             targets: ["SwiftTitanSDK"]
         ),
-        .executable(
-            name: "SwiftTitanSDKClient",
-            targets: ["SwiftTitanSDKClient"]
-        ),
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "600.0.0-latest"),
@@ -34,7 +30,8 @@ let package = Package(
         ),
 
         // Library that exposes a macro as part of its API, which is used in client programs.
-        .target(name: "SwiftTitanSDK", dependencies: ["SwiftTitanSDKMacros"]),
+        .target(name: "SwiftTitanSDKHelper", dependencies: ["SwiftTitanSDKMacros"]),
+        .target(name: "SwiftTitanSDK", dependencies: ["SwiftTitanSDKHelper"]),
 
         // A client of the library, which is able to use the macro in its own code.
         .executableTarget(name: "SwiftTitanSDKClient", dependencies: ["SwiftTitanSDK"]),
@@ -43,8 +40,7 @@ let package = Package(
         .testTarget(
             name: "SwiftTitanSDKTests",
             dependencies: [
-                "SwiftTitanSDKMacros",
-                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
+                "SwiftTitanSDK",
             ]
         ),
     ]

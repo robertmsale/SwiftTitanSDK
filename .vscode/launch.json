@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTitanSDK}",
+            "name": "Debug SwiftTitanSDKClient",
+            "program": "${workspaceFolder:SwiftTitanSDK}/.build/debug/SwiftTitanSDKClient",
+            "preLaunchTask": "swift: Build Debug SwiftTitanSDKClient"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTitanSDK}",
+            "name": "Release SwiftTitanSDKClient",
+            "program": "${workspaceFolder:SwiftTitanSDK}/.build/release/SwiftTitanSDKClient",
+            "preLaunchTask": "swift: Build Release SwiftTitanSDKClient"
+        }
+    ]
+}
