@@ -29,7 +29,7 @@ class SwiftTitanSDKTests {
         let result = await sdk.accounting.apCreditsGetList(tenant: sdk.tenant)
         switch result {
         case .failure(let err): Issue.record(err)
-        case .success(let data):
+        case .success(_):
             return
         }
         var q = APIs.Accounting.ApCreditsGetListQuery(ids: "")
@@ -44,7 +44,7 @@ class SwiftTitanSDKTests {
         )
         switch resultFromQuery {
         case .failure(let err): Issue.record(err)
-        case .success(let data):
+        case .success(_):
             return
         }
     }
@@ -80,7 +80,7 @@ class SwiftTitanSDKTests {
             ))
             switch updateResult {
             case .failure(let err): Issue.record(err)
-            case .success(let data2):
+            case .success(_):
                 let finalCheck = await sdk.pricebook.categoriesGet(id: id, tenant: sdk.tenant)
                 switch finalCheck {
                 case .failure(let err): Issue.record(err)

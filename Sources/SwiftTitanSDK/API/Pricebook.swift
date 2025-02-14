@@ -169,7 +169,7 @@ public extension Models {
             /// Should tax be applied when the item is added on an estimate or invoice
             public var taxable: Bool
             /// The category technicians will use to find the item
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// The number of hours associated with the SKU
             public var hours: Double
             /// Images, videos or PDFs attached to SKU
@@ -241,7 +241,7 @@ public extension Models {
             /// Should tax be applied when the item is added on an estimate or invoice
             public var taxable: Bool?
             /// The category technicians will use to find the item
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// The number of hours associated with the SKU
             public var hours: Double?
             /// Images, videos or PDFs attached to SKU
@@ -306,7 +306,7 @@ public extension Models {
             /// Should tax be applied when the item is added on an estimate or invoice
             public var taxable: Bool
             /// The category technicians will use to find the item
-            public var categories: Int64
+            public var categories: [Int64]
             /// The number of hours associated with the SKU
             public var hours: Double
             /// Images, videos or PDFs attached to SKU
@@ -381,13 +381,13 @@ public extension Models {
             /// Description of the manufacturer warranty included in this SKU
             public var serviceProviderWarranty: SkuWarrantyResponse
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetResponse
             /// Recommended services and materials to include with this SKU
             public var recommendations: EquipmentRecommendationResponse
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64
+            public var upgrades: [Int64]
             /// Array of materials used with this equipment
             public var equipmentMaterials: SkuLinkResponse
             /// The primary vendor you use to acquire this SKU
@@ -430,7 +430,7 @@ public extension Models {
             /// Shows if is a Configurable Equipment
             public var isConfigurableEquipment: Bool
             /// List of added Variations if is a Configurable Equipment, or else the List of Configurable Equipment assigned to
-            public var variationsOrConfigurableEquipment: Int64?
+            public var variationsOrConfigurableEquipment: [Int64]?
             /// Shows Equipment's Type Id
             public var typeId: Int64?
             /// Shows if it should be displayed in the amount
@@ -502,7 +502,7 @@ public extension Models {
             /// Recommended services and materials to include with this SKU
             public var recommendations: EquipmentRecommendationRequest?
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64?
+            public var upgrades: [Int64]?
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -530,7 +530,7 @@ public extension Models {
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetRequest?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest?
             /// Other vendors that you might go to acquire this SKU
@@ -568,7 +568,7 @@ public extension Models {
             /// Is this a Configurable Equipment
             public var isConfigurableEquipment: Bool?
             /// Variations to add
-            public var variationEquipment: Int64?
+            public var variationEquipment: [Int64]?
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct SkuLinkRequest: Codable {
@@ -646,11 +646,11 @@ public extension Models {
             /// Recommended services and materials to include with this SKU
             public var recommendations: EquipmentRecommendationRequest
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64
+            public var upgrades: [Int64]
             /// Array of materials used with this equipment
             public var equipmentMaterials: SkuLinkRequest
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest
             /// Other vendors that you might go to acquire this SKU
@@ -687,7 +687,7 @@ public extension Models {
             /// Is this a Configurable Equipment
             public var isConfigurableEquipment: Bool
             /// Added Variations
-            public var variationEquipment: Int64
+            public var variationEquipment: [Int64]
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ImageUploadResponse: Codable {
@@ -743,7 +743,7 @@ public extension Models {
             /// Other vendors that you might go to acquire this SKU
             public var otherVendors: SkuVendorResponse?
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetResponse
             /// Timestamp where the item was last modified
@@ -760,7 +760,7 @@ public extension Models {
             /// Shows if material is going to be chargeable by default on Estimate or Invoice
             public var chargeableByDefault: Bool
             /// List of added Variations if is a Configurable Material, or else the List of Configurable Materials assigned to
-            public var variationsOrConfigurableMaterials: Int64?
+            public var variationsOrConfigurableMaterials: [Int64]?
             /// Material's business unit id
             public var businessUnitId: Int64?
             /// Material's created by user id
@@ -824,7 +824,7 @@ public extension Models {
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetRequest?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// Optional model that contains a list of external data items
             /// that should be attached to this entity.
             public var externalData: ExternalDataCreateRequest?
@@ -833,7 +833,7 @@ public extension Models {
             /// Is this Chargeable by default
             public var chargeableByDefault: Bool?
             /// Variations to add
-            public var variationMaterials: Int64?
+            public var variationMaterials: [Int64]?
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialUpdateRequest: Codable {
@@ -887,7 +887,7 @@ public extension Models {
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetRequest
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// External data update model.
             public var externalData: ExternalDataUpdateRequest?
             /// Is this a Configurable Material
@@ -895,7 +895,7 @@ public extension Models {
             /// Is this Chargeable by default
             public var chargeableByDefault: Bool
             /// Added Variations
-            public var variationMaterials: Int64
+            public var variationMaterials: [Int64]
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct MaterialsMarkupResponse: Codable, Identifiable {
@@ -945,24 +945,24 @@ public extension Models {
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PricebookBulkCreateRequest: Codable {
             
-            public var services: ServiceBulkCreateRequest?
+            public var services: [ServiceBulkCreateRequest]?
             
-            public var equipment: EquipmentBulkCreateRequest?
+            public var equipment: [EquipmentBulkCreateRequest]?
             
-            public var materials: MaterialBulkCreateRequest?
+            public var materials: [MaterialBulkCreateRequest]?
             
-            public var discountAndFees: DiscountAndFeesBulkCreateRequest?
+            public var discountAndFees: [DiscountAndFeesBulkCreateRequest]?
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceBulkCreateRequest: Codable {
             /// Array of materials linked to the service
-            public var serviceMaterials: SkuLinkBulkCreateRequest?
+            public var serviceMaterials: [SkuLinkBulkCreateRequest]?
             /// Array of equipment linked to the service
-            public var serviceEquipment: SkuLinkBulkCreateRequest?
+            public var serviceEquipment: [SkuLinkBulkCreateRequest]?
             /// Recommended services and materials to include with this SKU
-            public var recommendations: ServiceRecommendationBulkCreateRequest?
+            public var recommendations: [ServiceRecommendationBulkCreateRequest]?
             /// Upgrades that can be sold for this SKU
-            public var upgrades: SkuUpgradeBulkCreateRequest?
+            public var upgrades: [SkuUpgradeBulkCreateRequest]?
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -972,7 +972,7 @@ public extension Models {
             /// Description of the warranty included in this SKU
             public var warranty: SkuWarrantyRequest?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// Price of this SKU sold
             public var price: Double?
             /// The price if the item is sold to a member
@@ -993,7 +993,7 @@ public extension Models {
             /// Is a labor service
             public var isLabor: Bool?
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest?
+            public var assets: [SkuAssetRequest]?
             /// Active shows if the SKU is active or inactive
             public var active: Bool?
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
@@ -1036,11 +1036,11 @@ public extension Models {
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct EquipmentBulkCreateRequest: Codable {
             /// Array of materials used with this equipment
-            public var equipmentMaterials: SkuLinkBulkCreateRequest?
+            public var equipmentMaterials: [SkuLinkBulkCreateRequest]?
             /// Recommended services and materials to include with this SKU
-            public var recommendations: EquipmentRecommendationBulkCreateRequest?
+            public var recommendations: [EquipmentRecommendationBulkCreateRequest]?
             /// Upgrades that can be sold for this SKU
-            public var upgrades: SkuUpgradeBulkCreateRequest?
+            public var upgrades: [SkuUpgradeBulkCreateRequest]?
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1066,13 +1066,13 @@ public extension Models {
             /// Description of the manufacturer warranty included in this SKU
             public var serviceProviderWarranty: SkuWarrantyRequest?
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest?
+            public var assets: [SkuAssetRequest]?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest?
             /// Other vendors that you might go to acquire this SKU
-            public var otherVendors: SkuVendorRequest?
+            public var otherVendors: [SkuVendorRequest]?
             /// The accounting account assigned to this SKU
             public var account: String?
             
@@ -1106,7 +1106,7 @@ public extension Models {
             /// Is this a Configurable Equipment
             public var isConfigurableEquipment: Bool?
             /// Variations to add
-            public var variationEquipment: Int64?
+            public var variationEquipment: [Int64]?
             
             public var customId: String?
         }
@@ -1167,11 +1167,11 @@ public extension Models {
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest?
             /// Other vendors that you might go to acquire this SKU
-            public var otherVendors: SkuVendorRequest?
+            public var otherVendors: [SkuVendorRequest]?
             /// Images, videos or PDFs attached to SKU
             public var assets: SkuAssetRequest?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// Optional model that contains a list of external data items
             /// that should be attached to this entity.
             public var externalData: ExternalDataCreateRequest?
@@ -1180,7 +1180,7 @@ public extension Models {
             /// Is this Chargeable by default
             public var chargeableByDefault: Bool?
             /// Variations to add
-            public var variationMaterials: Int64?
+            public var variationMaterials: [Int64]?
             
             public var customId: String?
         }
@@ -1203,7 +1203,7 @@ public extension Models {
             /// Should tax be applied when the item is added on an estimate or invoice
             public var taxable: Bool?
             /// The category technicians will use to find the item
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// The number of hours associated with the SKU
             public var hours: Double?
             /// Images, videos or PDFs attached to SKU
@@ -1234,13 +1234,13 @@ public extension Models {
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct PricebookBulkUpdateRequest: Codable {
             
-            public var services: ServiceBulkUpdateRequest?
+            public var services: [ServiceBulkUpdateRequest]?
             
-            public var equipment: EquipmentBulkUpdateRequest?
+            public var equipment: [EquipmentBulkUpdateRequest]?
             
-            public var materials: MaterialBulkUpdateRequest?
+            public var materials: [MaterialBulkUpdateRequest]?
             
-            public var discountAndFees: DiscountAndFeesBulkUpdateRequest?
+            public var discountAndFees: [DiscountAndFeesBulkUpdateRequest]?
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceBulkUpdateRequest: Codable, Identifiable {
@@ -1253,7 +1253,7 @@ public extension Models {
             /// Description of the warranty included in this SKU
             public var warranty: SkuWarrantyRequest
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// Price of this SKU sold
             public var price: Double
             /// The price if the item is sold to a member
@@ -1278,11 +1278,11 @@ public extension Models {
             /// Upgrades that can be sold for this SKU
             public var upgrades: Int64
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest
+            public var assets: [SkuAssetRequest]
             /// Array of materials linked to the service
-            public var serviceMaterials: SkuLinkRequest
+            public var serviceMaterials: [SkuLinkRequest]
             /// Array of equipment linked to the service
-            public var serviceEquipment: SkuLinkRequest
+            public var serviceEquipment: [SkuLinkRequest]
             /// Active shows if the SKU is active or inactive
             public var active: Bool
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
@@ -1325,19 +1325,19 @@ public extension Models {
             /// Description of the manufacturer warranty included in this SKU
             public var serviceProviderWarranty: SkuWarrantyRequest
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest
+            public var assets: [SkuAssetRequest]
             /// Recommended services and materials to include with this SKU
-            public var recommendations: EquipmentRecommendationRequest
+            public var recommendations: [EquipmentRecommendationRequest]
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64
+            public var upgrades: [Int64]
             /// Array of materials used with this equipment
-            public var equipmentMaterials: SkuLinkRequest
+            public var equipmentMaterials: [SkuLinkRequest]
             /// Categories that this SKU belongs to
             public var categories: Int64
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest
             /// Other vendors that you might go to acquire this SKU
-            public var otherVendors: SkuVendorRequest
+            public var otherVendors: [SkuVendorRequest]
             /// The accounting account assigned to this SKU
             public var account: String
             
@@ -1370,7 +1370,7 @@ public extension Models {
             /// Is this a Configurable Equipment
             public var isConfigurableEquipment: Bool
             /// Added Variations
-            public var variationEquipment: Int64
+            public var variationEquipment: [Int64]
             
             public var id: Int64
         }
@@ -1422,11 +1422,11 @@ public extension Models {
             /// The primary vendor you use to acquire this SKU
             public var primaryVendor: SkuVendorRequest
             /// Other vendors that you might go to acquire this SKU
-            public var otherVendors: SkuVendorRequest
+            public var otherVendors: [SkuVendorRequest]
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest
+            public var assets: [SkuAssetRequest]
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// External data update model.
             public var externalData: ExternalDataUpdateRequest?
             /// Is this a Configurable Material
@@ -1434,7 +1434,7 @@ public extension Models {
             /// Is this Chargeable by default
             public var chargeableByDefault: Bool
             /// Added Variations
-            public var variationMaterials: Int64
+            public var variationMaterials: [Int64]
             
             public var id: Int64
         }
@@ -1460,11 +1460,11 @@ public extension Models {
             /// Should tax be applied when the item is added on an estimate or invoice
             public var taxable: Bool
             /// The category technicians will use to find the item
-            public var categories: Int64
+            public var categories: [Int64]
             /// The number of hours associated with the SKU
             public var hours: Double
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest
+            public var assets: [SkuAssetRequest]
             /// The accounting account assigned to the SKU
             public var account: String
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
@@ -1497,7 +1497,7 @@ public extension Models {
             /// Description of the warranty included in this SKU
             public var warranty: SkuWarrantyResponse?
             /// Categories that this SKU belongs to
-            public var categories: SkuCategoryResponse
+            public var categories: [SkuCategoryResponse]
             /// Price of this SKU sold
             public var price: Double
             /// The price if the item is sold to a member
@@ -1515,15 +1515,15 @@ public extension Models {
             /// Is a labor service
             public var isLabor: Bool?
             /// Recommended other service or materials to include with this SKU
-            public var recommendations: Int64
+            public var recommendations: [Int64]
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64
+            public var upgrades: [Int64]
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetResponse
+            public var assets: [SkuAssetResponse]
             /// Array of materials that is used with this service
-            public var serviceMaterials: SkuLinkResponse
+            public var serviceMaterials: [SkuLinkResponse]
             /// Array of equipment used with this service
-            public var serviceEquipment: SkuLinkResponse
+            public var serviceEquipment: [SkuLinkResponse]
             /// Active shows if the SKU is active or inactive
             public var active: Bool
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
@@ -1564,13 +1564,13 @@ public extension Models {
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct ServiceCreateRequest: Codable {
             /// Array of materials linked to the service
-            public var serviceMaterials: SkuLinkRequest?
+            public var serviceMaterials: [SkuLinkRequest]?
             /// Array of equipment linked to the service
-            public var serviceEquipment: SkuLinkRequest?
+            public var serviceEquipment: [SkuLinkRequest]?
             /// Recommended services and materials to include with this SKU
-            public var recommendations: Int64?
+            public var recommendations: [Int64]?
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64?
+            public var upgrades: [Int64]?
             /// Code for the SKU
             public var code: String
             /// Name that displays with the SKU
@@ -1580,7 +1580,7 @@ public extension Models {
             /// Description of the warranty included in this SKU
             public var warranty: SkuWarrantyRequest?
             /// Categories that this SKU belongs to
-            public var categories: Int64?
+            public var categories: [Int64]?
             /// Price of this SKU sold
             public var price: Double?
             /// The price if the item is sold to a member
@@ -1601,7 +1601,7 @@ public extension Models {
             /// Is a labor service
             public var isLabor: Bool?
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest?
+            public var assets: [SkuAssetRequest]?
             /// Active shows if the SKU is active or inactive
             public var active: Bool?
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
@@ -1627,7 +1627,7 @@ public extension Models {
             /// Description of the warranty included in this SKU
             public var warranty: SkuWarrantyRequest
             /// Categories that this SKU belongs to
-            public var categories: Int64
+            public var categories: [Int64]
             /// Price of this SKU sold
             public var price: Double
             /// The price if the item is sold to a member
@@ -1648,15 +1648,15 @@ public extension Models {
             /// Is a labor service
             public var isLabor: Bool
             /// Recommended other services to include with this SKU
-            public var recommendations: Int64
+            public var recommendations: [Int64]
             /// Upgrades that can be sold for this SKU
-            public var upgrades: Int64
+            public var upgrades: [Int64]
             /// Images, videos or PDFs attached to SKU
-            public var assets: SkuAssetRequest
+            public var assets: [SkuAssetRequest]
             /// Array of materials linked to the service
-            public var serviceMaterials: SkuLinkRequest
+            public var serviceMaterials: [SkuLinkRequest]
             /// Array of equipment linked to the service
-            public var serviceEquipment: SkuLinkRequest
+            public var serviceEquipment: [SkuLinkRequest]
             /// Active shows if the SKU is active or inactive
             public var active: Bool
             /// A grouping of similar items that you'll then be able to track as a separate columns on the Technical Performance Board.
