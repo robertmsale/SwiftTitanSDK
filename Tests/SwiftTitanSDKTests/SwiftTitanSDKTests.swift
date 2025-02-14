@@ -48,4 +48,47 @@ class SwiftTitanSDKTests {
             return
         }
     }
+    
+    @Test func getPricebookCategories() async throws {
+        let result = await sdk.pricebook.categoriesGetList(tenant: sdk.tenant)
+        switch result {
+        case .failure(let err): Issue.record(err)
+        case .success(let data):
+            print("\(data.data.first { $0.name == "HVAC" }?.id ?? -1)")
+            return
+        }
+    }
+    
+    @Test func updatePricebookCategory() async throws {
+        let idString = try #require(ProcessInfo.processInfo.environment["ST_TEST_UPDATE_PRICEBOOK_CATEGORY_ID"], .init(rawValue: environErr("ST_TEST_UPDATE_PRICEBOOK_CATEGORY_ID")))
+        let id = try #require(Int64(idString), .init(rawValue: "ST_TEST_UPDATE_PRICEBOOK_CATEGORY_ID not parseable to Int64"))
+        let description = try  #require(ProcessInfo.processInfo.environment["ST_TEST_UPDATE_PRICEBOOK_CATEGORY_DESC"], .init(rawValue: environErr("ST_TEST_UPDATE_PRICEBOOK_CATEGORY_DESC")))
+        let result = await sdk.pricebook.categoriesGet(id: id, tenant: sdk.tenant)
+        switch result {
+        case .failure(let err): Issue.record(err)
+        case .success(let data):
+            let updateResult = await sdk.pricebook.categoriesUpdate(id: id, tenant: sdk.tenant, body: .init(
+                name: data.name,
+                active: data.active,
+                description: description,
+                position: data.position,
+                image: data.image!,
+                categoryType: data.categoryType,
+                businessUnitIds: data.businessUnitIds ?? [],
+                skuImages: data.skuImages ?? [],
+                skuVideos: data.skuVideos ?? []
+            ))
+            switch updateResult {
+            case .failure(let err): Issue.record(err)
+            case .success(let data2):
+                let finalCheck = await sdk.pricebook.categoriesGet(id: id, tenant: sdk.tenant)
+                switch finalCheck {
+                case .failure(let err): Issue.record(err)
+                case .success(let updatedCategory):
+                    #expect(updatedCategory.description == description)
+                }
+                return
+            }
+        }
+    }
 }

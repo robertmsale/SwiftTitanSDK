@@ -42,7 +42,7 @@ public extension APIs {
             switch result {
             case .success(let data):
 #if DEBUG
-                let stringified = String(data: data, encoding: .utf8)
+                let stringified = String(data: data, encoding: .utf8)!
 #endif
                 guard let decoded = try? sdk.decoder.decode(type.self, from: data) else {
                     return .failure(.DecodingError("GET: \(endpoint) - Decoding Error"))

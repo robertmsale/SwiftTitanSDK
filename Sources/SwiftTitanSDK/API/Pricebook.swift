@@ -68,7 +68,7 @@ public extension Models {
             public var valueType: MarkupType
         }
         
-        public class CategoryResponse: Codable, Identifiable {
+        @MemberwiseInit(.public, _optionalsDefaultNil: true) public class CategoryResponse: Codable, Identifiable {
             /// The id for the category
             public var id: Int64
             /// The name of the category
@@ -86,13 +86,13 @@ public extension Models {
             /// The category type. This field can be Service or Material.
             public var categoryType: CategoryType
             /// The array of the subcategories
-            public weak var subcategories: CategoryResponse?
+            public var subcategories: [CategoryResponse]?
             /// The business units that are associated with this category
-            public var businessUnitIds: Int64?
+            public var businessUnitIds: [Int64]?
             /// The images that will be used for the SKUs under this category
-            public var skuImages: String?
+            public var skuImages: [String]?
             /// The videos that will be used for the videos under this category
-            public var skuVideos: String?
+            public var skuVideos: [String]?
             /// The source of the category if it was imported from a catalog
             public var source: String?
             /// External id is the id of the original source of the item when it comes from a catalog
@@ -119,11 +119,11 @@ public extension Models {
             /// The category type. This field can be Service or Material.
             public var categoryType: CategoryType
             /// The business units that are associated with this category
-            public var businessUnitIds: Int64?
+            public var businessUnitIds: [Int64]?
             /// The images that will be used for the SKUs under this category
-            public var skuImages: String?
+            public var skuImages: [String]?
             /// The videos that will be used for the videos under this category
-            public var skuVideos: String?
+            public var skuVideos: [String]?
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct CategoryUpdateRequest: Codable {
@@ -142,11 +142,11 @@ public extension Models {
             /// The category type. This field can be Service or Material.
             public var categoryType: CategoryType
             /// The business units that are associated with this category
-            public var businessUnitIds: Int64
+            public var businessUnitIds: [Int64]
             /// The images that will be used for the SKUs under this category
-            public var skuImages: String
+            public var skuImages: [String]
             /// The videos that will be used for the videos under this category
-            public var skuVideos: String
+            public var skuVideos: [String]
         }
         
         @MemberwiseInit(.public, _optionalsDefaultNil: true) public struct DiscountAndFeesResponse: Codable, Identifiable {
