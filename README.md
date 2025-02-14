@@ -15,6 +15,10 @@ switch await ST.crm.customersGetList(tenant: ST.tenant) {
 ```
 The SDK automatically handles authentication with respect to rate limits. 
 
+## Test Suite
+
+This is a work in progress, but the way you run the tests is by taking the `env.default` template and copying it to `.env`, then filling in your test data. Some tests require preparation on the server in order to run correctly. 
+
 ## Roadmap
 
 - Complete reporting API
